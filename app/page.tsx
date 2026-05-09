@@ -1,65 +1,288 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const NEWS_ITEMS = [
+  {
+    date: "2025.12.16",
+    category: "お知らせ",
+    title: "労働者派遣法に基づく情報提供",
+    href: "/news",
+  },
+  {
+    date: "2025.05.27",
+    category: "お知らせ",
+    title: "本社を移転しました",
+    href: "/news",
+  },
+  {
+    date: "2024.10.07",
+    category: "お知らせ",
+    title: "労働者派遣法に基づく情報提供",
+    href: "/news",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-white">
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <Image
+            src="/images/s-1500x1500_91bf90b8-200c-4a0c-8cb2-8323513d8c61.svg"
+            alt=""
+            width={900}
+            height={900}
+            className="absolute -right-32 -top-16 w-[55%] max-w-[700px] opacity-90"
+            aria-hidden
+          />
+        </div>
+        <div className="mx-auto max-w-7xl px-5 md:px-8 pt-20 pb-32 md:pt-32 md:pb-40">
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight tracking-wide">
+            技術で支え、
+            <br />
+            共に成長する
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-8 max-w-xl text-sm md:text-base text-zinc-600 leading-relaxed">
+            プロフェッショナリズムを常に意識し、専門技術を最大限に活用して
+            <br />
+            お客様に高品質なWeb技術に特化した技術支援、
+            <br />
+            及びシステム・サービス開発を提供します。
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/about"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-semibold text-white hover:bg-brand-light transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            eSTACKについて
+            <span aria-hidden>→</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* News ticker */}
+      <section className="border-y border-zinc-100 bg-zinc-50">
+        <div className="mx-auto max-w-7xl px-5 md:px-8 py-4 flex items-center gap-4 md:gap-6">
+          <span className="inline-flex shrink-0 items-center rounded-full bg-brand px-3 py-1 text-[10px] font-semibold text-white tracking-wider">
+            お知らせ
+          </span>
+          <span className="text-xs text-zinc-500 shrink-0 hidden md:inline">
+            {NEWS_ITEMS[0].date}
+          </span>
+          <Link
+            href={NEWS_ITEMS[0].href}
+            className="flex-1 truncate text-sm text-zinc-700 hover:text-brand"
+          >
+            {NEWS_ITEMS[0].title}
+          </Link>
+          <Link
+            href="/news"
+            className="shrink-0 text-zinc-400 hover:text-brand"
+            aria-label="お知らせ一覧へ"
+          >
+            →
+          </Link>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="py-20 md:py-32">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold tracking-[0.3em] text-brand mb-3 font-display">
+              Services
+            </p>
+            <h2 className="text-2xl md:text-4xl font-bold mb-6">サービス</h2>
+            <p className="max-w-2xl mx-auto text-sm md:text-base text-zinc-600 leading-relaxed">
+              弊社では古典的な顧客主体の受動的なサービス形態ではなく、
+              提案主体の能動的なサービス形態にてお客様にサービスをご提供しております。
+              提案主体だからこそお客様に寄り添い、1社1社にマッチしたご提案を徹底しております。
+            </p>
+          </div>
+
+          <div className="space-y-12 md:space-y-20">
+            <ServiceCard
+              imageSrc="/images/s-580x580_b86f18e5-c9da-4e03-857c-5a294ba3a79c.svg"
+              eyebrow="System Integration"
+              title="システムインテグレーション"
+              description="システムインテグレーション（SI）は、異なるITシステムやソフトウェアを統合し、一つの連携した効率的なシステムを構築するプロセスです。このアプローチにより、企業はデータを一元化し、業務プロセスを自動化することが可能となり、全体的な運用効率とビジネスの柔軟性を大幅に向上させることができます。"
+              href="/service/system-integration"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <ServiceCard
+              imageSrc="/images/s-584x580_4e84b74a-a2d2-4fd3-b924-30cd59a19dc1.svg"
+              eyebrow="System Engineering Service"
+              title="システムエンジニアリングサービス"
+              description="最新技術を駆使して業務を効率化し問題を解決する専門的なサービスです。テクノロジーのスキルと問題解決能力を高めながら、様々な業界で経験を積むことが可能です。チームワークとコミュニケーション能力が求められ、多様なキャリアパスが開かれます。また、技術的成長だけでなく、個人の成長も促す魅力的なフィールドです。"
+              href="/service/system-engineering-service"
+              reversed
+            />
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Work */}
+      <section className="bg-zinc-50 py-20 md:py-32">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <div className="text-center mb-12">
+            <p className="text-sm font-semibold tracking-[0.3em] text-brand mb-3 font-display">
+              Work
+            </p>
+            <h2 className="text-2xl md:text-4xl font-bold mb-6">実績</h2>
+            <p className="max-w-2xl mx-auto text-sm md:text-base text-zinc-600">
+              eSTACKが携わった開発、技術支援などの実績をご紹介いたします。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+            {[
+              "/images/s-2400x1571_v-frms_webp_71df778e-335b-4f00-a9da-50991eedb423_middle.webp",
+              "/images/s-2400x1571_v-frms_webp_74b0d62b-a554-4459-a3dc-95674adefa7b_middle.webp",
+              "/images/s-2400x1250_v-frms_webp_2efc1785-93a8-4de3-91ec-93373a224ffd_small.webp",
+              "/images/s-2400x1250_v-frms_webp_c2ff8c63-996c-43fd-9d7b-b3105683b65b_small.webp",
+              "/images/s-2400x1350_v-frms_webp_86d4ce22-2dc4-417e-9371-93561f248630_small.webp",
+              "/images/s-3846x2066_v-frms_webp_5398baec-1793-4e60-b51d-dbf5e66469ac_small.webp",
+            ].map((src) => (
+              <div
+                key={src}
+                className="aspect-square overflow-hidden rounded-lg bg-white"
+              >
+                <Image
+                  src={src}
+                  alt=""
+                  width={400}
+                  height={400}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News */}
+      <section className="py-20 md:py-32">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <div className="text-center mb-12">
+            <p className="text-sm font-semibold tracking-[0.3em] text-brand mb-3 font-display">
+              News
+            </p>
+            <h2 className="text-2xl md:text-4xl font-bold">お知らせ</h2>
+          </div>
+          <ul className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+            {NEWS_ITEMS.map((item, i) => (
+              <li key={i}>
+                <Link href={item.href} className="block group">
+                  <div className="aspect-[3/2] overflow-hidden rounded-lg bg-zinc-100 mb-4">
+                    <div className="h-full w-full bg-gradient-to-br from-brand/20 to-brand/40" />
+                  </div>
+                  <p className="text-xs text-zinc-500 mb-2">{item.date}</p>
+                  <p className="text-xs font-semibold text-brand mb-2">
+                    {item.category}
+                  </p>
+                  <p className="text-sm font-medium leading-relaxed group-hover:text-brand transition-colors">
+                    {item.title}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="text-center mt-12">
+            <Link
+              href="/news"
+              className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white hover:bg-brand-light transition-colors"
+            >
+              お知らせ一覧へ
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Career */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="aspect-[4/5] md:aspect-square overflow-hidden rounded-lg">
+              <Image
+                src="/images/s-2000x2400_v-frms_webp_bb8c1f33-aff9-4f8f-bace-b4cb9f6e94ee_small.webp"
+                alt=""
+                width={1000}
+                height={1200}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div>
+              <p className="text-sm font-semibold tracking-[0.3em] text-brand mb-3 font-display">
+                Career
+              </p>
+              <h2 className="text-2xl md:text-4xl font-bold mb-6">採用情報</h2>
+              <p className="text-sm md:text-base text-zinc-600 leading-relaxed mb-8">
+                エンジニアという職業が好きな人、楽しくエンジニアとして活動したい人ぜひ弊社で働きませんか？
+                弊社ではスキルアップはもちろん、キャリアパスを考慮した人生設計、人脈作り、人間関係の構築なども一緒に築き上げていきます。
+              </p>
+              <Link
+                href="/recruit"
+                className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white hover:bg-brand-light transition-colors"
+              >
+                採用情報へ
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ServiceCard({
+  imageSrc,
+  eyebrow,
+  title,
+  description,
+  href,
+  reversed = false,
+}: {
+  imageSrc: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  href: string;
+  reversed?: boolean;
+}) {
+  return (
+    <div
+      className={`grid md:grid-cols-2 gap-8 md:gap-16 items-center ${
+        reversed ? "md:[&>div:first-child]:order-2" : ""
+      }`}
+    >
+      <div className="bg-zinc-50 rounded-2xl aspect-square flex items-center justify-center p-8">
+        <Image
+          src={imageSrc}
+          alt=""
+          width={500}
+          height={500}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div>
+        <p className="text-xs md:text-sm font-semibold tracking-[0.25em] text-brand mb-3 font-display">
+          {eyebrow}
+        </p>
+        <h3 className="text-xl md:text-3xl font-bold mb-6 leading-tight">
+          {title}
+        </h3>
+        <p className="text-sm text-zinc-600 leading-relaxed mb-8">
+          {description}
+        </p>
+        <Link
+          href={href}
+          className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-semibold text-white hover:bg-brand-light transition-colors"
+        >
+          詳しく見る
+          <span aria-hidden>→</span>
+        </Link>
+      </div>
     </div>
   );
 }
