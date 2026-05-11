@@ -20,7 +20,8 @@ type Member = {
   photo?: { default: string; hover: string };
 };
 
-const MEMBERS: Member[] = [
+// 上段：シニアメンバー 2人（大きく表示）
+const MEMBERS_TOP: Member[] = [
   {
     dept: "IT事業部",
     code: "H.S",
@@ -39,6 +40,10 @@ const MEMBERS: Member[] = [
       hover: "/images/s-896x896_v-fs_webp_c2e989f5-6778-499f-afc6-62a57451c476_small.webp",
     },
   },
+];
+
+// 中段：4人（中くらいの写真）
+const MEMBERS_MID: Member[] = [
   {
     dept: "IT事業部",
     code: "A.K",
@@ -75,6 +80,10 @@ const MEMBERS: Member[] = [
       hover: "/images/s-896x896_v-fs_webp_d999f401-1ff7-415a-9836-ae92186ada53_small.webp",
     },
   },
+];
+
+// 下段：6人（写真なし、文字のみコンパクト）
+const MEMBERS_BOTTOM: Member[] = [
   { dept: "IT事業部", code: "S.K", note: "今できることに向き合い続ける" },
   { dept: "IT事業部", code: "T.I", note: "生きることは学びの機会と出会うこと" },
   { dept: "IT事業部", code: "K.N", note: "可能な限り家から出たくない" },
@@ -271,36 +280,34 @@ export default function AboutPage() {
           <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
             メンバー紹介
           </h2>
-          <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-            {MEMBERS.map((m, i) => (
+          {/* 上段：シニア2人（大きく） */}
+          <ul className="grid sm:grid-cols-2 gap-6 md:gap-10 max-w-4xl mx-auto mb-12 md:mb-16">
+            {MEMBERS_TOP.map((m, i) => (
+              <MemberCardWithPhoto key={`top-${i}`} member={m} size="lg" />
+            ))}
+          </ul>
+
+          {/* 中段：4人（中サイズ） */}
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
+            {MEMBERS_MID.map((m, i) => (
+              <MemberCardWithPhoto key={`mid-${i}`} member={m} size="md" />
+            ))}
+          </ul>
+
+          {/* 下段：6人（文字のみ、コンパクト） */}
+          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+            {MEMBERS_BOTTOM.map((m, i) => (
               <li
-                key={i}
-                className="group rounded-lg bg-white overflow-hidden border border-zinc-100"
+                key={`bottom-${i}`}
+                className="rounded-lg bg-white p-4 border border-zinc-100"
               >
-                {m.photo && (
-                  <div className="relative aspect-square m-3 mb-5">
-                    <Image
-                      src={m.photo.hover}
-                      alt=""
-                      width={448}
-                      height={448}
-                      aria-hidden
-                      className="absolute inset-0 w-full h-full object-cover rounded-md translate-x-1.5 translate-y-1.5 rotate-3 shadow-sm transition-all duration-500 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:z-10 group-hover:shadow-md"
-                    />
-                    <Image
-                      src={m.photo.default}
-                      alt=""
-                      width={448}
-                      height={448}
-                      className="absolute inset-0 w-full h-full object-cover rounded-md shadow-md transition-all duration-500 group-hover:rotate-3 group-hover:translate-x-1.5 group-hover:translate-y-1.5"
-                    />
-                  </div>
-                )}
-                <div className="p-5 md:p-6">
-                  <p className="text-xs text-brand font-semibold mb-1">{m.dept}</p>
-                  <p className="text-lg font-bold mb-3 font-display">{m.code}</p>
-                  <p className="text-xs text-zinc-600 leading-relaxed">{m.note}</p>
-                </div>
+                <p className="text-[10px] text-brand font-semibold mb-1">
+                  {m.dept}
+                </p>
+                <p className="text-sm font-bold mb-2 font-display">{m.code}</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed line-clamp-4">
+                  {m.note}
+                </p>
               </li>
             ))}
           </ul>
@@ -364,5 +371,66 @@ export default function AboutPage() {
         </div>
       </section>
     </>
+  );
+}
+
+function MemberCardWithPhoto({
+  member,
+  size,
+}: {
+  member: Member;
+  size: "lg" | "md";
+}) {
+  if (!member.photo) return null;
+  const isLg = size === "lg";
+  return (
+    <li className="group rounded-lg bg-white overflow-hidden border border-zinc-100">
+      <div className={`relative aspect-square ${isLg ? "m-4 mb-6" : "m-3 mb-4"}`}>
+        <Image
+          src={member.photo.hover}
+          alt=""
+          width={448}
+          height={448}
+          aria-hidden
+          className={`absolute inset-0 w-full h-full object-cover rounded-md rotate-3 shadow-sm transition-all duration-500 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:z-10 group-hover:shadow-md ${
+            isLg ? "translate-x-2 translate-y-2" : "translate-x-1.5 translate-y-1.5"
+          }`}
+        />
+        <Image
+          src={member.photo.default}
+          alt=""
+          width={448}
+          height={448}
+          className={`absolute inset-0 w-full h-full object-cover rounded-md shadow-md transition-all duration-500 group-hover:rotate-3 ${
+            isLg
+              ? "group-hover:translate-x-2 group-hover:translate-y-2"
+              : "group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+          }`}
+        />
+      </div>
+      <div className={isLg ? "p-6 md:p-8" : "p-4 md:p-5"}>
+        <p
+          className={`text-brand font-semibold mb-1 ${
+            isLg ? "text-sm" : "text-xs"
+          }`}
+        >
+          {member.dept}
+        </p>
+        <p
+          className={`font-bold font-display ${
+            isLg ? "text-2xl mb-4" : "text-base mb-2"
+          }`}
+        >
+          {member.code}
+        </p>
+        <p
+          className={`text-zinc-600 leading-relaxed ${
+            isLg ? "text-sm" : "text-xs"
+          }`}
+        >
+          {member.note}
+        </p>
+      </div>
+    </li>
   );
 }
