@@ -1,0 +1,52 @@
+name: 修正・改善リクエスト
+description: サイトの修正・改善したい点を書いてください
+title: "[修正] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        テミンが順次対応します。ラフでもOKです。
+  - type: textarea
+    id: where
+    attributes:
+      label: どのページの、どの部分？
+      description: URLや箇所がわかれば書いてください
+      placeholder: "例：/about の「代表メッセージ」セクション"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: どうしてほしい？
+      description: 現状の不満点・希望する変更を自由に
+      placeholder: "例：写真の位置が悪いので、もう少し右にずらしてほしい"
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先度
+      options:
+        - 🔴 至急（高）
+        - 🟡 普通（中）
+        - 🟢 余裕がある時（低）
+      default: 1
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: 種類
+      options:
+        - 🐛 バグ・不具合
+        - ✨ 機能追加・改善
+        - 📝 文章・画像の差し替え
+        - 🎨 デザイン調整
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: スクリーンショット（任意）
+      description: あると分かりやすいです。ここに画像をドラッグ&ドロップでアップロードできます

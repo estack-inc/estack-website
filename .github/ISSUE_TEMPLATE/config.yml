@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 急ぎの修正
+    url: https://github.com/estack-inc/estack-website/issues/new?template=general.yml&labels=priority%3Ahigh
+    about: 🔴 priority:high ラベル付きで起票
