@@ -191,21 +191,21 @@ export default function AboutPage() {
                 <span className="text-lg font-semibold">竹田 賢史</span>
               </p>
             </div>
-            <div className="group relative aspect-[4/5] rounded-lg overflow-hidden bg-zinc-100">
-              <Image
-                src="/images/s-2001x2400_v-frms_webp_3d556af1-6866-4eb3-8a23-80fc27ce17d3_small.webp"
-                alt="代表取締役 竹田 賢史"
-                width={500}
-                height={625}
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
-              />
+            <div className="group relative aspect-[4/5]">
               <Image
                 src="/images/s-2000x2400_v-frms_webp_bb8c1f33-aff9-4f8f-bace-b4cb9f6e94ee_small.webp"
                 alt=""
                 width={500}
                 height={625}
                 aria-hidden
-                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                className="absolute inset-0 w-full h-full object-cover rounded-lg translate-x-2 translate-y-2 rotate-3 shadow-md transition-all duration-500 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:z-10 group-hover:shadow-xl"
+              />
+              <Image
+                src="/images/s-2001x2400_v-frms_webp_3d556af1-6866-4eb3-8a23-80fc27ce17d3_small.webp"
+                alt="代表取締役 竹田 賢史"
+                width={500}
+                height={625}
+                className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg transition-all duration-500 group-hover:rotate-3 group-hover:translate-x-2 group-hover:translate-y-2"
               />
             </div>
           </div>
@@ -278,21 +278,21 @@ export default function AboutPage() {
                 className="group rounded-lg bg-white overflow-hidden border border-zinc-100"
               >
                 {m.photo && (
-                  <div className="relative aspect-square overflow-hidden bg-zinc-100">
-                    <Image
-                      src={m.photo.default}
-                      alt=""
-                      width={448}
-                      height={448}
-                      className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
-                    />
+                  <div className="relative aspect-square m-3 mb-5">
                     <Image
                       src={m.photo.hover}
                       alt=""
                       width={448}
                       height={448}
                       aria-hidden
-                      className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      className="absolute inset-0 w-full h-full object-cover rounded-md translate-x-1.5 translate-y-1.5 rotate-3 shadow-sm transition-all duration-500 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:z-10 group-hover:shadow-md"
+                    />
+                    <Image
+                      src={m.photo.default}
+                      alt=""
+                      width={448}
+                      height={448}
+                      className="absolute inset-0 w-full h-full object-cover rounded-md shadow-md transition-all duration-500 group-hover:rotate-3 group-hover:translate-x-1.5 group-hover:translate-y-1.5"
                     />
                   </div>
                 )}
