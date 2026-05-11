@@ -33,10 +33,10 @@ export default function RecruitPage() {
         <div className="mx-auto max-w-5xl px-5 md:px-8">
           <div className="aspect-[16/9] md:aspect-[2/1] rounded-2xl overflow-hidden bg-zinc-100 mb-12 relative">
             <Image
-              src="/images/s-2400x1350_v-frms_webp_86d4ce22-2dc4-417e-9371-93561f248630_small.webp"
+              src="/images/s-2400x1571_v-frms_webp_74b0d62b-a554-4459-a3dc-95674adefa7b_middle.webp"
               alt=""
               width={1600}
-              height={900}
+              height={1050}
               className="w-full h-full object-cover"
             />
           </div>

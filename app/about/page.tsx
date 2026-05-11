@@ -136,12 +136,12 @@ export default function AboutPage() {
                 <span className="text-lg font-semibold">竹田 賢史</span>
               </p>
             </div>
-            <div className="aspect-square rounded-lg overflow-hidden bg-zinc-100">
+            <div className="aspect-[4/5] rounded-lg overflow-hidden bg-zinc-100">
               <Image
-                src="/images/s-2400x1571_v-frms_webp_71df778e-335b-4f00-a9da-50991eedb423_middle.webp"
+                src="/images/s-2001x2400_v-frms_webp_3d556af1-6866-4eb3-8a23-80fc27ce17d3_small.webp"
                 alt="代表取締役 竹田 賢史"
                 width={500}
-                height={500}
+                height={625}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -226,9 +226,9 @@ export default function AboutPage() {
       {/* CTA Recruit */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="mx-auto max-w-5xl px-5 md:px-8 grid md:grid-cols-2 gap-8 items-center">
-          <div className="aspect-[4/5] rounded-lg overflow-hidden bg-zinc-100">
+          <div className="aspect-[4/5] md:aspect-[3/4] rounded-lg overflow-hidden bg-zinc-100">
             <Image
-              src="/images/s-2001x2400_v-frms_webp_3d556af1-6866-4eb3-8a23-80fc27ce17d3_small.webp"
+              src="/images/s-2400x1571_v-frms_webp_71df778e-335b-4f00-a9da-50991eedb423_middle.webp"
               alt=""
               width={800}
               height={1000}

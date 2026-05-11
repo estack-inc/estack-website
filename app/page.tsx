@@ -202,12 +202,12 @@ export default function Home() {
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="aspect-[4/5] md:aspect-square overflow-hidden rounded-lg">
+            <div className="aspect-[4/5] md:aspect-[4/3] overflow-hidden rounded-lg">
               <Image
-                src="/images/s-2000x2400_v-frms_webp_bb8c1f33-aff9-4f8f-bace-b4cb9f6e94ee_small.webp"
+                src="/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp"
                 alt=""
-                width={1000}
-                height={1200}
+                width={1200}
+                height={900}
                 className="h-full w-full object-cover"
               />
             </div>
