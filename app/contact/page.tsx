@@ -8,7 +8,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
-      <PageHeader title="お問い合わせ" subtitle="Contact" />
+      <PageHeader title="お問い合わせ" showWave={false} />
 
       <section className="py-12 md:py-20">
         <div className="mx-auto max-w-2xl px-5 md:px-8">
