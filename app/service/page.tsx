@@ -11,14 +11,14 @@ export default function ServicePage() {
     <>
       <PageHeader title="サービス" subtitle="Services" />
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <h2 className="text-2xl md:text-4xl font-bold mb-8 leading-tight">
+      <section className="py-10 md:py-16">
+        <div className="mx-auto max-w-3xl px-5 md:px-8">
+          <h2 className="text-xl md:text-3xl font-bold mb-6 leading-tight">
             技術で支え、
             <br />
             共に成長する
           </h2>
-          <div className="space-y-5 text-sm md:text-base text-zinc-700 leading-loose">
+          <div className="space-y-4 text-xs md:text-sm text-zinc-700 leading-relaxed">
             <p>
               プロフェッショナリズムを心に刻み、日々の活動において高い専門性を追求しています。私たちは、常に変化し続けるテクノロジーの最先端に立ち、その進化に対応すべく努力しています。
             </p>
@@ -32,8 +32,8 @@ export default function ServicePage() {
         </div>
       </section>
 
-      <section className="pb-20 md:pb-32">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 space-y-12 md:space-y-20">
+      <section className="pb-16 md:pb-24">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 space-y-10 md:space-y-14">
           <ServiceItem
             imageSrc="/images/s-580x580_b86f18e5-c9da-4e03-857c-5a294ba3a79c.svg"
             eyebrow="System Integration"
@@ -72,35 +72,35 @@ function ServiceItem({
 }) {
   return (
     <div
-      className={`grid md:grid-cols-2 gap-8 md:gap-16 items-center ${
+      className={`grid md:grid-cols-2 gap-6 md:gap-12 items-center ${
         reversed ? "md:[&>div:first-child]:order-2" : ""
       }`}
     >
-      <div className="bg-zinc-50 rounded-2xl aspect-square flex items-center justify-center p-8">
+      <div className="aspect-square max-w-[320px] md:max-w-[380px] mx-auto flex items-center justify-center">
         <Image
           src={imageSrc}
           alt=""
-          width={500}
-          height={500}
+          width={400}
+          height={400}
           className="w-full h-full object-contain"
         />
       </div>
       <div>
-        <p className="text-xs md:text-sm font-semibold tracking-[0.25em] text-brand mb-3 font-display">
+        <p className="text-[11px] font-semibold tracking-[0.25em] text-brand mb-2 font-display">
           {eyebrow}
         </p>
-        <h3 className="text-xl md:text-3xl font-bold mb-6 leading-tight">
+        <h3 className="text-lg md:text-2xl font-bold mb-4 leading-tight">
           {title}
         </h3>
-        <p className="text-sm text-zinc-600 leading-relaxed mb-8">
+        <p className="text-xs md:text-sm text-zinc-700 leading-relaxed mb-6">
           {description}
         </p>
         <Link
           href={href}
-          className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-semibold text-white hover:bg-brand-light transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-800 hover:text-brand transition-colors"
         >
           詳しく見る
-          <span aria-hidden>→</span>
+          <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white text-[9px]">→</span>
         </Link>
       </div>
     </div>
