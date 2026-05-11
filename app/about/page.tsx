@@ -13,13 +13,68 @@ const STATS = [
   { label: "離職率", value: "1.7", unit: "%" },
 ];
 
-const MEMBERS = [
-  { dept: "IT事業部", code: "H.S", note: "会社設立時から働いています。今は業務委託先で、リーダー的なことをやっています。eSTACKは自由度が高く、上下問わずメンバー同士の距離がとても近い会社で、やりたいことも話せば環境を整えてくれるので、一緒に頑張りましょう" },
-  { dept: "IT事業部", code: "R.K", note: "将来の夢はゲームプログラマでした。1度夢への心を折られるも持ち前のコミュニケーション力でeSTACKへ入社。仕事しやすい環境や相談しやすい風通しの良さで現在進行系で成長中！！！" },
-  { dept: "IT事業部", code: "A.K", note: "やらない後悔よりやる後悔　迷ったらやる" },
-  { dept: "IT事業部", code: "K.C", note: "短くても、やれば前に進める。" },
-  { dept: "事業推進部", code: "N.T", note: "挑戦を楽しむ" },
-  { dept: "総務部", code: "R.T", note: "「諦めない心」を大切にしてます！" },
+type Member = {
+  dept: string;
+  code: string;
+  note: string;
+  photo?: { default: string; hover: string };
+};
+
+const MEMBERS: Member[] = [
+  {
+    dept: "IT事業部",
+    code: "H.S",
+    note: "会社設立時から働いています。今は業務委託先で、リーダー的なことをやっています。eSTACKは自由度が高く、上下問わずメンバー同士の距離がとても近い会社で、やりたいことも話せば環境を整えてくれるので、一緒に頑張りましょう",
+    photo: {
+      default: "/images/s-896x896_v-fs_webp_ca5d420b-602d-4d74-88d9-256dc4b09e45_small.webp",
+      hover: "/images/s-896x896_v-fs_webp_750703e1-4d18-4618-90cf-c39f48d547a4_small.webp",
+    },
+  },
+  {
+    dept: "IT事業部",
+    code: "R.K",
+    note: "将来の夢はゲームプログラマでした。1度夢への心を折られるも持ち前のコミュニケーション力でeSTACKへ入社。仕事しやすい環境や相談しやすい風通しの良さで現在進行系で成長中！！！",
+    photo: {
+      default: "/images/s-896x896_v-fs_webp_0df0c2fe-ce5f-4d82-8916-e255b9b74ef4_small.webp",
+      hover: "/images/s-896x896_v-fs_webp_c2e989f5-6778-499f-afc6-62a57451c476_small.webp",
+    },
+  },
+  {
+    dept: "IT事業部",
+    code: "A.K",
+    note: "やらない後悔よりやる後悔　迷ったらやる",
+    photo: {
+      default: "/images/s-896x896_v-fs_webp_6c2638f5-231b-48f5-a57d-0f140acd7877_small.webp",
+      hover: "/images/s-896x896_v-fs_webp_28e4a404-2ac1-4d52-b53d-05293b0f4feb_small.webp",
+    },
+  },
+  {
+    dept: "IT事業部",
+    code: "K.C",
+    note: "短くても、やれば前に進める。",
+    photo: {
+      default: "/images/s-896x896_v-fs_webp_56bca069-0b42-434e-8e7b-ad49bc786682_small.webp",
+      hover: "/images/s-896x896_v-fs_webp_b40d4008-6471-45b8-ae87-d5a2d43353f7_small.webp",
+    },
+  },
+  {
+    dept: "事業推進部",
+    code: "N.T",
+    note: "挑戦を楽しむ",
+    photo: {
+      default: "/images/s-896x896_v-fs_webp_e79056c6-0037-45e2-82ab-bbffe9e79204_small.webp",
+      hover: "/images/s-896x896_v-fs_webp_fc85f9ab-1e81-4699-af9e-aa5c94ac5fd0_small.webp",
+    },
+  },
+  {
+    dept: "総務部",
+    code: "R.T",
+    note: "「諦めない心」を大切にしてます！",
+    photo: {
+      default: "/images/s-896x896_v-fs_webp_61317385-e80b-419d-8def-49701a2cb65b_small.webp",
+      hover: "/images/s-896x896_v-fs_webp_d999f401-1ff7-415a-9836-ae92186ada53_small.webp",
+    },
+  },
   { dept: "IT事業部", code: "S.K", note: "今できることに向き合い続ける" },
   { dept: "IT事業部", code: "T.I", note: "生きることは学びの機会と出会うこと" },
   { dept: "IT事業部", code: "K.N", note: "可能な限り家から出たくない" },
@@ -136,13 +191,21 @@ export default function AboutPage() {
                 <span className="text-lg font-semibold">竹田 賢史</span>
               </p>
             </div>
-            <div className="aspect-[4/5] rounded-lg overflow-hidden bg-zinc-100">
+            <div className="group relative aspect-[4/5] rounded-lg overflow-hidden bg-zinc-100">
               <Image
                 src="/images/s-2001x2400_v-frms_webp_3d556af1-6866-4eb3-8a23-80fc27ce17d3_small.webp"
                 alt="代表取締役 竹田 賢史"
                 width={500}
                 height={625}
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+              />
+              <Image
+                src="/images/s-2000x2400_v-frms_webp_bb8c1f33-aff9-4f8f-bace-b4cb9f6e94ee_small.webp"
+                alt=""
+                width={500}
+                height={625}
+                aria-hidden
+                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               />
             </div>
           </div>
@@ -212,11 +275,32 @@ export default function AboutPage() {
             {MEMBERS.map((m, i) => (
               <li
                 key={i}
-                className="rounded-lg bg-white p-5 md:p-6 border border-zinc-100"
+                className="group rounded-lg bg-white overflow-hidden border border-zinc-100"
               >
-                <p className="text-xs text-brand font-semibold mb-1">{m.dept}</p>
-                <p className="text-lg font-bold mb-3 font-display">{m.code}</p>
-                <p className="text-xs text-zinc-600 leading-relaxed">{m.note}</p>
+                {m.photo && (
+                  <div className="relative aspect-square overflow-hidden bg-zinc-100">
+                    <Image
+                      src={m.photo.default}
+                      alt=""
+                      width={448}
+                      height={448}
+                      className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                    />
+                    <Image
+                      src={m.photo.hover}
+                      alt=""
+                      width={448}
+                      height={448}
+                      aria-hidden
+                      className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    />
+                  </div>
+                )}
+                <div className="p-5 md:p-6">
+                  <p className="text-xs text-brand font-semibold mb-1">{m.dept}</p>
+                  <p className="text-lg font-bold mb-3 font-display">{m.code}</p>
+                  <p className="text-xs text-zinc-600 leading-relaxed">{m.note}</p>
+                </div>
               </li>
             ))}
           </ul>
