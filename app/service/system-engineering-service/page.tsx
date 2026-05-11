@@ -82,93 +82,104 @@ export default function SESPage() {
         subtitle="System Engineering Service"
       />
 
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-5xl px-5 md:px-8 grid md:grid-cols-2 gap-10 items-center">
-          <div className="bg-zinc-50 rounded-2xl aspect-square flex items-center justify-center p-8">
-            <Image
-              src="/images/s-584x580_4e84b74a-a2d2-4fd3-b924-30cd59a19dc1.svg"
-              alt=""
-              width={500}
-              height={500}
-              className="w-full h-full object-contain"
-            />
-          </div>
-          <p className="text-sm md:text-base text-zinc-700 leading-loose">
+      <section className="py-8 md:py-12">
+        <div className="mx-auto max-w-4xl px-5 md:px-8 grid md:grid-cols-[1fr_280px] gap-6 md:gap-10 items-center">
+          <p className="text-xs md:text-sm text-zinc-700 leading-relaxed">
             最新技術を駆使して業務を効率化し問題を解決する専門的なサービスです。
             <br />
             <br />
             テクノロジーのスキルと問題解決能力を高めながら、様々な業界で経験を積むことが可能です。チームワークとコミュニケーション能力が求められ、多様なキャリアパスが開かれます。また、技術的成長だけでなく、個人の成長も促す魅力的なフィールドです。
           </p>
+          <div className="aspect-square max-w-[280px] mx-auto md:mx-0 flex items-center justify-center">
+            <Image
+              src="/images/s-584x580_4e84b74a-a2d2-4fd3-b924-30cd59a19dc1.svg"
+              alt=""
+              width={300}
+              height={300}
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-zinc-50">
+      <section className="py-12 md:py-16 bg-zinc-50">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <p className="text-sm font-semibold tracking-[0.3em] text-brand mb-3 font-display text-center">
+          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
             Merit
           </p>
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
+          <h2 className="text-lg md:text-2xl font-bold mb-8 text-center">
             主な利点
           </h2>
-          <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <ul className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {MERITS.map((m) => (
               <li
                 key={m.n}
-                className="rounded-lg bg-white p-6 border border-zinc-100"
+                className="rounded-lg bg-white p-4 border border-zinc-100"
               >
-                <p className="text-3xl font-bold text-brand mb-3 font-display">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand text-white text-xs font-bold font-display mb-2">
                   {m.n}
+                </span>
+                <h3 className="font-bold text-xs mb-1">{m.title}</h3>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">
+                  {m.body}
                 </p>
-                <h3 className="font-bold mb-2">{m.title}</h3>
-                <p className="text-sm text-zinc-600 leading-relaxed">{m.body}</p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <p className="text-sm font-semibold tracking-[0.3em] text-brand mb-3 font-display text-center">
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-4xl px-5 md:px-8">
+          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
             Work
           </p>
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
+          <h2 className="text-lg md:text-2xl font-bold mb-8 text-center">
             技術支援実績
           </h2>
-          <ul className="space-y-4">
+          <ul className="space-y-2.5">
             {WORKS.map((w, i) => (
               <li
                 key={i}
-                className="rounded-lg bg-zinc-50 p-5 md:p-6 border border-zinc-100"
+                className="rounded-lg bg-zinc-50 px-5 py-4 border border-zinc-100"
               >
-                <p className="font-semibold text-sm md:text-base mb-2">
+                <p className="font-semibold text-xs md:text-sm mb-1">
                   {w.title}
                 </p>
-                <p className="text-xs text-brand">{w.tech}</p>
+                <p className="text-[11px] text-brand">{w.tech}</p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-zinc-50">
-        <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <p className="text-sm font-semibold tracking-[0.3em] text-brand mb-3 font-display text-center">
+      <section className="py-12 md:py-16 bg-zinc-50">
+        <div className="mx-auto max-w-4xl px-5 md:px-8">
+          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
             Other Service
           </p>
-          <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">
+          <h2 className="text-lg md:text-2xl font-bold mb-6 text-center">
             その他サービス
           </h2>
           <Link
             href="/service/system-integration"
-            className="block group rounded-2xl bg-white border border-zinc-100 hover:border-brand transition-colors p-8 max-w-2xl mx-auto"
+            className="grid grid-cols-[100px_1fr] md:grid-cols-[140px_1fr] items-center gap-4 group rounded-lg bg-white border border-zinc-100 hover:border-brand transition-colors p-4 md:p-5 max-w-xl mx-auto"
           >
-            <p className="text-xs font-semibold tracking-[0.25em] text-brand mb-2 font-display">
-              System Integration
-            </p>
-            <p className="text-lg font-bold group-hover:text-brand transition-colors">
-              システムインテグレーション →
-            </p>
+            <Image
+              src="/images/s-580x580_b86f18e5-c9da-4e03-857c-5a294ba3a79c.svg"
+              alt=""
+              width={140}
+              height={140}
+              className="w-full h-auto"
+            />
+            <div>
+              <p className="text-[10px] font-semibold tracking-[0.25em] text-brand mb-1 font-display">
+                System Integration
+              </p>
+              <p className="text-sm font-bold group-hover:text-brand transition-colors">
+                システムインテグレーション →
+              </p>
+            </div>
           </Link>
         </div>
       </section>

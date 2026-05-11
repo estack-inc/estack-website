@@ -38,13 +38,13 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="absolute -right-12 top-8 md:-right-20 md:top-12 pointer-events-none -z-0">
+        <div className="absolute right-4 top-2 md:right-12 md:top-4 pointer-events-none -z-0">
           <Image
             src="/images/s-1500x1500_91bf90b8-200c-4a0c-8cb2-8323513d8c61.svg"
             alt=""
-            width={420}
-            height={420}
-            className="w-[200px] md:w-[340px] opacity-95"
+            width={220}
+            height={220}
+            className="w-[120px] md:w-[200px] opacity-95"
             aria-hidden
           />
         </div>
