@@ -55,7 +55,15 @@ export default function Header() {
           className="lg:hidden flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white"
         >
           <span className="sr-only">メニュー</span>
-          <span className="text-xl leading-none">{open ? "×" : "≡"}</span>
+          {open ? (
+            <span className="text-xl leading-none">×</span>
+          ) : (
+            <span className="flex items-center gap-[3px]">
+              <span className="h-1 w-1 rounded-full bg-white" />
+              <span className="h-1 w-1 rounded-full bg-white" />
+              <span className="h-1 w-1 rounded-full bg-white" />
+            </span>
+          )}
         </button>
       </div>
 

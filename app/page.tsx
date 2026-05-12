@@ -6,19 +6,19 @@ const NEWS_ITEMS = [
     date: "2025.12.16",
     category: "お知らせ",
     title: "労働者派遣法に基づく情報提供",
-    href: "/news",
+    href: "/news/20251216",
   },
   {
     date: "2025.05.27",
     category: "お知らせ",
     title: "本社を移転しました",
-    href: "/news",
+    href: "/news/20250527",
   },
   {
     date: "2024.10.07",
     category: "お知らせ",
     title: "労働者派遣法に基づく情報提供",
-    href: "/news",
+    href: "/news/20241007",
   },
 ];
 
@@ -38,36 +38,48 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="absolute right-4 top-2 md:right-12 md:top-4 pointer-events-none -z-0">
-          <Image
-            src="/images/s-1500x1500_91bf90b8-200c-4a0c-8cb2-8323513d8c61.svg"
-            alt=""
-            width={220}
-            height={220}
-            className="w-[120px] md:w-[200px] opacity-95"
-            aria-hidden
-          />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-24 pb-16 md:pt-32 md:pb-24">
-          <h1 className="text-2xl md:text-4xl font-bold leading-tight tracking-wide">
-            技術で支え、
-            <br />
-            共に成長する
-          </h1>
-          <p className="mt-6 max-w-xl text-xs md:text-sm text-zinc-700 leading-relaxed">
-            プロフェッショナリズムを常に意識し、専門技術を最大限に活用して
-            <br className="hidden md:inline" />
-            お客様に高品質なWeb技術に特化した技術支援、
-            <br className="hidden md:inline" />
-            及びシステム・サービス開発を提供します。
-          </p>
-          <Link
-            href="/about"
-            className="mt-8 inline-flex items-center gap-2 text-xs font-semibold text-zinc-800 hover:text-brand transition-colors"
-          >
-            eSTACKについて
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand text-white text-[10px]">→</span>
-          </Link>
+        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-20 pb-12 md:pt-28 md:pb-20">
+          <div className="grid md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-center">
+            <div>
+              <h1 className="text-3xl md:text-6xl font-bold leading-tight tracking-wide">
+                技術で支え、
+                <br />
+                共に成長する
+              </h1>
+              <p className="mt-6 max-w-xl text-xs md:text-sm text-zinc-700 leading-relaxed">
+                プロフェッショナリズムを常に意識し、専門技術を最大限に活用して
+                <br className="hidden md:inline" />
+                お客様に高品質なWeb技術に特化した技術支援、
+                <br className="hidden md:inline" />
+                及びシステム・サービス開発を提供します。
+              </p>
+              <Link
+                href="/about"
+                className="group mt-8 inline-flex items-center gap-3 text-sm font-semibold text-zinc-900 hover:opacity-70 transition-opacity"
+              >
+                eSTACKについて
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand text-white text-xs group-hover:scale-110 transition-transform">→</span>
+              </Link>
+            </div>
+            <div className="w-[180px] md:w-[320px] aspect-square rounded-lg overflow-hidden">
+              <video
+                src="/videos/hero-pc.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover hidden md:block"
+              />
+              <video
+                src="/videos/hero-mobile.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover md:hidden"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

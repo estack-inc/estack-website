@@ -83,13 +83,7 @@ export default function SESPage() {
       />
 
       <section className="py-8 md:py-12">
-        <div className="mx-auto max-w-4xl px-5 md:px-8 grid md:grid-cols-[1fr_280px] gap-6 md:gap-10 items-center">
-          <p className="text-xs md:text-sm text-zinc-700 leading-relaxed">
-            最新技術を駆使して業務を効率化し問題を解決する専門的なサービスです。
-            <br />
-            <br />
-            テクノロジーのスキルと問題解決能力を高めながら、様々な業界で経験を積むことが可能です。チームワークとコミュニケーション能力が求められ、多様なキャリアパスが開かれます。また、技術的成長だけでなく、個人の成長も促す魅力的なフィールドです。
-          </p>
+        <div className="mx-auto max-w-4xl px-5 md:px-8 grid md:grid-cols-[280px_1fr] gap-6 md:gap-10 items-center">
           <div className="aspect-square max-w-[280px] mx-auto md:mx-0 flex items-center justify-center">
             <Image
               src="/images/s-584x580_4e84b74a-a2d2-4fd3-b924-30cd59a19dc1.svg"
@@ -99,6 +93,12 @@ export default function SESPage() {
               className="w-full h-full object-contain"
             />
           </div>
+          <p className="text-xs md:text-sm text-zinc-700 leading-relaxed">
+            最新技術を駆使して業務を効率化し問題を解決する専門的なサービスです。
+            <br />
+            <br />
+            テクノロジーのスキルと問題解決能力を高めながら、様々な業界で経験を積むことが可能です。チームワークとコミュニケーション能力が求められ、多様なキャリアパスが開かれます。また、技術的成長だけでなく、個人の成長も促す魅力的なフィールドです。
+          </p>
         </div>
       </section>
 

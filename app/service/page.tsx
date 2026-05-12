@@ -12,8 +12,8 @@ export default function ServicePage() {
       <PageHeader title="サービス" subtitle="Services" />
 
       <section className="py-10 md:py-16">
-        <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <h2 className="text-xl md:text-3xl font-bold mb-6 leading-tight">
+        <div className="mx-auto max-w-5xl px-5 md:px-8 grid md:grid-cols-[1fr_1.5fr] gap-8 md:gap-12">
+          <h2 className="text-2xl md:text-4xl font-bold leading-tight">
             技術で支え、
             <br />
             共に成長する

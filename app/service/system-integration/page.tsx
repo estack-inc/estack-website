@@ -83,10 +83,7 @@ export default function SystemIntegrationPage() {
       />
 
       <section className="py-8 md:py-12">
-        <div className="mx-auto max-w-4xl px-5 md:px-8 grid md:grid-cols-[1fr_280px] gap-6 md:gap-10 items-center">
-          <p className="text-xs md:text-sm text-zinc-700 leading-relaxed">
-            システムインテグレーション（SI）は、異なるITシステムやソフトウェアを統合し、一つの連携した効率的なシステムを構築するプロセスです。このアプローチにより、企業はデータを一元化し、業務プロセスを自動化することが可能となり、全体的な運用効率とビジネスの柔軟性を大幅に向上させることができます。
-          </p>
+        <div className="mx-auto max-w-4xl px-5 md:px-8 grid md:grid-cols-[280px_1fr] gap-6 md:gap-10 items-center">
           <div className="aspect-square max-w-[280px] mx-auto md:mx-0 flex items-center justify-center">
             <Image
               src="/images/s-580x580_b86f18e5-c9da-4e03-857c-5a294ba3a79c.svg"
@@ -96,6 +93,9 @@ export default function SystemIntegrationPage() {
               className="w-full h-full object-contain"
             />
           </div>
+          <p className="text-xs md:text-sm text-zinc-700 leading-relaxed">
+            システムインテグレーション（SI）は、異なるITシステムやソフトウェアを統合し、一つの連携した効率的なシステムを構築するプロセスです。このアプローチにより、企業はデータを一元化し、業務プロセスを自動化することが可能となり、全体的な運用効率とビジネスの柔軟性を大幅に向上させることができます。
+          </p>
         </div>
       </section>
 
