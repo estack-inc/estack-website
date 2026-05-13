@@ -30,11 +30,11 @@ export default function PageHeader({
         }`}
       >
         {subtitle && (
-          <p className="text-xs font-semibold tracking-[0.3em] text-brand mb-2 font-display">
+          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display">
             {subtitle}
           </p>
         )}
-        <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+        <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
           {title}
         </h1>
       </div>

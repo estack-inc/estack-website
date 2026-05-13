@@ -96,7 +96,7 @@ export default async function NewsDetailPage({
               {item.category}
             </span>
           </div>
-          <h1 className="text-xl md:text-3xl font-bold mb-8 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-semibold mb-8 leading-tight">
             {item.title}
           </h1>
 

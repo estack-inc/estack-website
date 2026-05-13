@@ -97,7 +97,7 @@ export default function EntryPage() {
                 プライバシーポリシー
               </Link>
               <label className="flex items-center gap-3">
-                <span className="inline-flex shrink-0 items-center rounded-full bg-red-50 text-red-600 border border-red-200 px-2 py-0.5 text-[10px] font-bold">
+                <span className="inline-flex shrink-0 items-center rounded-full bg-red-50 text-red-600 border border-red-200 px-2 py-0.5 text-[10px] font-semibold">
                   必須
                 </span>
                 <input
@@ -137,7 +137,7 @@ function Field({
     <div>
       <label className="flex items-center gap-2 mb-2">
         <span
-          className={`inline-flex shrink-0 items-center rounded-full px-2 py-0.5 text-[10px] font-bold border ${
+          className={`inline-flex shrink-0 items-center rounded-full px-2 py-0.5 text-[10px] font-semibold border ${
             required
               ? "bg-red-50 text-red-600 border-red-200"
               : "bg-zinc-100 text-zinc-600 border-zinc-300"

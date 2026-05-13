@@ -180,9 +180,9 @@ export default function AboutPage() {
       {/* 代表メッセージ */}
       <section id="message" className="py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <h2 className="text-lg md:text-2xl font-bold mb-6 md:mb-8">代表メッセージ</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6 md:mb-8">代表メッセージ</h2>
           <div className="grid md:grid-cols-[1fr_220px] gap-6 md:gap-10 items-start">
-            <div className="space-y-3 text-xs md:text-sm text-zinc-700 leading-relaxed">
+            <div className="space-y-5 text-base md:text-lg text-zinc-700 leading-loose">
               <p>
                 当社、eSTACK株式会社では、IT業界の急速な進展に伴い、常に先端を行く革新と提案を心がけています。
               </p>
@@ -195,10 +195,10 @@ export default function AboutPage() {
               <p>
                 持続可能な成長と、常にお客様の期待を超えるサービスを提供することが、私たちeSTACKの使命です。
               </p>
-              <p className="pt-3 text-xs">
+              <p className="pt-4 text-sm">
                 代表取締役
                 <br />
-                <span className="text-sm font-semibold">竹田 賢史</span>
+                <span className="text-2xl font-semibold">竹田 賢史</span>
               </p>
             </div>
             <div className="group relative aspect-[4/5] max-w-[220px] mx-auto md:mx-0">
@@ -225,15 +225,15 @@ export default function AboutPage() {
       {/* 理念 */}
       <section id="philosophy" className="py-10 md:py-14 bg-brand text-white">
         <div className="mx-auto max-w-4xl px-5 md:px-8 text-center">
-          <p className="text-[11px] font-semibold tracking-[0.3em] mb-2 font-display opacity-90">
+          <p className="text-sm font-medium tracking-[0.3em] mb-2 font-display opacity-90">
             Philosophy
           </p>
-          <h2 className="text-lg md:text-2xl font-bold leading-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold leading-tight mb-4">
             私達の成長は100％の熱意と
             <br />
             50％能力で成し遂げられる。
           </h2>
-          <p className="max-w-2xl mx-auto text-xs md:text-sm leading-relaxed opacity-95">
+          <p className="max-w-2xl mx-auto text-base md:text-lg leading-loose opacity-95">
             我々の事業は一人の優秀な人材がいるだけでは到底成し遂げられないことがほとんどです。
             そのため事業成功には熱意とチームワークが非常に重要となります。弊社では日々事業に熱意を注ぎ、信頼し合えるチーム作りを行い事業に取り組んでまいります。
           </p>
@@ -243,13 +243,13 @@ export default function AboutPage() {
       {/* 数字で見る */}
       <section className="py-10 md:py-14">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
             Numbers
           </p>
-          <h2 className="text-lg md:text-2xl font-bold mb-1 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-1 text-center">
             数字で見るeSTACK
           </h2>
-          <p className="text-[10px] text-zinc-500 text-center mb-8">
+          <p className="text-xs text-zinc-500 text-center mb-8">
             （2024年5月現在）
           </p>
           <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -258,12 +258,12 @@ export default function AboutPage() {
                 key={s.label}
                 className="flex flex-col items-center text-center"
               >
-                <p className="text-[10px] text-zinc-500 mb-1">{s.label}</p>
+                <p className="text-xs text-zinc-500 mb-2">{s.label}</p>
                 <p className="flex items-baseline gap-1">
-                  <span className="text-2xl md:text-4xl font-bold text-brand font-display">
+                  <span className="text-5xl md:text-6xl font-semibold text-brand font-display">
                     {s.value}
                   </span>
-                  <span className="text-xs text-zinc-700">{s.unit}</span>
+                  <span className="text-base text-zinc-700">{s.unit}</span>
                 </p>
               </li>
             ))}
@@ -274,10 +274,10 @@ export default function AboutPage() {
       {/* メンバー紹介 */}
       <section id="members" className="py-12 md:py-16 bg-zinc-50">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
             Members
           </p>
-          <h2 className="text-lg md:text-2xl font-bold mb-8 md:mb-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8 md:mb-10 text-center">
             メンバー紹介
           </h2>
           {/* 上段：シニア2人（大きく） */}
@@ -301,11 +301,11 @@ export default function AboutPage() {
                 key={`bottom-${i}`}
                 className="rounded-lg bg-white p-4 border border-zinc-100"
               >
-                <p className="text-[10px] text-brand font-semibold mb-1">
+                <p className="text-xs text-brand font-medium mb-1">
                   {m.dept}
                 </p>
-                <p className="text-sm font-bold mb-2 font-display">{m.code}</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed line-clamp-4">
+                <p className="text-xl font-semibold mb-2 font-display">{m.code}</p>
+                <p className="text-xs text-zinc-600 leading-relaxed line-clamp-4">
                   {m.note}
                 </p>
               </li>
@@ -327,12 +327,12 @@ export default function AboutPage() {
             />
           </div>
           <div>
-            <h2 className="text-lg md:text-2xl font-bold mb-4 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4 leading-tight">
               働く仲間を
               <br />
               募集しています
             </h2>
-            <p className="text-xs md:text-sm text-zinc-700 leading-relaxed mb-5">
+            <p className="text-sm md:text-base text-zinc-700 leading-relaxed mb-8">
               エンジニアという職業が好きな人、楽しくエンジニアとして活動したい人ぜひ弊社で働きませんか？
             </p>
             <PillLink href="/recruit" label="採用情報へ" size="sm" />
@@ -343,10 +343,10 @@ export default function AboutPage() {
       {/* 会社概要 */}
       <section id="company" className="py-12 md:py-16 bg-zinc-50">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
             Company
           </p>
-          <h2 className="text-lg md:text-2xl font-bold mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center">
             会社概要
           </h2>
           <dl className="divide-y divide-zinc-200 bg-white rounded-lg overflow-hidden">
@@ -355,10 +355,10 @@ export default function AboutPage() {
                 key={row.label}
                 className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-1 md:gap-5 px-4 md:px-6 py-3.5"
               >
-                <dt className="text-xs font-semibold text-zinc-700">
+                <dt className="text-sm font-semibold text-zinc-700">
                   {row.label}
                 </dt>
-                <dd className="text-xs text-zinc-700">{row.value}</dd>
+                <dd className="text-sm text-zinc-700">{row.value}</dd>
               </div>
             ))}
           </dl>
@@ -411,7 +411,7 @@ function MemberCardWithPhoto({
           {member.dept}
         </p>
         <p
-          className={`font-bold font-display ${
+          className={`font-semibold font-display ${
             isLg ? "text-2xl mb-4" : "text-base mb-2"
           }`}
         >

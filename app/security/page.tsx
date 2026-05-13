@@ -45,11 +45,11 @@ export default function SecurityPage() {
           <ol className="space-y-8">
             {ITEMS.map((item, i) => (
               <li key={item.title} className="flex gap-5">
-                <span className="text-3xl font-bold text-brand font-display shrink-0 leading-none pt-1">
+                <span className="text-3xl font-semibold text-brand font-display shrink-0 leading-none pt-1">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h2 className="text-lg md:text-xl font-bold mb-2">
+                  <h2 className="text-lg md:text-xl font-semibold mb-2">
                     {item.title}
                   </h2>
                   <p className="text-sm md:text-base text-zinc-700 leading-relaxed">

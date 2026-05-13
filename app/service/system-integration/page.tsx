@@ -93,7 +93,7 @@ export default function SystemIntegrationPage() {
               className="w-full h-full object-contain"
             />
           </div>
-          <p className="text-xs md:text-sm text-zinc-700 leading-relaxed">
+          <p className="text-base md:text-lg text-zinc-700 leading-relaxed">
             システムインテグレーション（SI）は、異なるITシステムやソフトウェアを統合し、一つの連携した効率的なシステムを構築するプロセスです。このアプローチにより、企業はデータを一元化し、業務プロセスを自動化することが可能となり、全体的な運用効率とビジネスの柔軟性を大幅に向上させることができます。
           </p>
         </div>
@@ -101,10 +101,10 @@ export default function SystemIntegrationPage() {
 
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
             About
           </p>
-          <h2 className="text-lg md:text-2xl font-bold mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center">
             サービス内容
           </h2>
           <ul className="grid md:grid-cols-2 gap-3">
@@ -113,12 +113,12 @@ export default function SystemIntegrationPage() {
                 key={s.n}
                 className="flex gap-4 rounded-lg bg-white p-4 border border-zinc-100"
               >
-                <span className="shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white text-sm font-bold font-display">
+                <span className="shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white text-sm font-semibold font-display">
                   {s.n}
                 </span>
                 <div>
-                  <h3 className="font-bold text-sm mb-1">{s.title}</h3>
-                  <p className="text-xs text-zinc-600 leading-relaxed">
+                  <h3 className="font-semibold text-xl mb-2">{s.title}</h3>
+                  <p className="text-sm text-zinc-600 leading-relaxed">
                     {s.body}
                   </p>
                 </div>
@@ -130,10 +130,10 @@ export default function SystemIntegrationPage() {
 
       <section className="py-12 md:py-16 bg-zinc-50">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
             Merit
           </p>
-          <h2 className="text-lg md:text-2xl font-bold mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center">
             主な利点
           </h2>
           <ul className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -142,11 +142,11 @@ export default function SystemIntegrationPage() {
                 key={m.n}
                 className="rounded-lg bg-white p-4 border border-zinc-100"
               >
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand text-white text-xs font-bold font-display mb-2">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand text-white text-xs font-semibold font-display mb-2">
                   {m.n}
                 </span>
-                <h3 className="font-bold text-xs mb-1">{m.title}</h3>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">
+                <h3 className="font-semibold text-base mb-2">{m.title}</h3>
+                <p className="text-sm text-zinc-600 leading-relaxed">
                   {m.body}
                 </p>
               </li>
@@ -157,10 +157,10 @@ export default function SystemIntegrationPage() {
 
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
             Other Service
           </p>
-          <h2 className="text-lg md:text-2xl font-bold mb-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-center">
             その他サービス
           </h2>
           <Link
@@ -175,10 +175,10 @@ export default function SystemIntegrationPage() {
               className="w-full h-auto"
             />
             <div>
-              <p className="text-[10px] font-semibold tracking-[0.25em] text-brand mb-1 font-display">
+              <p className="text-xs font-medium tracking-[0.25em] text-brand mb-1 font-display">
                 System Engineering Service
               </p>
-              <p className="text-sm font-bold group-hover:text-brand transition-colors">
+              <p className="text-base font-semibold group-hover:text-brand transition-colors">
                 システムエンジニアリングサービス →
               </p>
             </div>

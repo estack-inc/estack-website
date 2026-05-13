@@ -93,7 +93,7 @@ export default function SESPage() {
               className="w-full h-full object-contain"
             />
           </div>
-          <p className="text-xs md:text-sm text-zinc-700 leading-relaxed">
+          <p className="text-base md:text-lg text-zinc-700 leading-relaxed">
             最新技術を駆使して業務を効率化し問題を解決する専門的なサービスです。
             <br />
             <br />
@@ -104,10 +104,10 @@ export default function SESPage() {
 
       <section className="py-12 md:py-16 bg-zinc-50">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
             Merit
           </p>
-          <h2 className="text-lg md:text-2xl font-bold mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center">
             主な利点
           </h2>
           <ul className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -116,11 +116,11 @@ export default function SESPage() {
                 key={m.n}
                 className="rounded-lg bg-white p-4 border border-zinc-100"
               >
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand text-white text-xs font-bold font-display mb-2">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand text-white text-xs font-semibold font-display mb-2">
                   {m.n}
                 </span>
-                <h3 className="font-bold text-xs mb-1">{m.title}</h3>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">
+                <h3 className="font-semibold text-base mb-2">{m.title}</h3>
+                <p className="text-sm text-zinc-600 leading-relaxed">
                   {m.body}
                 </p>
               </li>
@@ -131,10 +131,10 @@ export default function SESPage() {
 
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
             Work
           </p>
-          <h2 className="text-lg md:text-2xl font-bold mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center">
             技術支援実績
           </h2>
           <ul className="space-y-2.5">
@@ -143,10 +143,10 @@ export default function SESPage() {
                 key={i}
                 className="rounded-lg bg-zinc-50 px-5 py-4 border border-zinc-100"
               >
-                <p className="font-semibold text-xs md:text-sm mb-1">
+                <p className="font-semibold text-sm md:text-base mb-2">
                   {w.title}
                 </p>
-                <p className="text-[11px] text-brand">{w.tech}</p>
+                <p className="text-xs text-brand">{w.tech}</p>
               </li>
             ))}
           </ul>
@@ -155,10 +155,10 @@ export default function SESPage() {
 
       <section className="py-12 md:py-16 bg-zinc-50">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
             Other Service
           </p>
-          <h2 className="text-lg md:text-2xl font-bold mb-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-center">
             その他サービス
           </h2>
           <Link
@@ -173,10 +173,10 @@ export default function SESPage() {
               className="w-full h-auto"
             />
             <div>
-              <p className="text-[10px] font-semibold tracking-[0.25em] text-brand mb-1 font-display">
+              <p className="text-xs font-medium tracking-[0.25em] text-brand mb-1 font-display">
                 System Integration
               </p>
-              <p className="text-sm font-bold group-hover:text-brand transition-colors">
+              <p className="text-sm font-semibold group-hover:text-brand transition-colors">
                 システムインテグレーション →
               </p>
             </div>

@@ -18,7 +18,7 @@ export default function RecruitPrivacyPolicyPage() {
             eSTACK株式会社（以下、当社）は、採用活動に伴い応募者の皆さまから取得する個人情報の重要性を認識し、以下に記載する通知文の内容に準拠し、細心の注意をもって管理を行い、適切な取扱及び保護に努めます。
           </p>
 
-          <h2 className="text-xl md:text-2xl font-bold border-l-4 border-brand pl-4 mb-4">
+          <h2 className="text-xl md:text-2xl font-semibold border-l-4 border-brand pl-4 mb-4">
             個人情報の利用目的
           </h2>
           <p className="font-semibold mb-2">(1) 従業員管理での利用</p>
@@ -35,7 +35,7 @@ export default function RecruitPrivacyPolicyPage() {
             <li>採用後の雇用手続きをする目的</li>
           </ul>
 
-          <h2 className="text-xl md:text-2xl font-bold border-l-4 border-brand pl-4 mb-4">
+          <h2 className="text-xl md:text-2xl font-semibold border-l-4 border-brand pl-4 mb-4">
             個人情報の第三者提供
           </h2>
           <p className="text-sm md:text-base text-zinc-700 leading-loose mb-3">
@@ -47,14 +47,14 @@ export default function RecruitPrivacyPolicyPage() {
             <li>法令等の要請による場合。</li>
           </ul>
 
-          <h2 className="text-xl md:text-2xl font-bold border-l-4 border-brand pl-4 mb-4">
+          <h2 className="text-xl md:text-2xl font-semibold border-l-4 border-brand pl-4 mb-4">
             業務委託に伴う個人情報の取扱の委託
           </h2>
           <p className="text-sm md:text-base text-zinc-700 leading-loose mb-10">
             当社は業務で必要な範囲内で個人情報を委託する場合は、委託先との間で守秘業務契約を締結し、個人情報の適切な取扱及び保護を行うよう指示・監督を行います。
           </p>
 
-          <h2 className="text-xl md:text-2xl font-bold border-l-4 border-brand pl-4 mb-4">
+          <h2 className="text-xl md:text-2xl font-semibold border-l-4 border-brand pl-4 mb-4">
             個人情報に関するお問い合わせ、及びご請求について
           </h2>
           <p className="text-sm md:text-base text-zinc-700 leading-loose mb-3">

@@ -49,12 +49,12 @@ export default function Home() {
         </div>
         <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-16 pb-12 md:pt-28 md:pb-24 min-h-[420px] md:min-h-[560px]">
           <div className="max-w-2xl">
-            <h1 className="text-3xl md:text-6xl font-bold leading-tight tracking-wide">
+            <h1 className="text-4xl md:text-7xl font-semibold leading-tight tracking-wide">
               技術で支え、
               <br />
               共に成長する
             </h1>
-            <p className="mt-6 max-w-xl text-xs md:text-sm text-zinc-800 leading-relaxed">
+            <p className="mt-6 max-w-xl text-sm md:text-base text-zinc-800 leading-relaxed">
               プロフェッショナリズムを常に意識し、専門技術を最大限に活用して
               <br className="hidden md:inline" />
               お客様に高品質なWeb技術に特化した技術支援、
@@ -95,11 +95,11 @@ export default function Home() {
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="text-center mb-10 md:mb-14">
-            <p className="text-xs font-semibold tracking-[0.3em] text-brand mb-2 font-display">
+            <p className="text-sm font-medium tracking-[0.3em] text-brand mb-3 font-display">
               Services
             </p>
-            <h2 className="text-xl md:text-3xl font-bold mb-4">サービス</h2>
-            <p className="max-w-2xl mx-auto text-xs md:text-sm text-zinc-700 leading-relaxed">
+            <h2 className="text-3xl md:text-5xl font-semibold mb-6">サービス</h2>
+            <p className="max-w-2xl mx-auto text-sm md:text-base text-zinc-700 leading-relaxed">
               弊社では古典的な顧客主体の受動的なサービス形態ではなく、
               提案主体の能動的なサービス形態にてお客様にサービスをご提供しております。
               提案主体だからこそお客様に寄り添い、1社1社にマッチしたご提案を徹底しております。
@@ -131,11 +131,11 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="rounded-3xl bg-brand p-6 md:p-12">
             <div className="text-center mb-8 text-white">
-              <p className="text-xs font-semibold tracking-[0.3em] mb-2 font-display opacity-90">
+              <p className="text-sm font-medium tracking-[0.3em] mb-3 font-display opacity-90">
                 Work
               </p>
-              <h2 className="text-xl md:text-3xl font-bold mb-3">実績</h2>
-              <p className="max-w-xl mx-auto text-xs md:text-sm leading-relaxed opacity-95">
+              <h2 className="text-3xl md:text-5xl font-semibold mb-4">実績</h2>
+              <p className="max-w-xl mx-auto text-sm md:text-base leading-relaxed opacity-95">
                 eSTACKが携わった開発、技術支援などの実績をご紹介いたします。
               </p>
             </div>
@@ -170,11 +170,11 @@ export default function Home() {
       {/* News */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <div className="text-center mb-8 md:mb-10">
-            <p className="text-xs font-semibold tracking-[0.3em] text-brand mb-2 font-display">
+          <div className="text-center mb-10 md:mb-12">
+            <p className="text-sm font-medium tracking-[0.3em] text-brand mb-3 font-display">
               News
             </p>
-            <h2 className="text-xl md:text-3xl font-bold">お知らせ</h2>
+            <h2 className="text-3xl md:text-5xl font-semibold">お知らせ</h2>
           </div>
           <ul className="grid grid-cols-3 gap-3 md:gap-5">
             {NEWS_ITEMS.map((item, i) => (
@@ -189,11 +189,11 @@ export default function Home() {
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <p className="text-[10px] text-zinc-500 mb-1">{item.date}</p>
-                  <p className="text-[10px] font-semibold text-brand mb-1">
+                  <p className="text-xs text-zinc-500 mb-1">{item.date}</p>
+                  <p className="text-xs font-medium text-brand mb-2">
                     {item.category}
                   </p>
-                  <p className="text-xs font-medium leading-relaxed group-hover:text-brand transition-colors line-clamp-2">
+                  <p className="text-base font-semibold leading-relaxed group-hover:text-brand transition-colors line-clamp-2">
                     {item.title}
                   </p>
                 </Link>
@@ -220,15 +220,15 @@ export default function Home() {
               />
             </div>
             <div>
-              <p className="text-xs font-semibold tracking-[0.3em] text-brand mb-2 font-display">
+              <p className="text-sm font-medium tracking-[0.3em] text-brand mb-3 font-display">
                 Career
               </p>
-              <h2 className="text-xl md:text-3xl font-bold mb-4">採用情報</h2>
-              <p className="text-xs md:text-sm text-zinc-700 leading-relaxed mb-6">
+              <h2 className="text-3xl md:text-5xl font-semibold mb-6">採用情報</h2>
+              <p className="text-sm md:text-base text-zinc-700 leading-relaxed mb-8">
                 エンジニアという職業が好きな人、楽しくエンジニアとして活動したい人ぜひ弊社で働きませんか？
                 弊社ではスキルアップはもちろん、キャリアパスを考慮した人生設計、人脈作り、人間関係の構築なども一緒に築き上げていきます。
               </p>
-              <PillLink href="/recruit" label="採用情報へ" size="sm" />
+              <PillLink href="/recruit" label="採用情報へ" />
             </div>
           </div>
         </div>
@@ -268,16 +268,16 @@ function ServiceCard({
         />
       </div>
       <div>
-        <p className="text-[11px] font-semibold tracking-[0.25em] text-brand mb-2 font-display">
+        <p className="text-sm font-medium tracking-[0.25em] text-brand mb-3 font-display">
           {eyebrow}
         </p>
-        <h3 className="text-lg md:text-2xl font-bold mb-4 leading-tight">
+        <h3 className="text-2xl md:text-3xl font-semibold mb-5 leading-tight">
           {title}
         </h3>
-        <p className="text-xs md:text-sm text-zinc-700 leading-relaxed mb-6">
+        <p className="text-sm md:text-base text-zinc-700 leading-relaxed mb-7">
           {description}
         </p>
-        <PillLink href={href} label="詳しく見る" size="sm" />
+        <PillLink href={href} label="詳しく見る" />
       </div>
     </div>
   );

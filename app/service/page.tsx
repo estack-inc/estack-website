@@ -14,12 +14,12 @@ export default function ServicePage() {
 
       <section className="py-10 md:py-16">
         <div className="mx-auto max-w-5xl px-5 md:px-8 grid md:grid-cols-[1fr_1.5fr] gap-8 md:gap-12">
-          <h2 className="text-2xl md:text-4xl font-bold leading-tight">
+          <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
             技術で支え、
             <br />
             共に成長する
           </h2>
-          <div className="space-y-4 text-xs md:text-sm text-zinc-700 leading-relaxed">
+          <div className="space-y-5 text-base md:text-lg text-zinc-700 leading-loose">
             <p>
               プロフェッショナリズムを心に刻み、日々の活動において高い専門性を追求しています。私たちは、常に変化し続けるテクノロジーの最先端に立ち、その進化に対応すべく努力しています。
             </p>
@@ -87,16 +87,16 @@ function ServiceItem({
         />
       </div>
       <div>
-        <p className="text-[11px] font-semibold tracking-[0.25em] text-brand mb-2 font-display">
+        <p className="text-sm font-medium tracking-[0.25em] text-brand mb-3 font-display">
           {eyebrow}
         </p>
-        <h3 className="text-lg md:text-2xl font-bold mb-4 leading-tight">
+        <h3 className="text-2xl md:text-4xl font-semibold mb-5 leading-tight">
           {title}
         </h3>
-        <p className="text-xs md:text-sm text-zinc-700 leading-relaxed mb-6">
+        <p className="text-sm md:text-base text-zinc-700 leading-relaxed mb-7">
           {description}
         </p>
-        <PillLink href={href} label="詳しく見る" size="sm" />
+        <PillLink href={href} label="詳しく見る" />
       </div>
     </div>
   );

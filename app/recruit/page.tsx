@@ -41,7 +41,7 @@ export default function RecruitPage() {
               className="w-full h-full object-cover"
             />
           </div>
-          <h2 className="text-lg md:text-2xl font-bold text-center mb-5 leading-tight">
+          <h2 className="text-lg md:text-2xl font-semibold text-center mb-5 leading-tight">
             わくわくできる人
             <br />
             楽しく仕事がしたい人
@@ -59,7 +59,7 @@ export default function RecruitPage() {
           <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
             Blog
           </p>
-          <h2 className="text-lg md:text-2xl font-bold mb-6 text-center">
+          <h2 className="text-lg md:text-2xl font-semibold mb-6 text-center">
             社内ブログ
           </h2>
           <p className="text-center text-xs text-zinc-600 mb-5">
@@ -77,7 +77,7 @@ export default function RecruitPage() {
           <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
             Jobs
           </p>
-          <h2 className="text-lg md:text-2xl font-bold mb-8 text-center">
+          <h2 className="text-lg md:text-2xl font-semibold mb-8 text-center">
             募集中職種
           </h2>
           <ul className="grid md:grid-cols-2 gap-4">
@@ -91,7 +91,7 @@ export default function RecruitPage() {
                     <span className="inline-flex rounded-full bg-brand text-white text-[10px] px-2.5 py-0.5 mb-3">
                       {j.label}
                     </span>
-                    <h3 className="text-sm font-bold mb-2 group-hover:text-brand transition-colors">
+                    <h3 className="text-sm font-semibold mb-2 group-hover:text-brand transition-colors">
                       {j.title}
                     </h3>
                     <p className="text-xs text-zinc-600 leading-relaxed">
@@ -103,7 +103,7 @@ export default function RecruitPage() {
                     <span className="inline-flex rounded-full bg-zinc-400 text-white text-[10px] px-2.5 py-0.5 mb-3">
                       {j.label}
                     </span>
-                    <h3 className="text-sm font-bold mb-2">{j.title}</h3>
+                    <h3 className="text-sm font-semibold mb-2">{j.title}</h3>
                     <p className="text-xs text-zinc-600 leading-relaxed">
                       {j.body}
                     </p>
