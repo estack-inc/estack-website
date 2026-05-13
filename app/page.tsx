@@ -94,12 +94,14 @@ export default function Home() {
       {/* Services */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="text-center mb-10 md:mb-14">
-            <p className="text-sm font-medium tracking-[0.3em] text-brand mb-3 font-display">
-              Services
-            </p>
-            <h2 className="text-3xl md:text-5xl font-semibold mb-6">サービス</h2>
-            <p className="max-w-2xl mx-auto text-sm md:text-base text-zinc-700 leading-relaxed">
+          <div className="grid md:grid-cols-[1fr_2fr] gap-6 md:gap-12 items-start mb-12 md:mb-16">
+            <div>
+              <p className="text-sm font-medium tracking-[0.3em] text-brand mb-3 font-display">
+                Services
+              </p>
+              <h2 className="text-4xl md:text-6xl font-semibold leading-tight">サービス</h2>
+            </div>
+            <p className="text-sm md:text-base text-zinc-700 leading-relaxed pt-2">
               弊社では古典的な顧客主体の受動的なサービス形態ではなく、
               提案主体の能動的なサービス形態にてお客様にサービスをご提供しております。
               提案主体だからこそお客様に寄り添い、1社1社にマッチしたご提案を徹底しております。
@@ -120,7 +122,6 @@ export default function Home() {
               title="システムエンジニアリングサービス"
               description="最新技術を駆使して業務を効率化し問題を解決する専門的なサービスです。テクノロジーのスキルと問題解決能力を高めながら、様々な業界で経験を積むことが可能です。チームワークとコミュニケーション能力が求められ、多様なキャリアパスが開かれます。また、技術的成長だけでなく、個人の成長も促す魅力的なフィールドです。"
               href="/service/system-engineering-service"
-              reversed
             />
           </div>
         </div>
@@ -271,7 +272,7 @@ function ServiceCard({
         <p className="text-sm font-medium tracking-[0.25em] text-brand mb-3 font-display">
           {eyebrow}
         </p>
-        <h3 className="text-2xl md:text-3xl font-semibold mb-5 leading-tight">
+        <h3 className="text-3xl md:text-4xl font-semibold mb-5 leading-tight">
           {title}
         </h3>
         <p className="text-sm md:text-base text-zinc-700 leading-relaxed mb-7">
