@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
+import PillLink from "@/components/PillLink";
 
 export const metadata = {
   title: "サービス一覧",
@@ -95,13 +96,7 @@ function ServiceItem({
         <p className="text-xs md:text-sm text-zinc-700 leading-relaxed mb-6">
           {description}
         </p>
-        <Link
-          href={href}
-          className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-800 hover:text-brand transition-colors"
-        >
-          詳しく見る
-          <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white text-[9px]">→</span>
-        </Link>
+        <PillLink href={href} label="詳しく見る" size="sm" />
       </div>
     </div>
   );

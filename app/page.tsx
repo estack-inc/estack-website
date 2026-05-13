@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PillLink from "@/components/PillLink";
 
 const NEWS_ITEMS = [
   {
@@ -38,9 +39,9 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-20 pb-12 md:pt-28 md:pb-20">
-          <div className="grid md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-center">
-            <div>
+        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-16 pb-10 md:pt-24 md:pb-20 min-h-[480px] md:min-h-[600px]">
+          <div className="grid md:grid-cols-[1.2fr_1fr] gap-6 md:gap-10 items-center">
+            <div className="relative z-10">
               <h1 className="text-3xl md:text-6xl font-bold leading-tight tracking-wide">
                 技術で支え、
                 <br />
@@ -53,22 +54,16 @@ export default function Home() {
                 <br className="hidden md:inline" />
                 及びシステム・サービス開発を提供します。
               </p>
-              <Link
-                href="/about"
-                className="group mt-8 inline-flex items-center gap-3 text-sm font-semibold text-zinc-900 hover:opacity-70 transition-opacity"
-              >
-                eSTACKについて
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand text-white text-xs group-hover:scale-110 transition-transform">→</span>
-              </Link>
+              <PillLink href="/about" label="eSTACKについて" />
             </div>
-            <div className="w-[180px] md:w-[320px] aspect-square rounded-lg overflow-hidden">
+            <div className="relative aspect-square w-full max-w-[280px] mx-auto md:max-w-none md:mx-0 md:absolute md:right-0 md:top-0 md:bottom-0 md:w-[55%] md:h-full md:aspect-auto md:max-h-[640px] md:my-auto">
               <video
                 src="/videos/hero-pc.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover hidden md:block"
+                className="w-full h-full object-contain hidden md:block"
               />
               <video
                 src="/videos/hero-mobile.mp4"
@@ -76,7 +71,7 @@ export default function Home() {
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover md:hidden"
+                className="w-full h-full object-contain md:hidden"
               />
             </div>
           </div>
@@ -217,14 +212,8 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <div className="text-right mt-6">
-            <Link
-              href="/news"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-800 hover:text-brand transition-colors"
-            >
-              お知らせ一覧へ
-              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white text-[9px]">→</span>
-            </Link>
+          <div className="flex justify-end mt-6">
+            <PillLink href="/news" label="お知らせ一覧へ" size="sm" />
           </div>
         </div>
       </section>
@@ -251,13 +240,7 @@ export default function Home() {
                 エンジニアという職業が好きな人、楽しくエンジニアとして活動したい人ぜひ弊社で働きませんか？
                 弊社ではスキルアップはもちろん、キャリアパスを考慮した人生設計、人脈作り、人間関係の構築なども一緒に築き上げていきます。
               </p>
-              <Link
-                href="/recruit"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-800 hover:text-brand transition-colors"
-              >
-                採用情報へ
-                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white text-[9px]">→</span>
-              </Link>
+              <PillLink href="/recruit" label="採用情報へ" size="sm" />
             </div>
           </div>
         </div>
@@ -306,13 +289,7 @@ function ServiceCard({
         <p className="text-xs md:text-sm text-zinc-700 leading-relaxed mb-6">
           {description}
         </p>
-        <Link
-          href={href}
-          className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-800 hover:text-brand transition-colors"
-        >
-          詳しく見る
-          <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white text-[9px]">→</span>
-        </Link>
+        <PillLink href={href} label="詳しく見る" size="sm" />
       </div>
     </div>
   );

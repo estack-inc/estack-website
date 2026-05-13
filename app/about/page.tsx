@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
+import PillLink from "@/components/PillLink";
 
 export const metadata = {
   title: "eSTACKについて",
@@ -334,13 +335,7 @@ export default function AboutPage() {
             <p className="text-xs md:text-sm text-zinc-700 leading-relaxed mb-5">
               エンジニアという職業が好きな人、楽しくエンジニアとして活動したい人ぜひ弊社で働きませんか？
             </p>
-            <Link
-              href="/recruit"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-800 hover:text-brand transition-colors"
-            >
-              採用情報へ
-              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white text-[9px]">→</span>
-            </Link>
+            <PillLink href="/recruit" label="採用情報へ" size="sm" />
           </div>
         </div>
       </section>

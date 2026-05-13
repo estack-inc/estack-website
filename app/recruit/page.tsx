@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
+import PillLink from "@/components/PillLink";
 
 export const metadata = {
   title: "採用情報",
@@ -64,14 +65,8 @@ export default function RecruitPage() {
           <p className="text-center text-xs text-zinc-600 mb-5">
             コンテンツを準備中です。
           </p>
-          <div className="text-center">
-            <Link
-              href="/news"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-800 hover:text-brand transition-colors"
-            >
-              記事一覧へ
-              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white text-[9px]">→</span>
-            </Link>
+          <div className="flex justify-center">
+            <PillLink href="/news" label="記事一覧へ" size="sm" />
           </div>
         </div>
       </section>
