@@ -22,12 +22,12 @@ export default function PageHeader({
         </h1>
       </div>
       {showWave && (
-        <div className="mt-6 md:mt-10 w-full pointer-events-none">
+        <div className="mt-8 md:mt-12 w-full pointer-events-none overflow-hidden">
           <Image
-            src="/wave.svg"
+            src="/wave-ribbon.svg"
             alt=""
-            width={1512}
-            height={348}
+            width={2191}
+            height={251}
             className="w-full h-auto"
             aria-hidden
             priority
