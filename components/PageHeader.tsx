@@ -10,25 +10,8 @@ export default function PageHeader({
   showWave?: boolean;
 }) {
   return (
-    <section className="relative bg-white pt-6 pb-4 md:pt-10 md:pb-6 overflow-hidden">
-      {showWave && (
-        <div className="absolute top-0 left-0 right-0 w-full pointer-events-none -z-0">
-          <Image
-            src="/wave.svg"
-            alt=""
-            width={1512}
-            height={348}
-            className="w-full h-auto max-h-[110px] md:max-h-[140px] object-cover object-top"
-            aria-hidden
-            priority
-          />
-        </div>
-      )}
-      <div
-        className={`relative mx-auto max-w-7xl px-5 md:px-8 ${
-          showWave ? "pt-8 md:pt-14" : "pt-2 md:pt-6"
-        }`}
-      >
+    <section className="relative bg-white pt-10 md:pt-16 overflow-hidden">
+      <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         {subtitle && (
           <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display">
             {subtitle}
@@ -38,6 +21,19 @@ export default function PageHeader({
           {title}
         </h1>
       </div>
+      {showWave && (
+        <div className="mt-6 md:mt-10 w-full pointer-events-none">
+          <Image
+            src="/wave.svg"
+            alt=""
+            width={1512}
+            height={348}
+            className="w-full h-auto"
+            aria-hidden
+            priority
+          />
+        </div>
+      )}
     </section>
   );
 }
