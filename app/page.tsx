@@ -28,52 +28,40 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-white">
-        <div className="absolute top-0 left-0 right-0 w-full pointer-events-none -z-0">
-          <Image
-            src="/wave.svg"
-            alt=""
-            width={1512}
-            height={348}
-            className="w-full h-auto"
-            aria-hidden
-            priority
+        {/* 動画を画面全体に背景として表示 */}
+        <div className="absolute inset-0 -z-0">
+          <video
+            src="/videos/hero-pc.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover hidden md:block"
+          />
+          <video
+            src="/videos/hero-mobile.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover md:hidden"
           />
         </div>
-        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-16 pb-10 md:pt-24 md:pb-20 min-h-[480px] md:min-h-[600px]">
-          <div className="grid md:grid-cols-[1.2fr_1fr] gap-6 md:gap-10 items-center">
-            <div className="relative z-10">
-              <h1 className="text-3xl md:text-6xl font-bold leading-tight tracking-wide">
-                技術で支え、
-                <br />
-                共に成長する
-              </h1>
-              <p className="mt-6 max-w-xl text-xs md:text-sm text-zinc-700 leading-relaxed">
-                プロフェッショナリズムを常に意識し、専門技術を最大限に活用して
-                <br className="hidden md:inline" />
-                お客様に高品質なWeb技術に特化した技術支援、
-                <br className="hidden md:inline" />
-                及びシステム・サービス開発を提供します。
-              </p>
-              <PillLink href="/about" label="eSTACKについて" />
-            </div>
-            <div className="relative aspect-square w-full max-w-[280px] mx-auto md:max-w-none md:mx-0 md:absolute md:right-0 md:top-0 md:bottom-0 md:w-[55%] md:h-full md:aspect-auto md:max-h-[640px] md:my-auto">
-              <video
-                src="/videos/hero-pc.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-contain hidden md:block"
-              />
-              <video
-                src="/videos/hero-mobile.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-contain md:hidden"
-              />
-            </div>
+        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-16 pb-12 md:pt-28 md:pb-24 min-h-[420px] md:min-h-[560px]">
+          <div className="max-w-2xl">
+            <h1 className="text-3xl md:text-6xl font-bold leading-tight tracking-wide">
+              技術で支え、
+              <br />
+              共に成長する
+            </h1>
+            <p className="mt-6 max-w-xl text-xs md:text-sm text-zinc-800 leading-relaxed">
+              プロフェッショナリズムを常に意識し、専門技術を最大限に活用して
+              <br className="hidden md:inline" />
+              お客様に高品質なWeb技術に特化した技術支援、
+              <br className="hidden md:inline" />
+              及びシステム・サービス開発を提供します。
+            </p>
+            <PillLink href="/about" label="eSTACKについて" />
           </div>
         </div>
       </section>

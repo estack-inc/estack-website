@@ -11,10 +11,10 @@ type Props = {
 // ホバー: オレンジ背景+白文字+白円+オレンジ矢印
 export default function PillLink({ href, label, size = "md" }: Props) {
   const padding =
-    size === "sm" ? "pl-5 pr-1 py-1" : "pl-7 md:pl-8 pr-1.5 py-1.5";
-  const text = size === "sm" ? "text-xs" : "text-sm";
+    size === "sm" ? "pl-4 pr-1 py-1" : "pl-6 pr-1 py-1";
+  const text = size === "sm" ? "text-[11px]" : "text-xs";
   const circle =
-    size === "sm" ? "h-6 w-6 text-[11px]" : "h-9 w-9 md:h-10 md:w-10 text-base";
+    size === "sm" ? "h-6 w-6 text-[11px]" : "h-7 w-7 text-xs";
   return (
     <Link
       href={href}

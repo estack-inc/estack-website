@@ -29,13 +29,13 @@ export default function Header() {
           />
         </Link>
 
-        <div className="flex items-center gap-3 md:gap-5">
-          <nav className="hidden lg:flex items-center gap-7">
+        <div className="ml-auto flex items-center gap-4 md:gap-6">
+          <nav className="hidden lg:flex items-center gap-6">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-zinc-700 hover:text-brand transition-colors"
+                className="text-xs font-medium text-zinc-700 hover:text-brand transition-colors"
               >
                 {item.label}
               </Link>
@@ -43,7 +43,7 @@ export default function Header() {
           </nav>
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center justify-center rounded-full border border-zinc-900 px-7 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-900 hover:text-white transition-colors"
+            className="hidden md:inline-flex items-center justify-center rounded-full border border-zinc-900 px-5 py-2 text-xs font-semibold text-zinc-900 hover:bg-brand hover:border-brand hover:text-white transition-colors"
           >
             お問い合わせ
           </Link>
@@ -52,16 +52,16 @@ export default function Header() {
             aria-label="メニューを開く"
             aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-brand text-white hover:opacity-90 transition-opacity"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white hover:opacity-90 transition-opacity"
           >
             <span className="sr-only">メニュー</span>
             {open ? (
               <span className="text-xl leading-none">×</span>
             ) : (
               <span className="flex items-center gap-[3px]">
-                <span className="h-[5px] w-[5px] rounded-full bg-white" />
-                <span className="h-[5px] w-[5px] rounded-full bg-white" />
-                <span className="h-[5px] w-[5px] rounded-full bg-white" />
+                <span className="h-[4px] w-[4px] rounded-full bg-white" />
+                <span className="h-[4px] w-[4px] rounded-full bg-white" />
+                <span className="h-[4px] w-[4px] rounded-full bg-white" />
               </span>
             )}
           </button>
