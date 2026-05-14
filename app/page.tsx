@@ -299,7 +299,7 @@ function ServiceCard({
           aria-hidden
           className={
             variant === "si"
-              ? "absolute left-[3%] bottom-[52%] w-[32%] z-20"
+              ? "absolute left-[3%] bottom-[20%] w-[32%] z-20"
               : "absolute left-[63%] bottom-[37%] w-[32%] z-20"
           }
         />
