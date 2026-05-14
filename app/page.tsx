@@ -264,31 +264,39 @@ function ServiceCard({
   href: string;
   variant: "si" | "ses";
 }) {
-  // SI: 円は枠線のみ・透明、ドットは水色
-  // SES: 円は薄オレンジで塗り、ドットはオレンジ
-  const circleClasses =
+  // 旧サイトの SVG ファイルをそのまま使う（色・位置・サイズが完全一致）
+  // SI: ドット青 #1E78FF + 円枠線のみ
+  // SES: ドットオレンジ + 円薄オレンジ塗り
+  const circleSrc =
     variant === "si"
-      ? "border-2 border-brand bg-transparent"
-      : "bg-brand/20";
-  const dotColor = variant === "si" ? "bg-sky-300" : "bg-brand";
+      ? "/images/s-357x357_ac68ffd8-3b0e-470f-b8ea-0ce4eb149d2c.svg"
+      : "/images/s-357x357_bee8ff2e-8613-4535-8b42-44529ddb319b.svg";
+  const dotSrc =
+    variant === "si"
+      ? "/images/s-165x183_73486b20-41ee-40e0-99b3-21f2a2f12cd0.svg"
+      : "/images/s-165x183_01ce5f45-036a-4823-8858-6c7005f0d337.svg";
 
   return (
     <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
       <div className="relative aspect-square max-w-[420px] md:max-w-[520px] mx-auto flex items-center justify-center">
-        {/* 背景の円 */}
-        <div
-          className={`absolute inset-[10%] rounded-full animate-float-deco ${circleClasses}`}
+        {/* 背景の円（旧サイトと同じ SVG） */}
+        <Image
+          src={circleSrc}
+          alt=""
+          width={357}
+          height={357}
           aria-hidden
+          className="absolute inset-[8%] w-[84%] h-[84%] animate-float-deco"
         />
-        {/* 10×10 ドット格子（左下、illustration の枠よりわずかに内側） */}
-        <div
-          className="absolute left-[4%] bottom-[8%] grid grid-cols-10 gap-2 md:gap-2.5"
+        {/* 10×10 ドット格子（旧サイトと同じ SVG） */}
+        <Image
+          src={dotSrc}
+          alt=""
+          width={165}
+          height={183}
           aria-hidden
-        >
-          {Array.from({ length: 100 }).map((_, i) => (
-            <span key={i} className={`block h-[3px] w-[3px] md:h-1 md:w-1 rounded-full ${dotColor} opacity-80`} />
-          ))}
-        </div>
+          className="absolute left-[3%] bottom-[10%] w-[32%]"
+        />
         <Image
           src={imageSrc}
           alt=""
