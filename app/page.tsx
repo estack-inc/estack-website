@@ -44,8 +44,8 @@ const NEWS_ITEMS = [
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden">
+      {/* Hero — ヘッダー後ろまで動画を拡張（ヘッダー高さぶん上にめり込ませる） */}
+      <section className="relative overflow-hidden -mt-20 md:-mt-24">
         {/* 動画を画面全体に背景として表示 */}
         <div className="absolute inset-0 -z-0">
           <video
@@ -65,7 +65,7 @@ export default function Home() {
             className="w-full h-full object-cover md:hidden"
           />
         </div>
-        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-16 pb-12 md:pt-28 md:pb-24 min-h-[calc(100vh-5rem)] md:min-h-[calc(100vh-6rem)] flex items-center">
+        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-36 pb-12 md:pt-52 md:pb-24 min-h-screen flex items-center">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-7xl font-semibold leading-tight tracking-wide">
               技術で支え、
