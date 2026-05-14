@@ -119,10 +119,10 @@ export default function Footer() {
           type="button"
           onClick={scrollTop}
           aria-label="ページ上部へ"
-          className="absolute right-5 md:right-8 -top-6 group inline-flex items-center gap-2 text-xs font-semibold text-zinc-900 hover:text-brand transition-colors"
+          className="absolute right-5 md:right-8 -top-8 group inline-flex h-[60px] items-center gap-6 rounded-full border-2 border-zinc-100 bg-white pl-10 pr-3 text-base font-semibold text-zinc-800 shadow-sm transition-colors hover:bg-brand hover:border-brand hover:text-white"
         >
           <span>Page top</span>
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand text-white text-xs group-hover:bg-brand-light transition-colors">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white text-sm transition-colors group-hover:bg-white group-hover:text-brand">
             ↑
           </span>
         </button>

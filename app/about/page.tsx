@@ -335,7 +335,7 @@ export default function AboutPage() {
             <p className="text-sm md:text-base text-zinc-700 leading-relaxed mb-8">
               エンジニアという職業が好きな人、楽しくエンジニアとして活動したい人ぜひ弊社で働きませんか？
             </p>
-            <PillLink href="/recruit" label="採用情報へ" size="sm" />
+            <PillLink href="/recruit" label="採用情報へ" />
           </div>
         </div>
       </section>

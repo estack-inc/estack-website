@@ -206,7 +206,7 @@ export default function Home() {
             ))}
           </ul>
           <div className="flex justify-end mt-6">
-            <PillLink href="/news" label="お知らせ一覧へ" size="sm" />
+            <PillLink href="/news" label="お知らせ一覧へ" />
           </div>
         </div>
       </section>

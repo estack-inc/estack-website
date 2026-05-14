@@ -66,7 +66,7 @@ export default function RecruitPage() {
             コンテンツを準備中です。
           </p>
           <div className="flex justify-center">
-            <PillLink href="/news" label="記事一覧へ" size="sm" />
+            <PillLink href="/news" label="記事一覧へ" />
           </div>
         </div>
       </section>
