@@ -217,9 +217,9 @@ export default function Home() {
           <div className="grid md:grid-cols-[1fr_1.1fr] gap-10 md:gap-14 items-center">
             <CareerPhotoStack
               photos={[
-                "/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp",
-                "/images/s-2000x1080_v-frms_webp_eba8a87b-4db3-49ad-b4d8-b809f2a38f56_regular.webp",
-                "/images/s-2000x1080_v-frms_webp_fff9b2ef-9134-4ad2-86a0-1f7a5c0de2b2_regular.webp",
+                "/images/s-1872x2400_v-frms_webp_b8b75caa-8f7d-4a8d-9690-db0770aca575_middle.webp",
+                "/images/s-1872x2400_v-frms_webp_02f57ec0-bfa3-43cc-96a3-a62447fc08ba_middle.webp",
+                "/images/s-1872x2400_v-frms_webp_a862f622-0fc8-4ddc-be08-a3e12a922f2a_middle.webp",
               ]}
             />
             <div>

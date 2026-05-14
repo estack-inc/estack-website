@@ -40,7 +40,7 @@ export default function CareerPhotoStack({ photos }: Props) {
               opacity: isTop ? 1 : stackIdx === 1 ? 0.95 : 0.85,
             }}
           >
-            <div className="relative h-full w-full overflow-hidden rounded-lg border-[6px] md:border-[8px] border-white bg-zinc-100">
+            <div className="relative h-full w-full overflow-hidden rounded-lg bg-zinc-100">
               <Image
                 src={photos[photoIdx]}
                 alt=""
