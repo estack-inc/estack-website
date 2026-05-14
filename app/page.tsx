@@ -264,24 +264,29 @@ function ServiceCard({
   href: string;
   variant: "si" | "ses";
 }) {
-  const circleColor = variant === "si" ? "bg-brand/15" : "bg-brand/25";
+  // SI: 円は枠線のみ・透明、ドットは水色
+  // SES: 円は薄オレンジで塗り、ドットはオレンジ
+  const circleClasses =
+    variant === "si"
+      ? "border-2 border-brand bg-transparent"
+      : "bg-brand/20";
   const dotColor = variant === "si" ? "bg-sky-300" : "bg-brand";
 
   return (
     <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
       <div className="relative aspect-square max-w-[420px] md:max-w-[520px] mx-auto flex items-center justify-center">
-        {/* 背景のオレンジ円 */}
+        {/* 背景の円 */}
         <div
-          className={`absolute inset-[10%] rounded-full ${circleColor} animate-float-deco`}
+          className={`absolute inset-[10%] rounded-full animate-float-deco ${circleClasses}`}
           aria-hidden
         />
-        {/* 10×10 ドット格子（左下） */}
+        {/* 10×10 ドット格子（左下、illustration の枠よりわずかに内側） */}
         <div
-          className="absolute left-0 bottom-0 grid grid-cols-10 gap-1.5"
+          className="absolute left-[4%] bottom-[8%] grid grid-cols-10 gap-2 md:gap-2.5"
           aria-hidden
         >
           {Array.from({ length: 100 }).map((_, i) => (
-            <span key={i} className={`block h-1 w-1 rounded-full ${dotColor} opacity-70`} />
+            <span key={i} className={`block h-[3px] w-[3px] md:h-1 md:w-1 rounded-full ${dotColor} opacity-80`} />
           ))}
         </div>
         <Image
