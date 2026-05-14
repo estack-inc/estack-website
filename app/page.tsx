@@ -288,7 +288,9 @@ function ServiceCard({
           aria-hidden
           className="absolute inset-[8%] w-[84%] h-[84%] animate-float-deco"
         />
-        {/* 10×10 ドット格子（旧サイトと同じ SVG）— SI は左下、SES は中央右寄りで少し下 */}
+        {/* 10×10 ドット格子（旧サイトと同じ SVG）
+            SI: 左下
+            SES: イラスト下部、左辺が男性の右足にかかる位置 */}
         <Image
           src={dotSrc}
           alt=""
@@ -298,7 +300,7 @@ function ServiceCard({
           className={
             variant === "si"
               ? "absolute left-[3%] bottom-[10%] w-[32%]"
-              : "absolute left-[55%] bottom-[3%] w-[32%]"
+              : "absolute left-[33%] bottom-[12%] w-[38%]"
           }
         />
         <Image
