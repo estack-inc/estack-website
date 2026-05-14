@@ -278,19 +278,19 @@ function ServiceCard({
 
   return (
     <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
-      <div className="relative aspect-square max-w-[420px] md:max-w-[520px] mx-auto flex items-center justify-center">
-        {/* 背景の円（旧サイトと同じ SVG） */}
+      <div className="relative aspect-[5/6] max-w-[420px] md:max-w-[520px] mx-auto">
+        {/* 背景の円（旧サイトと同じ SVG）— 上 70% エリアの中央に配置 */}
         <Image
           src={circleSrc}
           alt=""
           width={357}
           height={357}
           aria-hidden
-          className="absolute inset-[8%] w-[84%] h-[84%] animate-float-deco"
+          className="absolute left-[8%] top-[2%] w-[84%] aspect-square animate-float-deco"
         />
         {/* 10×10 ドット格子（旧サイトと同じ SVG）
             SI: 左下
-            SES: イラスト下部、左辺が男性の右足にかかる位置 */}
+            SES: イラスト下、男性の右足にかかる位置（左 33%、下 3%） */}
         <Image
           src={dotSrc}
           alt=""
@@ -299,16 +299,17 @@ function ServiceCard({
           aria-hidden
           className={
             variant === "si"
-              ? "absolute left-[3%] bottom-[10%] w-[32%]"
-              : "absolute left-[10%] bottom-[50%] w-[38%]"
+              ? "absolute left-[3%] bottom-[2%] w-[32%] z-20"
+              : "absolute left-[33%] bottom-[2%] w-[32%] z-20"
           }
         />
+        {/* イラスト本体 — 上 70% に配置 */}
         <Image
           src={imageSrc}
           alt=""
           width={520}
           height={520}
-          className="relative z-10 w-full h-full object-contain animate-float-main"
+          className="absolute left-0 top-0 w-full h-[75%] object-contain z-10 animate-float-main"
         />
       </div>
       <div>
