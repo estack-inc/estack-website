@@ -279,23 +279,31 @@ function ServiceCard({
   return (
     <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
       <div className="relative aspect-square w-full max-w-[420px] md:max-w-[520px] mx-auto">
-        {/* 背景の円（旧サイト実測: left 42%, top 16%, width 62%） */}
+        {/* 背景の円（旧サイト実測値）— SI: 右側 / SES: 左側 */}
         <Image
           src={circleSrc}
           alt=""
           width={357}
           height={357}
           aria-hidden
-          className="absolute left-[42%] top-[16%] w-[62%] aspect-square animate-float-deco"
+          className={
+            variant === "si"
+              ? "absolute left-[42%] top-[16%] w-[62%] aspect-square animate-float-deco"
+              : "absolute left-[3%] top-[-2%] w-[62%] aspect-square animate-float-deco"
+          }
         />
-        {/* 10×10 ドット格子（旧サイト実測: left 5%, bottom 2%, width 29%） */}
+        {/* 10×10 ドット格子（旧サイト実測値）— SI: 左下 / SES: 右下（少しはみ出し） */}
         <Image
           src={dotSrc}
           alt=""
           width={165}
           height={183}
           aria-hidden
-          className="absolute left-[5%] bottom-[2%] w-[29%] z-10"
+          className={
+            variant === "si"
+              ? "absolute left-[5%] bottom-[2%] w-[29%] z-10"
+              : "absolute left-[71%] bottom-[-9%] w-[29%] z-10"
+          }
         />
         {/* イラスト本体 — 最前面 */}
         <Image
