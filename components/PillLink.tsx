@@ -17,8 +17,8 @@ export default function PillLink({ href, label, size = "md" }: Props) {
       href={href}
       className={`group mt-7 inline-flex items-center gap-6 rounded-full border-2 border-zinc-100 bg-white text-zinc-800 font-semibold shadow-sm transition-colors hover:bg-brand hover:border-brand hover:text-white ${
         isMd
-          ? "pl-10 pr-3 py-2.5 text-base"
-          : "pl-7 pr-2 py-2 text-sm"
+          ? "h-[60px] pl-10 pr-3 text-base"
+          : "h-11 pl-7 pr-2 text-sm"
       }`}
     >
       {label}

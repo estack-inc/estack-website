@@ -43,7 +43,7 @@ export default function Header() {
           </nav>
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center justify-center rounded-full border border-zinc-700 px-10 py-3 text-base font-semibold text-zinc-800 leading-tight hover:bg-brand hover:border-brand hover:text-white transition-colors"
+            className="hidden md:inline-flex h-14 items-center justify-center rounded-full border border-zinc-700 px-10 text-base font-semibold text-zinc-800 hover:bg-brand hover:border-brand hover:text-white transition-colors"
           >
             お問い合わせ
           </Link>
