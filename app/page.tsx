@@ -183,7 +183,7 @@ export default function Home() {
                       alt=""
                       width={400}
                       height={300}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-contain"
                     />
                   </div>
                   <p className="text-xs text-zinc-500 mb-1">{item.date}</p>
