@@ -16,7 +16,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-zinc-100">
+    <header className="sticky top-0 z-50 bg-transparent">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:h-24 md:px-8">
         <Link href="/" className="flex items-center" aria-label="eSTACK ホーム">
           <Image
