@@ -1,6 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import PillLink from "@/components/PillLink";
+import CareerPhotoStack from "@/components/CareerPhotoStack";
+
+// 大見出しの英語表記用：オレンジの●＋黒文字
+function SectionEyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+  return (
+    <p className={`flex items-center gap-2 text-sm font-medium tracking-[0.3em] mb-3 font-display ${light ? "text-white" : "text-zinc-900"}`}>
+      <span className={`inline-block h-2 w-2 rounded-full ${light ? "bg-white" : "bg-brand"}`} />
+      {children}
+    </p>
+  );
+}
 
 const NEWS_DEFAULT_THUMB =
   "/images/s-2400x1350_v-frms_webp_86d4ce22-2dc4-417e-9371-93561f248630_small.webp";
@@ -54,7 +65,7 @@ export default function Home() {
             className="w-full h-full object-cover md:hidden"
           />
         </div>
-        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-16 pb-12 md:pt-28 md:pb-24 min-h-[420px] md:min-h-[560px]">
+        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-16 pb-12 md:pt-28 md:pb-24 min-h-[calc(100vh-5rem)] md:min-h-[calc(100vh-6rem)] flex items-center">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-7xl font-semibold leading-tight tracking-wide">
               技術で支え、
@@ -103,9 +114,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid md:grid-cols-[1fr_2fr] gap-6 md:gap-12 items-start mb-12 md:mb-16">
             <div>
-              <p className="text-sm font-medium tracking-[0.3em] text-brand mb-3 font-display">
-                Services
-              </p>
+              <SectionEyebrow>Services</SectionEyebrow>
               <h2 className="text-4xl md:text-6xl font-semibold leading-tight">サービス</h2>
             </div>
             <p className="text-sm md:text-base text-zinc-700 leading-relaxed pt-2">
@@ -122,6 +131,7 @@ export default function Home() {
               title="システムインテグレーション"
               description="システムインテグレーション（SI）は、異なるITシステムやソフトウェアを統合し、一つの連携した効率的なシステムを構築するプロセスです。このアプローチにより、企業はデータを一元化し、業務プロセスを自動化することが可能となり、全体的な運用効率とビジネスの柔軟性を大幅に向上させることができます。"
               href="/service/system-integration"
+              variant="si"
             />
             <ServiceCard
               imageSrc="/images/s-584x580_4e84b74a-a2d2-4fd3-b924-30cd59a19dc1.svg"
@@ -129,15 +139,16 @@ export default function Home() {
               title="システムエンジニアリングサービス"
               description="最新技術を駆使して業務を効率化し問題を解決する専門的なサービスです。テクノロジーのスキルと問題解決能力を高めながら、様々な業界で経験を積むことが可能です。チームワークとコミュニケーション能力が求められ、多様なキャリアパスが開かれます。また、技術的成長だけでなく、個人の成長も促す魅力的なフィールドです。"
               href="/service/system-engineering-service"
+              variant="ses"
             />
           </div>
         </div>
       </section>
 
-      {/* Work — 斜めのフレームで写真を並べる */}
+      {/* Work — オレンジフレームで斜めに表示 */}
       <section className="py-16 md:py-24 overflow-hidden">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 md:gap-x-10 md:gap-y-14">
             {[
               { src: "/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp", rotate: "-rotate-3" },
               { src: "/images/s-2400x1571_v-frms_webp_71df778e-335b-4f00-a9da-50991eedb423_middle.webp", rotate: "rotate-2" },
@@ -145,18 +156,17 @@ export default function Home() {
               { src: "/images/s-2400x1571_v-frms_webp_74b0d62b-a554-4459-a3dc-95674adefa7b_middle.webp", rotate: "rotate-3" },
               { src: "/images/s-2000x1080_v-frms_webp_fff9b2ef-9134-4ad2-86a0-1f7a5c0de2b2_regular.webp", rotate: "-rotate-3" },
               { src: "/images/s-2400x1250_v-frms_webp_c2ff8c63-996c-43fd-9d7b-b3105683b65b_small.webp", rotate: "rotate-2" },
-            ].map((item, i) => (
+            ].map((item) => (
               <div
                 key={item.src}
-                className={`aspect-[4/3] overflow-hidden rounded-lg bg-white shadow-md transform ${item.rotate} hover:rotate-0 transition-transform duration-500`}
-                style={{ animationDelay: `${i * 0.15}s` }}
+                className={`relative aspect-[4/3] rounded-md border-[6px] md:border-[8px] border-brand bg-white shadow-md transform ${item.rotate} hover:rotate-0 transition-transform duration-500`}
               >
                 <Image
                   src={item.src}
                   alt=""
                   width={600}
                   height={450}
-                  className="h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>
             ))}
@@ -167,10 +177,8 @@ export default function Home() {
       {/* News */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <div className="text-center mb-10 md:mb-12">
-            <p className="text-sm font-medium tracking-[0.3em] text-brand mb-3 font-display">
-              News
-            </p>
+          <div className="text-center mb-10 md:mb-12 flex flex-col items-center">
+            <SectionEyebrow>News</SectionEyebrow>
             <h2 className="text-3xl md:text-5xl font-semibold">お知らせ</h2>
           </div>
           <ul className="grid grid-cols-3 gap-3 md:gap-5">
@@ -204,22 +212,18 @@ export default function Home() {
       </section>
 
       {/* Career */}
-      <section className="relative py-12 md:py-20 overflow-hidden">
+      <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <div className="grid md:grid-cols-[1.1fr_1fr] gap-8 md:gap-10 items-center">
-            <div className="aspect-[3/2] overflow-hidden rounded-lg">
-              <Image
-                src="/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp"
-                alt=""
-                width={1000}
-                height={667}
-                className="h-full w-full object-cover"
-              />
-            </div>
+          <div className="grid md:grid-cols-[1fr_1.1fr] gap-10 md:gap-14 items-center">
+            <CareerPhotoStack
+              photos={[
+                "/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp",
+                "/images/s-2000x1080_v-frms_webp_eba8a87b-4db3-49ad-b4d8-b809f2a38f56_regular.webp",
+                "/images/s-2000x1080_v-frms_webp_fff9b2ef-9134-4ad2-86a0-1f7a5c0de2b2_regular.webp",
+              ]}
+            />
             <div>
-              <p className="text-sm font-medium tracking-[0.3em] text-brand mb-3 font-display">
-                Career
-              </p>
+              <SectionEyebrow>Career</SectionEyebrow>
               <h2 className="text-3xl md:text-5xl font-semibold mb-6">採用情報</h2>
               <p className="text-sm md:text-base text-zinc-700 leading-relaxed mb-8">
                 エンジニアという職業が好きな人、楽しくエンジニアとして活動したい人ぜひ弊社で働きませんか？
@@ -228,6 +232,17 @@ export default function Home() {
               <PillLink href="/recruit" label="採用情報へ" />
             </div>
           </div>
+        </div>
+        {/* 下部のオレンジリボン */}
+        <div className="absolute bottom-0 left-0 right-0 w-full pointer-events-none -z-10">
+          <Image
+            src="/wave-ribbon.svg"
+            alt=""
+            width={2191}
+            height={251}
+            className="w-full h-auto"
+            aria-hidden
+          />
         </div>
       </section>
     </>
@@ -240,28 +255,41 @@ function ServiceCard({
   title,
   description,
   href,
-  reversed = false,
+  variant,
 }: {
   imageSrc: string;
   eyebrow: string;
   title: string;
   description: string;
   href: string;
-  reversed?: boolean;
+  variant: "si" | "ses";
 }) {
+  const circleColor = variant === "si" ? "bg-brand/15" : "bg-brand/25";
+  const dotColor = variant === "si" ? "bg-sky-300" : "bg-brand";
+
   return (
-    <div
-      className={`grid md:grid-cols-2 gap-6 md:gap-12 items-center ${
-        reversed ? "md:[&>div:first-child]:order-2" : ""
-      }`}
-    >
-      <div className="aspect-square max-w-[420px] md:max-w-[520px] mx-auto flex items-center justify-center">
+    <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
+      <div className="relative aspect-square max-w-[420px] md:max-w-[520px] mx-auto flex items-center justify-center">
+        {/* 背景のオレンジ円 */}
+        <div
+          className={`absolute inset-[10%] rounded-full ${circleColor} animate-float-deco`}
+          aria-hidden
+        />
+        {/* 10×10 ドット格子（左下） */}
+        <div
+          className="absolute left-0 bottom-0 grid grid-cols-10 gap-1.5"
+          aria-hidden
+        >
+          {Array.from({ length: 100 }).map((_, i) => (
+            <span key={i} className={`block h-1 w-1 rounded-full ${dotColor} opacity-70`} />
+          ))}
+        </div>
         <Image
           src={imageSrc}
           alt=""
           width={520}
           height={520}
-          className="w-full h-full object-contain animate-float-main"
+          className="relative z-10 w-full h-full object-contain animate-float-main"
         />
       </div>
       <div>
