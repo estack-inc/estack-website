@@ -177,13 +177,13 @@ export default function Home() {
             {NEWS_ITEMS.map((item, i) => (
               <li key={i}>
                 <Link href={item.href} className="block group">
-                  <div className="aspect-[4/3] overflow-hidden rounded bg-zinc-100 mb-3">
+                  <div className="aspect-[16/9] overflow-hidden rounded bg-zinc-100 mb-3">
                     <Image
                       src={item.thumb}
                       alt=""
                       width={400}
-                      height={300}
-                      className="h-full w-full object-contain"
+                      height={225}
+                      className="h-full w-full object-cover object-center"
                     />
                   </div>
                   <p className="text-xs text-zinc-500 mb-1">{item.date}</p>
