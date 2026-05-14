@@ -2,24 +2,31 @@ import Image from "next/image";
 import Link from "next/link";
 import PillLink from "@/components/PillLink";
 
+const NEWS_DEFAULT_THUMB =
+  "/images/s-2400x1350_v-frms_webp_86d4ce22-2dc4-417e-9371-93561f248630_small.webp";
+
 const NEWS_ITEMS = [
   {
     date: "2025.12.16",
     category: "お知らせ",
     title: "労働者派遣法に基づく情報提供",
     href: "/news/20251216",
+    thumb: NEWS_DEFAULT_THUMB,
   },
   {
     date: "2025.05.27",
     category: "お知らせ",
     title: "本社を移転しました",
     href: "/news/20250527",
+    thumb:
+      "/images/s-3846x2066_v-frms_webp_5398baec-1793-4e60-b51d-dbf5e66469ac_small.webp",
   },
   {
     date: "2024.10.07",
     category: "お知らせ",
     title: "労働者派遣法に基づく情報提供",
     href: "/news/20241007",
+    thumb: NEWS_DEFAULT_THUMB,
   },
 ];
 
@@ -127,43 +134,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Work */}
-      <section className="py-16 md:py-24">
+      {/* Work — 斜めのフレームで写真を並べる */}
+      <section className="py-16 md:py-24 overflow-hidden">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="rounded-3xl bg-brand p-6 md:p-12">
-            <div className="text-center mb-8 text-white">
-              <p className="text-sm font-medium tracking-[0.3em] mb-3 font-display opacity-90">
-                Work
-              </p>
-              <h2 className="text-3xl md:text-5xl font-semibold mb-4">実績</h2>
-              <p className="max-w-xl mx-auto text-sm md:text-base leading-relaxed opacity-95">
-                eSTACKが携わった開発、技術支援などの実績をご紹介いたします。
-              </p>
-            </div>
-
-            <div className="grid grid-cols-3 gap-2 md:gap-3 max-w-3xl mx-auto">
-              {[
-                "/images/s-2400x1571_v-frms_webp_71df778e-335b-4f00-a9da-50991eedb423_middle.webp",
-                "/images/s-2400x1571_v-frms_webp_74b0d62b-a554-4459-a3dc-95674adefa7b_middle.webp",
-                "/images/s-2400x1250_v-frms_webp_2efc1785-93a8-4de3-91ec-93373a224ffd_small.webp",
-                "/images/s-2400x1250_v-frms_webp_c2ff8c63-996c-43fd-9d7b-b3105683b65b_small.webp",
-                "/images/s-2400x1350_v-frms_webp_86d4ce22-2dc4-417e-9371-93561f248630_small.webp",
-                "/images/s-3846x2066_v-frms_webp_5398baec-1793-4e60-b51d-dbf5e66469ac_small.webp",
-              ].map((src) => (
-                <div
-                  key={src}
-                  className="aspect-[4/3] overflow-hidden rounded-md bg-white"
-                >
-                  <Image
-                    src={src}
-                    alt=""
-                    width={400}
-                    height={300}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+            {[
+              { src: "/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp", rotate: "-rotate-3" },
+              { src: "/images/s-2400x1571_v-frms_webp_71df778e-335b-4f00-a9da-50991eedb423_middle.webp", rotate: "rotate-2" },
+              { src: "/images/s-2000x1080_v-frms_webp_eba8a87b-4db3-49ad-b4d8-b809f2a38f56_regular.webp", rotate: "-rotate-2" },
+              { src: "/images/s-2400x1571_v-frms_webp_74b0d62b-a554-4459-a3dc-95674adefa7b_middle.webp", rotate: "rotate-3" },
+              { src: "/images/s-2000x1080_v-frms_webp_fff9b2ef-9134-4ad2-86a0-1f7a5c0de2b2_regular.webp", rotate: "-rotate-3" },
+              { src: "/images/s-2400x1250_v-frms_webp_c2ff8c63-996c-43fd-9d7b-b3105683b65b_small.webp", rotate: "rotate-2" },
+            ].map((item, i) => (
+              <div
+                key={item.src}
+                className={`aspect-[4/3] overflow-hidden rounded-lg bg-white shadow-md transform ${item.rotate} hover:rotate-0 transition-transform duration-500`}
+                style={{ animationDelay: `${i * 0.15}s` }}
+              >
+                <Image
+                  src={item.src}
+                  alt=""
+                  width={600}
+                  height={450}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -183,7 +179,7 @@ export default function Home() {
                 <Link href={item.href} className="block group">
                   <div className="aspect-[4/3] overflow-hidden rounded bg-zinc-100 mb-3">
                     <Image
-                      src="/images/s-2400x1350_v-frms_webp_86d4ce22-2dc4-417e-9371-93561f248630_small.webp"
+                      src={item.thumb}
                       alt=""
                       width={400}
                       height={300}
@@ -259,13 +255,13 @@ function ServiceCard({
         reversed ? "md:[&>div:first-child]:order-2" : ""
       }`}
     >
-      <div className="aspect-square max-w-[320px] md:max-w-[380px] mx-auto flex items-center justify-center">
+      <div className="aspect-square max-w-[420px] md:max-w-[520px] mx-auto flex items-center justify-center">
         <Image
           src={imageSrc}
           alt=""
-          width={400}
-          height={400}
-          className="w-full h-full object-contain"
+          width={520}
+          height={520}
+          className="w-full h-full object-contain animate-float-main"
         />
       </div>
       <div>
