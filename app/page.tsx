@@ -278,7 +278,7 @@ function ServiceCard({
 
   return (
     <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
-      <div className="relative aspect-[5/6] max-w-[420px] md:max-w-[520px] mx-auto">
+      <div className="relative aspect-[5/6] w-full max-w-[420px] md:max-w-[520px] mx-auto">
         {/* 背景の円（旧サイトと同じ SVG）— 上 70% エリアの中央に配置 */}
         <Image
           src={circleSrc}
