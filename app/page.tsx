@@ -300,7 +300,7 @@ function ServiceCard({
           className={
             variant === "si"
               ? "absolute left-[3%] bottom-[10%] w-[32%]"
-              : "absolute left-[33%] bottom-[12%] w-[38%]"
+              : "absolute left-[10%] bottom-[50%] w-[38%]"
           }
         />
         <Image
