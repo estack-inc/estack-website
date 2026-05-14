@@ -10,7 +10,7 @@ export default function PageHeader({
   showWave?: boolean;
 }) {
   return (
-    <section className="relative bg-white pt-10 md:pt-16 overflow-hidden">
+    <section className="relative pt-10 md:pt-16 overflow-hidden">
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         {subtitle && (
           <p className="text-sm font-medium text-brand mb-2 font-display">

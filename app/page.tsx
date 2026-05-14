@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-white">
+      <section className="relative overflow-hidden">
         {/* 動画を画面全体に背景として表示 */}
         <div className="absolute inset-0 -z-0">
           <video
