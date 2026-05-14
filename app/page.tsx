@@ -299,8 +299,8 @@ function ServiceCard({
           aria-hidden
           className={
             variant === "si"
-              ? "absolute left-[3%] bottom-[2%] w-[32%] z-20"
-              : "absolute left-[33%] bottom-[2%] w-[32%] z-20"
+              ? "absolute left-[3%] bottom-[52%] w-[32%] z-20"
+              : "absolute left-[63%] bottom-[37%] w-[32%] z-20"
           }
         />
         {/* イラスト本体 — 上 70% に配置 */}
