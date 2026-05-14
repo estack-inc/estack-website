@@ -87,7 +87,7 @@ function ServiceItem({
         />
       </div>
       <div>
-        <p className="text-sm font-medium tracking-[0.25em] text-brand mb-3 font-display">
+        <p className="text-sm font-medium text-brand mb-3 font-display">
           {eyebrow}
         </p>
         <h3 className="text-2xl md:text-4xl font-semibold mb-5 leading-tight">

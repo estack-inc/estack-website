@@ -56,7 +56,7 @@ export default function RecruitPage() {
       {/* 社内ブログ */}
       <section className="py-10 md:py-14 bg-zinc-50">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-[11px] font-semibold text-brand mb-2 font-display text-center">
             Blog
           </p>
           <h2 className="text-lg md:text-2xl font-semibold mb-6 text-center">
@@ -74,7 +74,7 @@ export default function RecruitPage() {
       {/* 募集中職種 */}
       <section id="jobs" className="py-10 md:py-16">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-[11px] font-semibold text-brand mb-2 font-display text-center">
             Jobs
           </p>
           <h2 className="text-lg md:text-2xl font-semibold mb-8 text-center">

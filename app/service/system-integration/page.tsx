@@ -101,7 +101,7 @@ export default function SystemIntegrationPage() {
 
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium text-brand mb-2 font-display text-center">
             About
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center">
@@ -130,7 +130,7 @@ export default function SystemIntegrationPage() {
 
       <section className="py-12 md:py-16 bg-zinc-50">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium text-brand mb-2 font-display text-center">
             Merit
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center">
@@ -157,7 +157,7 @@ export default function SystemIntegrationPage() {
 
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium text-brand mb-2 font-display text-center">
             Other Service
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-center">
@@ -175,7 +175,7 @@ export default function SystemIntegrationPage() {
               className="w-full h-auto"
             />
             <div>
-              <p className="text-xs font-medium tracking-[0.25em] text-brand mb-1 font-display">
+              <p className="text-xs font-medium text-brand mb-1 font-display">
                 System Engineering Service
               </p>
               <p className="text-base font-semibold group-hover:text-brand transition-colors">

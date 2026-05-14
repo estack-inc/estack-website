@@ -92,7 +92,7 @@ export default function MidCareerPage() {
 
       <section className="py-16 md:py-24 bg-brand text-white text-center">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <p className="text-sm font-semibold tracking-[0.3em] mb-3 font-display">
+          <p className="text-sm font-semibold mb-3 font-display">
             Entry
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold mb-6">エントリー</h2>

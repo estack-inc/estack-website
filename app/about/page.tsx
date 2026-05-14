@@ -225,7 +225,7 @@ export default function AboutPage() {
       {/* 理念 */}
       <section id="philosophy" className="py-10 md:py-14 bg-brand text-white">
         <div className="mx-auto max-w-4xl px-5 md:px-8 text-center">
-          <p className="text-sm font-medium tracking-[0.3em] mb-2 font-display opacity-90">
+          <p className="text-sm font-medium mb-2 font-display opacity-90">
             Philosophy
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold leading-tight mb-4">
@@ -243,7 +243,7 @@ export default function AboutPage() {
       {/* 数字で見る */}
       <section className="py-10 md:py-14">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium text-brand mb-2 font-display text-center">
             Numbers
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold mb-1 text-center">
@@ -274,7 +274,7 @@ export default function AboutPage() {
       {/* メンバー紹介 */}
       <section id="members" className="py-12 md:py-16 bg-zinc-50">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium text-brand mb-2 font-display text-center">
             Members
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold mb-8 md:mb-10 text-center">
@@ -343,7 +343,7 @@ export default function AboutPage() {
       {/* 会社概要 */}
       <section id="company" className="py-12 md:py-16 bg-zinc-50">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <p className="text-sm font-medium tracking-[0.3em] text-brand mb-2 font-display text-center">
+          <p className="text-sm font-medium text-brand mb-2 font-display text-center">
             Company
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center">

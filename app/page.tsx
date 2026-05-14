@@ -6,7 +6,7 @@ import CareerPhotoStack from "@/components/CareerPhotoStack";
 // 大見出しの英語表記用：オレンジの●＋黒文字
 function SectionEyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
-    <p className={`flex items-center gap-2 text-sm font-medium tracking-[0.3em] mb-3 font-display ${light ? "text-white" : "text-zinc-900"}`}>
+    <p className={`flex items-center gap-2 text-sm font-medium mb-3 font-display ${light ? "text-white" : "text-zinc-900"}`}>
       <span className={`inline-block h-2 w-2 rounded-full ${light ? "bg-white" : "bg-brand"}`} />
       {children}
     </p>
@@ -293,7 +293,7 @@ function ServiceCard({
         />
       </div>
       <div>
-        <p className="text-sm font-medium tracking-[0.25em] text-brand mb-3 font-display">
+        <p className="text-sm font-medium text-brand mb-3 font-display">
           {eyebrow}
         </p>
         <h3 className="text-3xl md:text-4xl font-semibold mb-5 leading-tight">
