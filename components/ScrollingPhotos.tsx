@@ -11,11 +11,11 @@ export default function ScrollingPhotos({ photos, className = "" }: Props) {
   const reel = [...photos, ...photos];
   return (
     <div className={`relative w-full overflow-hidden ${className}`}>
-      <div className="flex w-max animate-scroll-x gap-4 md:gap-6">
+      <div className="flex w-max animate-scroll-x gap-3 md:gap-4">
         {reel.map((src, i) => (
           <div
             key={i}
-            className="relative w-[280px] h-[200px] md:w-[400px] md:h-[260px] shrink-0 overflow-hidden rounded-md"
+            className="relative w-[420px] h-[280px] md:w-[640px] md:h-[420px] shrink-0 overflow-hidden rounded-md"
           >
             <Image
               src={src}

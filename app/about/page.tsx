@@ -233,57 +233,51 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 理念 — 背景に右から左へ流れる写真、その上に半透明オレンジ帯 */}
-      <section id="philosophy" className="relative my-10 md:my-14 overflow-hidden">
-        <div className="absolute inset-0">
-          <ScrollingPhotos photos={CAREER_PHOTOS} />
-        </div>
-        <div className="absolute inset-0 bg-brand/70" aria-hidden />
-        <div className="relative mx-auto max-w-4xl px-5 md:px-8 py-12 md:py-16 text-center text-white">
-          <p className="text-sm font-medium mb-2 font-display opacity-95">
-            Philosophy
-          </p>
-          <h2 className="text-3xl md:text-4xl font-semibold leading-tight mb-4">
+      {/* 理念 — 厚いオレンジ帯（テキスト左寄せ） */}
+      <section id="philosophy" className="mt-12 md:mt-16 bg-brand text-white">
+        <div className="mx-auto max-w-5xl px-5 md:px-8 py-16 md:py-24">
+          <h2 className="text-2xl md:text-3xl font-semibold leading-snug mb-6">
             私達の成長は100％の熱意と
             <br />
             50％能力で成し遂げられる。
           </h2>
-          <p className="max-w-2xl mx-auto text-base md:text-lg leading-loose opacity-95">
+          <p className="max-w-3xl text-sm md:text-base leading-loose">
             我々の事業は一人の優秀な人材がいるだけでは到底成し遂げられないことがほとんどです。
             そのため事業成功には熱意とチームワークが非常に重要となります。弊社では日々事業に熱意を注ぎ、信頼し合えるチーム作りを行い事業に取り組んでまいります。
           </p>
         </div>
       </section>
 
-      {/* 数字で見る — 旧サイトと同じ単一画像を貼り付け */}
-      <section className="py-10 md:py-14">
+      {/* 理念帯の下に流れる写真ストリップ */}
+      <section className="pb-12 md:pb-16">
+        <ScrollingPhotos photos={CAREER_PHOTOS} />
+      </section>
+
+      {/* 数字で見る — 旧サイトと同じ単一画像を貼り付け、(2024年5月現在) は画像右下に重ねる */}
+      <section className="py-12 md:py-16">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <p className="text-sm font-medium text-brand mb-2 font-display text-center">
-            Numbers
-          </p>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-1 text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-6">
             数字で見るeSTACK
           </h2>
-          <p className="text-xs text-zinc-500 text-center mb-8">
-            （2024年5月現在）
-          </p>
-          <Image
-            src="/images/s-2400x1711_v-frms_webp_9047178b-1b14-4625-8ba6-6bd061047dd5_regular.webp"
-            alt="数字で見るeSTACK：売上割合 6割SES / 4割受託、年齢別割合、平均年齢36.6歳、技術スキル PHP / JAVA / JavaScript / PMO / インフラ / AWS、平均月収 30万（経験2年目）/ 42万（経験5年目）/ 50万（経験10年目）"
-            width={2400}
-            height={1711}
-            className="w-full h-auto"
-          />
+          <div className="relative">
+            <Image
+              src="/images/s-2400x1711_v-frms_webp_9047178b-1b14-4625-8ba6-6bd061047dd5_regular.webp"
+              alt="数字で見るeSTACK：売上割合 6割SES / 4割受託、年齢別割合、平均年齢36.6歳、技術スキル PHP / JAVA / JavaScript / PMO / インフラ / AWS、平均月収 30万（経験2年目）/ 42万（経験5年目）/ 50万（経験10年目）"
+              width={2400}
+              height={1711}
+              className="w-full h-auto"
+            />
+            <p className="absolute right-2 bottom-2 md:right-4 md:bottom-4 text-xs md:text-sm text-zinc-500 bg-white/80 px-2 py-1 rounded">
+              （2024年5月現在）
+            </p>
+          </div>
         </div>
       </section>
 
       {/* メンバー紹介 */}
       <section id="members" className="py-12 md:py-16 bg-zinc-50">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <p className="text-sm font-medium text-brand mb-2 font-display text-center">
-            Members
-          </p>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-8 md:mb-10 text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 md:mb-10">
             メンバー紹介
           </h2>
           {/* 上段：シニア2人（大きく） */}
@@ -333,7 +327,7 @@ export default function AboutPage() {
             />
           </div>
           <div>
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 leading-tight">
               働く仲間を
               <br />
               募集しています
