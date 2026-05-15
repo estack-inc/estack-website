@@ -35,6 +35,15 @@ html {
   50% { transform: translateY(-8px); }
 }
 
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-x {
+  animation: scroll-x 40s linear infinite;
+}
+
 .animate-float-main {
   animation: float-main 3s ease-in-out infinite;
 }

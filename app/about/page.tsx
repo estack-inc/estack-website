@@ -2,6 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import PillLink from "@/components/PillLink";
+import ScrollingPhotos from "@/components/ScrollingPhotos";
+
+// Philosophy & 働く仲間カルーセル用のキャリア写真
+const CAREER_PHOTOS = [
+  "/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp",
+  "/images/s-2000x1080_v-frms_webp_eba8a87b-4db3-49ad-b4d8-b809f2a38f56_regular.webp",
+  "/images/s-2000x1080_v-frms_webp_fff9b2ef-9134-4ad2-86a0-1f7a5c0de2b2_regular.webp",
+  "/images/s-2000x1080_v-frms_webp_48cfa3d7-9308-40c0-b591-8b468bcf645d_regular.webp",
+  "/images/s-2000x1080_v-frms_webp_12af3b53-a3ff-4300-8d54-39cfd1c32bd2_regular.webp",
+];
 
 export const metadata = {
   title: "eSTACKについて",
@@ -179,9 +189,9 @@ export default function AboutPage() {
 
       {/* 代表メッセージ */}
       <section id="message" className="py-12 md:py-16">
-        <div className="mx-auto max-w-4xl px-5 md:px-8">
+        <div className="mx-auto max-w-5xl px-5 md:px-8">
           <h2 className="text-3xl md:text-4xl font-semibold mb-6 md:mb-8">代表メッセージ</h2>
-          <div className="grid md:grid-cols-[1fr_220px] gap-6 md:gap-10 items-start">
+          <div className="grid md:grid-cols-[1fr_440px] gap-6 md:gap-12 items-start">
             <div className="space-y-5 text-base md:text-lg text-zinc-700 leading-loose">
               <p>
                 当社、eSTACK株式会社では、IT業界の急速な進展に伴い、常に先端を行く革新と提案を心がけています。
@@ -201,31 +211,36 @@ export default function AboutPage() {
                 <span className="text-2xl font-semibold">竹田 賢史</span>
               </p>
             </div>
-            <div className="group relative aspect-[4/5] max-w-[220px] mx-auto md:mx-0">
+            {/* CEO 写真：旧サイト実測 502×581 を基準に max-w 440px / aspect [502/581] */}
+            <div className="group relative aspect-[502/581] w-full max-w-[440px] mx-auto md:mx-0">
               <Image
                 src="/images/s-2000x2400_v-frms_webp_bb8c1f33-aff9-4f8f-bace-b4cb9f6e94ee_small.webp"
                 alt=""
-                width={400}
-                height={500}
+                width={502}
+                height={581}
                 aria-hidden
-                className="absolute inset-0 w-full h-full object-cover rounded-md translate-x-1.5 translate-y-1.5 rotate-3 shadow-sm transition-all duration-500 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:z-10 group-hover:shadow-md"
+                className="absolute inset-0 w-full h-full object-cover rounded-md translate-x-2 translate-y-2 rotate-3 shadow-sm transition-all duration-500 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:z-10 group-hover:shadow-md"
               />
               <Image
                 src="/images/s-2001x2400_v-frms_webp_3d556af1-6866-4eb3-8a23-80fc27ce17d3_small.webp"
                 alt="代表取締役 竹田 賢史"
-                width={400}
-                height={500}
-                className="absolute inset-0 w-full h-full object-cover rounded-md shadow-md transition-all duration-500 group-hover:rotate-3 group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+                width={502}
+                height={581}
+                className="absolute inset-0 w-full h-full object-cover rounded-md shadow-md transition-all duration-500 group-hover:rotate-3 group-hover:translate-x-2 group-hover:translate-y-2"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 理念 */}
-      <section id="philosophy" className="py-10 md:py-14 bg-brand text-white">
-        <div className="mx-auto max-w-4xl px-5 md:px-8 text-center">
-          <p className="text-sm font-medium mb-2 font-display opacity-90">
+      {/* 理念 — 背景に右から左へ流れる写真、その上に半透明オレンジ帯 */}
+      <section id="philosophy" className="relative my-10 md:my-14 overflow-hidden">
+        <div className="absolute inset-0">
+          <ScrollingPhotos photos={CAREER_PHOTOS} />
+        </div>
+        <div className="absolute inset-0 bg-brand/70" aria-hidden />
+        <div className="relative mx-auto max-w-4xl px-5 md:px-8 py-12 md:py-16 text-center text-white">
+          <p className="text-sm font-medium mb-2 font-display opacity-95">
             Philosophy
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold leading-tight mb-4">
@@ -240,9 +255,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 数字で見る */}
+      {/* 数字で見る — 旧サイトと同じ単一画像を貼り付け */}
       <section className="py-10 md:py-14">
-        <div className="mx-auto max-w-4xl px-5 md:px-8">
+        <div className="mx-auto max-w-5xl px-5 md:px-8">
           <p className="text-sm font-medium text-brand mb-2 font-display text-center">
             Numbers
           </p>
@@ -252,22 +267,13 @@ export default function AboutPage() {
           <p className="text-xs text-zinc-500 text-center mb-8">
             （2024年5月現在）
           </p>
-          <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {STATS.map((s) => (
-              <li
-                key={s.label}
-                className="flex flex-col items-center text-center"
-              >
-                <p className="text-xs text-zinc-500 mb-2">{s.label}</p>
-                <p className="flex items-baseline gap-1">
-                  <span className="text-5xl md:text-6xl font-semibold text-brand font-display">
-                    {s.value}
-                  </span>
-                  <span className="text-base text-zinc-700">{s.unit}</span>
-                </p>
-              </li>
-            ))}
-          </ul>
+          <Image
+            src="/images/s-2400x1711_v-frms_webp_9047178b-1b14-4625-8ba6-6bd061047dd5_regular.webp"
+            alt="数字で見るeSTACK：売上割合 6割SES / 4割受託、年齢別割合、平均年齢36.6歳、技術スキル PHP / JAVA / JavaScript / PMO / インフラ / AWS、平均月収 30万（経験2年目）/ 42万（経験5年目）/ 50万（経験10年目）"
+            width={2400}
+            height={1711}
+            className="w-full h-auto"
+          />
         </div>
       </section>
 
@@ -314,15 +320,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Recruit */}
+      {/* CTA Recruit — 集合写真 + 下にキャリア写真が右→左にスクロール */}
       <section className="relative py-12 md:py-16 overflow-hidden">
         <div className="mx-auto max-w-4xl px-5 md:px-8 grid md:grid-cols-[1.1fr_1fr] gap-6 md:gap-10 items-center">
-          <div className="aspect-[4/3] rounded-lg overflow-hidden bg-zinc-100">
+          <div className="aspect-[3/2] rounded-lg overflow-hidden bg-zinc-100">
             <Image
-              src="/images/s-2400x1571_v-frms_webp_71df778e-335b-4f00-a9da-50991eedb423_middle.webp"
-              alt=""
+              src="/images/s-2000x1334_v-frms_webp_58696a5c-7d32-467e-a022-1101d551f504_small.webp"
+              alt="eSTACK メンバー集合写真"
               width={700}
-              height={525}
+              height={467}
               className="w-full h-full object-cover"
             />
           </div>
@@ -338,6 +344,11 @@ export default function AboutPage() {
             <PillLink href="/recruit" label="採用情報へ" />
           </div>
         </div>
+      </section>
+
+      {/* 採用 CTA 下のスクロール写真ストリップ */}
+      <section className="pb-8 md:pb-12">
+        <ScrollingPhotos photos={CAREER_PHOTOS} />
       </section>
 
       {/* 会社概要 */}
