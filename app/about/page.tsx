@@ -233,9 +233,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 理念 — 厚いオレンジ帯（テキスト左寄せ） */}
-      <section id="philosophy" className="mt-12 md:mt-16 bg-brand text-white">
-        <div className="mx-auto max-w-5xl px-5 md:px-8 py-16 md:py-24">
+      {/* 理念 — 写真が背景で右→左に流れ、その上に半透明オレンジ帯がかぶさる */}
+      <section id="philosophy" className="relative my-12 md:my-16 overflow-hidden min-h-[420px] md:min-h-[560px] flex items-center">
+        {/* 背景：右→左に流れる写真 */}
+        <div className="absolute inset-0">
+          <ScrollingPhotos photos={CAREER_PHOTOS} className="h-full [&>div]:h-full [&>div>div]:!h-full" />
+        </div>
+        {/* 半透明オレンジオーバーレイ */}
+        <div className="absolute inset-0 bg-brand/75" aria-hidden />
+        {/* テキスト（最前面、左寄せ） */}
+        <div className="relative w-full mx-auto max-w-5xl px-5 md:px-8 py-12 md:py-16 text-white">
           <h2 className="text-2xl md:text-3xl font-semibold leading-snug mb-6">
             私達の成長は100％の熱意と
             <br />
@@ -246,11 +253,6 @@ export default function AboutPage() {
             そのため事業成功には熱意とチームワークが非常に重要となります。弊社では日々事業に熱意を注ぎ、信頼し合えるチーム作りを行い事業に取り組んでまいります。
           </p>
         </div>
-      </section>
-
-      {/* 理念帯の下に流れる写真ストリップ */}
-      <section className="pb-12 md:pb-16">
-        <ScrollingPhotos photos={CAREER_PHOTOS} />
       </section>
 
       {/* 数字で見る — 旧サイトと同じ単一画像を貼り付け、(2024年5月現在) は画像右下に重ねる */}
