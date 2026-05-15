@@ -345,20 +345,17 @@ export default function AboutPage() {
         <ScrollingPhotos photos={CAREER_PHOTOS} />
       </section>
 
-      {/* 会社概要 */}
-      <section id="company" className="py-12 md:py-16 bg-zinc-50">
+      {/* 会社概要 — 枠なし、テキストのみで簡潔に */}
+      <section id="company" className="py-12 md:py-16">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <p className="text-sm font-medium text-brand mb-2 font-display text-center">
-            Company
-          </p>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8">
             会社概要
           </h2>
-          <dl className="divide-y divide-zinc-200 bg-white rounded-lg overflow-hidden">
+          <dl className="divide-y divide-zinc-200">
             {COMPANY.map((row) => (
               <div
                 key={row.label}
-                className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-1 md:gap-5 px-4 md:px-6 py-3.5"
+                className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-2 md:gap-6 py-5"
               >
                 <dt className="text-sm font-semibold text-zinc-700">
                   {row.label}
