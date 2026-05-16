@@ -8,35 +8,49 @@ type Props = {
   intervalMs?: number;
 };
 
-// 1 枚ずつ表示し、一定時間後にスライドで次へ切り替わるスライドショー。
-// 旧サイトの「働く仲間」下のキャリア写真と同等の動作。
+// 1 枚ずつ表示し、一定時間後に右から左へスライドして次へ切り替わるスライドショー。
+// 写真リストを 2 セット連結して translateX で1ステップずつ左に流す。
+// リストの境界を越えたタイミングで瞬時に先頭へ無感ジャンプ。
 export default function SlideshowPhotos({ photos, intervalMs = 4500 }: Props) {
-  const [index, setIndex] = useState(0);
+  const n = photos.length;
+  const [step, step_set] = useState(0);
+  const [enableTransition, setEnableTransition] = useState(true);
 
   useEffect(() => {
-    if (photos.length <= 1) return;
+    if (n <= 1) return;
     const t = setInterval(() => {
-      setIndex((i) => (i + 1) % photos.length);
+      step_set((s) => s + 1);
     }, intervalMs);
     return () => clearInterval(t);
-  }, [photos.length, intervalMs]);
+  }, [n, intervalMs]);
+
+  // step が n に達したらアニメ無しで 0 に戻す（無感ループ）
+  useEffect(() => {
+    if (step >= n) {
+      // 遷移が終わったタイミングで瞬時に巻き戻す
+      const t = setTimeout(() => {
+        setEnableTransition(false);
+        step_set(0);
+        // 次フレームで transition を再有効化
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => setEnableTransition(true));
+        });
+      }, 1000);
+      return () => clearTimeout(t);
+    }
+  }, [step, n]);
+
+  // 写真リストを 2 セット連結（途切れず流すため）
+  const reel = [...photos, ...photos];
 
   return (
     <div className="relative w-full aspect-[16/9] md:aspect-[2/1] overflow-hidden">
-      {photos.map((src, i) => {
-        const offset = (i - index + photos.length) % photos.length;
-        // 表示中: 0, 次: 1（右側待機）, 前: -1（左側退避）
-        const xClass =
-          offset === 0
-            ? "translate-x-0"
-            : offset === 1
-              ? "translate-x-full"
-              : "-translate-x-full";
-        return (
-          <div
-            key={src}
-            className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${xClass}`}
-          >
+      <div
+        className={`flex h-full ${enableTransition ? "transition-transform duration-[1000ms] ease-in-out" : ""}`}
+        style={{ transform: `translateX(-${step * 100}%)`, width: `${reel.length * 100}%` }}
+      >
+        {reel.map((src, i) => (
+          <div key={`${src}-${i}`} className="relative h-full shrink-0" style={{ width: `${100 / reel.length}%` }}>
             <Image
               src={src}
               alt=""
@@ -46,18 +60,18 @@ export default function SlideshowPhotos({ photos, intervalMs = 4500 }: Props) {
               priority={i === 0}
             />
           </div>
-        );
-      })}
+        ))}
+      </div>
       {/* ドットインジケーター */}
       <div className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
         {photos.map((_, i) => (
           <button
             key={i}
             type="button"
-            onClick={() => setIndex(i)}
+            onClick={() => step_set(i)}
             aria-label={`写真 ${i + 1} を表示`}
             className={`h-2 w-2 rounded-full transition-colors ${
-              i === index ? "bg-white" : "bg-white/50 hover:bg-white/80"
+              i === step % n ? "bg-white" : "bg-white/50 hover:bg-white/80"
             }`}
           />
         ))}

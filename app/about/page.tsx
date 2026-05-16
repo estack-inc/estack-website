@@ -234,16 +234,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 理念 — 写真が背景で右→左に流れ、その上に半透明オレンジ帯がかぶさる */}
+      {/* 理念 — 背景に 1 枚ずつ表示・スライド遷移するスライドショー、上に半透明オレンジ */}
       <section id="philosophy" className="relative my-12 md:my-16 overflow-hidden min-h-[420px] md:min-h-[560px] flex items-center">
-        {/* 背景：右→左に流れる写真 */}
         <div className="absolute inset-0">
-          <ScrollingPhotos photos={CAREER_PHOTOS} className="h-full [&>div]:h-full [&>div>div]:!h-full" />
+          <SlideshowPhotos photos={CAREER_PHOTOS} />
         </div>
-        {/* 半透明オレンジオーバーレイ */}
-        <div className="absolute inset-0 bg-brand/75" aria-hidden />
-        {/* テキスト（最前面、左寄せ） */}
-        <div className="relative w-full mx-auto max-w-5xl px-5 md:px-8 py-12 md:py-16 text-white">
+        <div className="absolute inset-0 bg-brand/75 z-10" aria-hidden />
+        <div className="relative z-20 w-full mx-auto max-w-5xl px-5 md:px-8 py-12 md:py-16 text-white">
           <h2 className="text-3xl md:text-5xl font-semibold leading-tight mb-8">
             私達の成長は100％の熱意と
             <br />
@@ -317,15 +314,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Recruit — 集合写真 + 下にキャリア写真が右→左にスクロール */}
+      {/* CTA Recruit — 集合写真大きめ、見出しと Y 軸を合わせる */}
       <section className="relative py-12 md:py-16 overflow-hidden">
-        <div className="mx-auto max-w-4xl px-5 md:px-8 grid md:grid-cols-[1.1fr_1fr] gap-6 md:gap-10 items-center">
+        <div className="mx-auto max-w-5xl px-5 md:px-8 grid md:grid-cols-[1.4fr_1fr] gap-8 md:gap-12 items-start">
           <div className="aspect-[3/2] rounded-lg overflow-hidden bg-zinc-100">
             <Image
               src="/images/s-2000x1334_v-frms_webp_58696a5c-7d32-467e-a022-1101d551f504_small.webp"
               alt="eSTACK メンバー集合写真"
-              width={700}
-              height={467}
+              width={900}
+              height={600}
               className="w-full h-full object-cover"
             />
           </div>
