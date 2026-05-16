@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import PillLink from "@/components/PillLink";
 import ScrollingPhotos from "@/components/ScrollingPhotos";
+import SlideshowPhotos from "@/components/SlideshowPhotos";
 
 // Philosophy & 働く仲間カルーセル用のキャリア写真
 const CAREER_PHOTOS = [
@@ -342,9 +343,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 採用 CTA 下のスクロール写真ストリップ */}
+      {/* 採用 CTA 下のスライドショー — 1枚ずつ表示、自動で次へスライド */}
       <section className="pb-8 md:pb-12">
-        <ScrollingPhotos photos={CAREER_PHOTOS} />
+        <SlideshowPhotos photos={CAREER_PHOTOS} />
       </section>
 
       {/* 会社概要 — 枠なし、テキストのみで簡潔に */}
