@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/PageHeader";
+import PillLink from "@/components/PillLink";
 
 // TODO: Phase 2 で microCMS 連携。当面はハードコード
 const NEWS_DETAIL: Record<
@@ -106,16 +107,8 @@ export default async function NewsDetailPage({
             </p>
           </div>
 
-          <div className="mt-16 pt-8 border-t border-zinc-200">
-            <Link
-              href="/news"
-              className="inline-flex items-center gap-3 text-sm font-semibold text-zinc-900 hover:opacity-70"
-            >
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand text-white text-xs">
-                ←
-              </span>
-              お知らせ一覧へ戻る
-            </Link>
+          <div className="mt-16 pt-8 border-t border-zinc-200 flex justify-center">
+            <PillLink href="/news" label="記事一覧へ" />
           </div>
         </article>
       </section>

@@ -185,12 +185,12 @@ const COMPANY = [
 export default function AboutPage() {
   return (
     <>
-      <PageHeader title="eSTACKについて" subtitle="About" />
+      <PageHeader title="eSTACKについて" />
 
       {/* 代表メッセージ */}
       <section id="message" className="py-12 md:py-16">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6 md:mb-8">代表メッセージ</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold mb-8 md:mb-10">代表メッセージ</h2>
           <div className="grid md:grid-cols-[1fr_440px] gap-6 md:gap-12 items-start">
             <div className="space-y-5 text-base md:text-lg text-zinc-700 leading-loose">
               <p>
@@ -243,12 +243,12 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-brand/75" aria-hidden />
         {/* テキスト（最前面、左寄せ） */}
         <div className="relative w-full mx-auto max-w-5xl px-5 md:px-8 py-12 md:py-16 text-white">
-          <h2 className="text-2xl md:text-3xl font-semibold leading-snug mb-6">
+          <h2 className="text-3xl md:text-5xl font-semibold leading-tight mb-8">
             私達の成長は100％の熱意と
             <br />
             50％能力で成し遂げられる。
           </h2>
-          <p className="max-w-3xl text-sm md:text-base leading-loose">
+          <p className="max-w-3xl text-base md:text-lg leading-relaxed">
             我々の事業は一人の優秀な人材がいるだけでは到底成し遂げられないことがほとんどです。
             そのため事業成功には熱意とチームワークが非常に重要となります。弊社では日々事業に熱意を注ぎ、信頼し合えるチーム作りを行い事業に取り組んでまいります。
           </p>
@@ -258,7 +258,7 @@ export default function AboutPage() {
       {/* 数字で見る — 旧サイトと同じ単一画像を貼り付け、(2024年5月現在) は画像右下に重ねる */}
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-8">
             数字で見るeSTACK
           </h2>
           <div className="relative">
@@ -279,7 +279,7 @@ export default function AboutPage() {
       {/* メンバー紹介 */}
       <section id="members" className="py-12 md:py-16 bg-zinc-50">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 md:mb-10">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-10 md:mb-12">
             メンバー紹介
           </h2>
           {/* 上段：シニア2人（大きく） */}
@@ -329,7 +329,7 @@ export default function AboutPage() {
             />
           </div>
           <div>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-semibold mb-6 leading-tight">
               働く仲間を
               <br />
               募集しています
@@ -350,7 +350,7 @@ export default function AboutPage() {
       {/* 会社概要 — 枠なし、テキストのみで簡潔に */}
       <section id="company" className="py-12 md:py-16">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-10">
             会社概要
           </h2>
           <dl className="divide-y divide-zinc-200">
