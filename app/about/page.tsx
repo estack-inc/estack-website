@@ -340,8 +340,21 @@ export default function AboutPage() {
       </section>
 
       {/* 採用 CTA 下のスライドショー — 旧サイト実測 aspect 1440:500 (≈2.88:1) */}
-      <section className="pb-8 md:pb-12">
+      <section className="pb-6 md:pb-8">
         <SlideshowPhotos photos={CAREER_PHOTOS} aspectClass="aspect-[1440/500]" />
+      </section>
+
+      {/* スライドショー後の追加バナー写真 */}
+      <section className="pb-8 md:pb-12">
+        <div className="w-full overflow-hidden">
+          <Image
+            src="/images/recruit-banner.png"
+            alt=""
+            width={2368}
+            height={1110}
+            className="w-full h-auto"
+          />
+        </div>
       </section>
 
       {/* 会社概要 — 枠なし、テキストのみで簡潔に */}
