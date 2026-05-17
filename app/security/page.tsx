@@ -34,31 +34,26 @@ const ITEMS = [
 export default function SecurityPage() {
   return (
     <>
-      <PageHeader title="情報セキュリティ方針" subtitle="Security Policy" />
+      <PageHeader title="情報セキュリティ方針" showWave={false} />
 
-      <section className="py-12 md:py-20">
+      <section className="py-12 md:py-16">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <p className="text-sm md:text-base text-zinc-700 leading-loose mb-12">
+          <p className="text-base text-zinc-700 leading-loose mb-12">
             eSTACK株式会社（以下、当社）は、当社の情報資産、並びにお客様からお預かりした情報資産を事故・災害・犯罪などの脅威から守り、お客様ならびに社会の信頼に応えるべく、以下の方針に基づき全社で情報セキュリティに取り組みます。
           </p>
 
-          <ol className="space-y-8">
-            {ITEMS.map((item, i) => (
-              <li key={item.title} className="flex gap-5">
-                <span className="text-3xl font-semibold text-brand font-display shrink-0 leading-none pt-1">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h2 className="text-lg md:text-xl font-semibold mb-2">
-                    {item.title}
-                  </h2>
-                  <p className="text-sm md:text-base text-zinc-700 leading-relaxed">
-                    {item.body}
-                  </p>
-                </div>
-              </li>
+          <div className="space-y-10">
+            {ITEMS.map((item) => (
+              <div key={item.title}>
+                <h2 className="text-2xl font-bold text-zinc-800 mb-3">
+                  {item.title}
+                </h2>
+                <p className="text-base text-zinc-700 leading-relaxed">
+                  {item.body}
+                </p>
+              </div>
             ))}
-          </ol>
+          </div>
 
           <div className="mt-16 pt-8 border-t border-zinc-200 text-sm text-zinc-700 space-y-1">
             <p>制定日：2023年2月10日</p>
