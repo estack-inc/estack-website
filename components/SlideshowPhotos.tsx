@@ -9,48 +9,58 @@ type Props = {
 };
 
 // 1 枚ずつ表示し、一定時間後に右から左へスライドして次へ切り替わるスライドショー。
-// 写真リストを 2 セット連結して translateX で1ステップずつ左に流す。
-// リストの境界を越えたタイミングで瞬時に先頭へ無感ジャンプ。
+// 写真リストの末尾に先頭写真をもう一度追加し、最後の遷移が終わったタイミングで
+// アニメ無しで先頭へ戻すことで無感ループを実現する。
 export default function SlideshowPhotos({ photos, intervalMs = 4500 }: Props) {
   const n = photos.length;
-  const [step, step_set] = useState(0);
-  const [enableTransition, setEnableTransition] = useState(true);
+  const [step, setStep] = useState(0);
+  const [animate, setAnimate] = useState(true);
 
+  // 自動再生
   useEffect(() => {
     if (n <= 1) return;
-    const t = setInterval(() => {
-      step_set((s) => s + 1);
-    }, intervalMs);
+    const t = setInterval(() => setStep((s) => s + 1), intervalMs);
     return () => clearInterval(t);
   }, [n, intervalMs]);
 
-  // step が n に達したらアニメ無しで 0 に戻す（無感ループ）
+  // step が n に到達したら、アニメ完了後に瞬時に 0 へ巻き戻す（無感ループ）
   useEffect(() => {
-    if (step >= n) {
-      // 遷移が終わったタイミングで瞬時に巻き戻す
-      const t = setTimeout(() => {
-        setEnableTransition(false);
-        step_set(0);
-        // 次フレームで transition を再有効化
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => setEnableTransition(true));
-        });
-      }, 1000);
-      return () => clearTimeout(t);
-    }
+    if (step !== n) return;
+    const t = setTimeout(() => {
+      setAnimate(false);
+      setStep(0);
+      // 次フレームで再びアニメ有効化
+      const raf1 = requestAnimationFrame(() => {
+        const raf2 = requestAnimationFrame(() => setAnimate(true));
+        return () => cancelAnimationFrame(raf2);
+      });
+      return () => cancelAnimationFrame(raf1);
+    }, 1000);
+    return () => clearTimeout(t);
   }, [step, n]);
 
-  // 写真リストを 2 セット連結（途切れず流すため）
-  const reel = [...photos, ...photos];
+  // photos の末尾に先頭をもう一度（シームレスループのため）
+  const reel = [...photos, photos[0] ?? ""];
+  const reelLen = reel.length;
+  // translateX は inner track の幅に対する % なので 100/reelLen を乗ずる
+  const translatePct = step * (100 / reelLen);
 
   return (
-    <div className="relative w-full aspect-[16/9] md:aspect-[2/1] overflow-hidden">
+    <div className="relative w-full aspect-[16/9] md:aspect-[2/1] overflow-hidden bg-zinc-900">
       <div
-        className={`flex h-full ${enableTransition ? "transition-transform duration-[1000ms] ease-in-out" : ""}`}
-        style={{ transform: `translateX(-${step * 100}%)`, width: `${reel.length * 100}%` }}
+        className="flex h-full"
+        style={{
+          width: `${reelLen * 100}%`,
+          transform: `translateX(-${translatePct}%)`,
+          transition: animate ? "transform 1s ease-in-out" : "none",
+        }}
       >
         {reel.map((src, i) => (
-          <div key={`${src}-${i}`} className="relative h-full shrink-0" style={{ width: `${100 / reel.length}%` }}>
+          <div
+            key={i}
+            className="relative h-full shrink-0"
+            style={{ width: `${100 / reelLen}%` }}
+          >
             <Image
               src={src}
               alt=""
@@ -63,19 +73,24 @@ export default function SlideshowPhotos({ photos, intervalMs = 4500 }: Props) {
         ))}
       </div>
       {/* ドットインジケーター */}
-      <div className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-        {photos.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => step_set(i)}
-            aria-label={`写真 ${i + 1} を表示`}
-            className={`h-2 w-2 rounded-full transition-colors ${
-              i === step % n ? "bg-white" : "bg-white/50 hover:bg-white/80"
-            }`}
-          />
-        ))}
-      </div>
+      {n > 1 && (
+        <div className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {photos.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => {
+                setAnimate(true);
+                setStep(i);
+              }}
+              aria-label={`写真 ${i + 1} を表示`}
+              className={`h-2 w-2 rounded-full transition-colors ${
+                step % n === i ? "bg-white" : "bg-white/50 hover:bg-white/80"
+              }`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
