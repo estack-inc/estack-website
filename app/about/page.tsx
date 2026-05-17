@@ -339,9 +339,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 採用 CTA 下のスライドショー — 1枚ずつ表示、低めの帯状 */}
+      {/* 採用 CTA 下のスライドショー — 旧サイト実測 aspect 1440:500 (≈2.88:1) */}
       <section className="pb-8 md:pb-12">
-        <SlideshowPhotos photos={CAREER_PHOTOS} aspectClass="aspect-[16/6] md:aspect-[5/1]" />
+        <SlideshowPhotos photos={CAREER_PHOTOS} aspectClass="aspect-[1440/500]" />
       </section>
 
       {/* 会社概要 — 枠なし、テキストのみで簡潔に */}
