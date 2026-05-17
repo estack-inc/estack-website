@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/PageHeader";
@@ -12,9 +13,9 @@ type Article = {
   renderBody?: () => React.ReactNode;
 };
 
-// マージン率情報提供（外部資料へのリンク先）
-const MARGIN_LINK_2025 = "https://www.estack.co.jp/news/Mz2w3FP_";
-const MARGIN_LINK_2024 = "https://www.estack.co.jp/news/B8dw8XUI";
+// マージン率情報提供（Google Drive 上の PDF へのリンク）
+const MARGIN_LINK_2025 = "https://drive.google.com/file/d/1yH_bXW7xJv3C2Y2ZASaKBazPyQNeN4-y/view";
+const MARGIN_LINK_2024 = "https://drive.google.com/file/d/1-7jJKpEk5iQV9WnLsWgFLDKxLL9DRfE-/view";
 
 const NEWS_DETAIL: Record<string, Article> = {
   "20251216": {
@@ -90,17 +91,15 @@ const NEWS_DETAIL: Record<string, Article> = {
         <p>
           弊社は、情報セキュリティマネジメントシステム（ISMS）の国際規格である「ISO/IEC 27001:2022」の認証を以下の通り取得しました。
         </p>
-        {/* ISMS マーク */}
+        {/* ISMS マーク（旧サイトと同じ画像） */}
         <div className="my-8 flex justify-center">
-          <div className="rounded-md border border-zinc-200 bg-white px-6 py-4 inline-flex items-center gap-4">
-            <span className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-brand text-white text-xs font-bold font-display">
-              ISMS
-            </span>
-            <div className="text-xs leading-snug">
-              <p className="font-semibold">情報セキュリティマネジメント</p>
-              <p>ISO/IEC 27001:2022 認証取得</p>
-            </div>
-          </div>
+          <Image
+            src="/images/isms-mark.png"
+            alt="ISMS認証 ISO/IEC 27001:2022"
+            width={420}
+            height={240}
+            className="w-full max-w-md h-auto"
+          />
         </div>
         {/* 取得情報を表で */}
         <dl className="border-t border-zinc-200">

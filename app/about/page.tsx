@@ -5,11 +5,10 @@ import PillLink from "@/components/PillLink";
 import ScrollingPhotos from "@/components/ScrollingPhotos";
 import SlideshowPhotos from "@/components/SlideshowPhotos";
 
-// Philosophy & 働く仲間カルーセル用のキャリア写真
+// Philosophy & 働く仲間カルーセル用のキャリア写真（旧サイトと同じ4枚）
 const CAREER_PHOTOS = [
-  "/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp",
-  "/images/s-2000x1080_v-frms_webp_eba8a87b-4db3-49ad-b4d8-b809f2a38f56_regular.webp",
-  "/images/s-2000x1080_v-frms_webp_fff9b2ef-9134-4ad2-86a0-1f7a5c0de2b2_regular.webp",
+  "/images/s-2000x1080_v-frms_webp_cc1b59af-a8e7-4d2b-ad09-86dba2360d50_regular.webp",
+  "/images/s-2000x1080_v-frms_webp_64381868-dcb6-47ff-81d0-517a27cbb300_regular.webp",
   "/images/s-2000x1080_v-frms_webp_48cfa3d7-9308-40c0-b591-8b468bcf645d_regular.webp",
   "/images/s-2000x1080_v-frms_webp_12af3b53-a3ff-4300-8d54-39cfd1c32bd2_regular.webp",
 ];
@@ -340,9 +339,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 採用 CTA 下のスライドショー — 1枚ずつ表示、自動で次へスライド */}
+      {/* 採用 CTA 下のスライドショー — 1枚ずつ表示、低めの帯状 */}
       <section className="pb-8 md:pb-12">
-        <SlideshowPhotos photos={CAREER_PHOTOS} />
+        <SlideshowPhotos photos={CAREER_PHOTOS} aspectClass="aspect-[16/6] md:aspect-[5/1]" />
       </section>
 
       {/* 会社概要 — 枠なし、テキストのみで簡潔に */}
