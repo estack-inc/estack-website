@@ -4,11 +4,14 @@ export default function PageHeader({
   title,
   subtitle,
   showWave = true,
+  size = "default",
 }: {
   title: string;
   subtitle?: string;
   showWave?: boolean;
+  size?: "default" | "compact";
 }) {
+  const isCompact = size === "compact";
   return (
     <section className="relative pt-10 md:pt-16 overflow-hidden">
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
@@ -17,7 +20,13 @@ export default function PageHeader({
             {subtitle}
           </p>
         )}
-        <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+        <h1
+          className={
+            isCompact
+              ? "text-[28px] md:text-[32px] font-semibold leading-tight text-[#4A4A4A]"
+              : "text-4xl md:text-5xl font-semibold leading-tight"
+          }
+        >
           {title}
         </h1>
       </div>

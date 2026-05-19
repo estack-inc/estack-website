@@ -34,7 +34,7 @@ const ITEMS = [
 export default function SecurityPage() {
   return (
     <>
-      <PageHeader title="情報セキュリティ方針" showWave={false} />
+      <PageHeader title="情報セキュリティ方針" showWave={false} size="compact" />
 
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
@@ -45,7 +45,7 @@ export default function SecurityPage() {
           <div className="space-y-10">
             {ITEMS.map((item) => (
               <div key={item.title}>
-                <h2 className="text-2xl font-bold text-zinc-800 mb-3">
+                <h2 className="text-2xl font-bold text-[#363636] mb-3">
                   {item.title}
                 </h2>
                 <p className="text-base text-zinc-700 leading-relaxed">
