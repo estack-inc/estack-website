@@ -7,15 +7,18 @@ type Props = {
   photos: string[];
   intervalMs?: number;
   aspectClass?: string;
+  fill?: boolean;
 };
 
 // 1 枚ずつ表示し、一定時間後に右から左へスライドして次へ切り替わるスライドショー。
 // 写真リストの末尾に先頭写真をもう一度追加し、最後の遷移が終わったタイミングで
 // アニメ無しで先頭へ戻すことで無感ループを実現する。
+// fill=true で親要素の高さいっぱいに広げる（Philosophy 背景用途）。
 export default function SlideshowPhotos({
   photos,
   intervalMs = 4500,
   aspectClass = "aspect-[16/9] md:aspect-[2000/1080]",
+  fill = false,
 }: Props) {
   const n = photos.length;
   const [step, setStep] = useState(0);
@@ -51,7 +54,7 @@ export default function SlideshowPhotos({
   const translatePct = step * (100 / reelLen);
 
   return (
-    <div className={`relative w-full ${aspectClass} overflow-hidden bg-zinc-900`}>
+    <div className={`relative w-full overflow-hidden bg-zinc-900 ${fill ? "h-full" : aspectClass}`}>
       <div
         className="flex h-full"
         style={{

@@ -246,7 +246,7 @@ export default function AboutPage() {
       {/* 理念 — 背景に 1 枚ずつ表示・スライド遷移するスライドショー、上に半透明オレンジ */}
       <section id="philosophy" className="relative my-12 md:my-16 overflow-hidden min-h-[420px] md:min-h-[649px] flex items-center">
         <div className="absolute inset-0">
-          <SlideshowPhotos photos={PHILOSOPHY_PHOTOS} />
+          <SlideshowPhotos photos={PHILOSOPHY_PHOTOS} fill />
         </div>
         <div className="absolute inset-0 bg-brand/75 z-10" aria-hidden />
         <div className="relative z-20 w-full mx-auto max-w-5xl px-5 md:px-8 py-12 md:py-16 text-white">
