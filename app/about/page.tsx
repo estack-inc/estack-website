@@ -5,21 +5,22 @@ import PillLink from "@/components/PillLink";
 import ScrollingPhotos from "@/components/ScrollingPhotos";
 import SlideshowPhotos from "@/components/SlideshowPhotos";
 
-// Philosophy 用（旧サイトと同じ5枚）
+// Philosophy 用（旧サイト実測の 5 枚）
 const PHILOSOPHY_PHOTOS = [
-  "/images/s-2000x1080_v-frms_webp_3e201a1d-904d-4920-963f-591a74610878_regular.webp",
+  "/images/s-2000x1080_v-frms_webp_cc1b59af-a8e7-4d2b-ad09-86dba2360d50_regular.webp",
+  "/images/s-2000x1080_v-frms_webp_64381868-dcb6-47ff-81d0-517a27cbb300_regular.webp",
+  "/images/s-2000x1080_v-frms_webp_48cfa3d7-9308-40c0-b591-8b468bcf645d_regular.webp",
+  "/images/s-2000x1080_v-frms_webp_12af3b53-a3ff-4300-8d54-39cfd1c32bd2_regular.webp",
   "/images/s-2000x1080_v-frms_webp_5bd30b41-e51d-4026-8478-91262083a597_regular.webp",
-  "/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp",
-  "/images/s-2000x1080_v-frms_webp_eba8a87b-4db3-49ad-b4d8-b809f2a38f56_regular.webp",
-  "/images/s-2000x1080_v-frms_webp_fff9b2ef-9134-4ad2-86a0-1f7a5c0de2b2_regular.webp",
 ];
 
-// 働く仲間下スライドショー用（旧サイトと同じ4枚 + 追加バナー）
+// 働く仲間下スライドショー用（旧サイトと同じ 5 枚 + 募集バナー）
 const CAREER_PHOTOS = [
   "/images/s-2000x1080_v-frms_webp_cc1b59af-a8e7-4d2b-ad09-86dba2360d50_regular.webp",
   "/images/s-2000x1080_v-frms_webp_64381868-dcb6-47ff-81d0-517a27cbb300_regular.webp",
   "/images/s-2000x1080_v-frms_webp_48cfa3d7-9308-40c0-b591-8b468bcf645d_regular.webp",
   "/images/s-2000x1080_v-frms_webp_12af3b53-a3ff-4300-8d54-39cfd1c32bd2_regular.webp",
+  "/images/s-2000x1080_v-frms_webp_5bd30b41-e51d-4026-8478-91262083a597_regular.webp",
   "/images/recruit-banner.png",
 ];
 
