@@ -15,7 +15,7 @@ type Props = {
 export default function SlideshowPhotos({
   photos,
   intervalMs = 4500,
-  aspectClass = "aspect-[16/9] md:aspect-[2/1]",
+  aspectClass = "aspect-[16/9] md:aspect-[2000/1080]",
 }: Props) {
   const n = photos.length;
   const [step, setStep] = useState(0);
