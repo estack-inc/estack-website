@@ -9,7 +9,7 @@ import SlideshowPhotos from "@/components/SlideshowPhotos";
 const PHILOSOPHY_PHOTOS = [
   "/images/s-2000x1080_v-frms_webp_3e201a1d-904d-4920-963f-591a74610878_regular.webp",
   "/images/s-2000x1080_v-frms_webp_5bd30b41-e51d-4026-8478-91262083a597_regular.webp",
-  "/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp",
+  "/images/philosophy-slide-03.png",
   "/images/s-2000x1080_v-frms_webp_eba8a87b-4db3-49ad-b4d8-b809f2a38f56_regular.webp",
   "/images/s-2000x1080_v-frms_webp_fff9b2ef-9134-4ad2-86a0-1f7a5c0de2b2_regular.webp",
 ];
