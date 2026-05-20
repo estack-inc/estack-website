@@ -349,9 +349,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 採用 CTA 下のスライドショー — 旧サイトと同じ 1440x778 (aspect 2000/1080) */}
+      {/* 採用 CTA 下のスライドショー — Philosophy と同じ高さに揃える */}
       <section className="pb-8 md:pb-12">
-        <SlideshowPhotos photos={CAREER_PHOTOS} />
+        <SlideshowPhotos
+          photos={CAREER_PHOTOS}
+          aspectClass="h-[420px] md:h-[649px]"
+        />
       </section>
 
       {/* 会社概要 — 枠なし、テキストのみで簡潔に */}

@@ -53,16 +53,10 @@ export default function SlideshowPhotos({
   // translateX は inner track の幅に対する % なので 100/reelLen を乗ずる
   const translatePct = step * (100 / reelLen);
 
-  // aspect-ratio から子要素に percentage 高さを連鎖させると、一部ブラウザで
-  // height が解決されず IMG が natural サイズで描画され、スライド毎に高さが
-  // 不揃いに見える事象が出る。height を明示的な vw 値で固定して回避する。
-  // 16/9 → 0.5625vw, 2000/1080 → 0.54vw
-  const containerHeightClass = fill
-    ? "h-full"
-    : "h-[56.25vw] md:h-[54vw]";
-
+  // aspectClass で高さを指定（Tailwind の高さクラス）。
+  // fill=true のときは親要素の高さに合わせる。
   return (
-    <div className={`relative w-full overflow-hidden bg-zinc-900 ${containerHeightClass}`}>
+    <div className={`relative w-full overflow-hidden bg-zinc-900 ${fill ? "h-full" : aspectClass}`}>
       <div
         className="flex h-full"
         style={{
