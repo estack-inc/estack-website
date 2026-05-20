@@ -10,9 +10,10 @@ type Props = {
   fill?: boolean;
 };
 
-// 1 枚ずつ表示し、一定時間後に右から左へスライドして次へ切り替わるスライドショー。
-// 写真リストの末尾に先頭写真をもう一度追加し、最後の遷移が終わったタイミングで
-// アニメ無しで先頭へ戻すことで無感ループを実現する。
+// クロスフェード方式のスライドショー。
+// すべての写真を同じ位置に重ねて配置し、現在表示中のものだけ opacity=1、
+// それ以外は opacity=0 にする。CSS transition で滑らかに切り替わる。
+// 横スライドと違い、遷移中も画面には常に 1 枚しか見えない（一瞬たりとも 2 枚並ばない）。
 // fill=true で親要素の高さいっぱいに広げる（Philosophy 背景用途）。
 export default function SlideshowPhotos({
   photos,
@@ -21,67 +22,34 @@ export default function SlideshowPhotos({
   fill = false,
 }: Props) {
   const n = photos.length;
-  const [step, setStep] = useState(0);
-  const [animate, setAnimate] = useState(true);
+  const [current, setCurrent] = useState(0);
 
   // 自動再生
   useEffect(() => {
     if (n <= 1) return;
-    const t = setInterval(() => setStep((s) => s + 1), intervalMs);
+    const t = setInterval(() => setCurrent((c) => (c + 1) % n), intervalMs);
     return () => clearInterval(t);
   }, [n, intervalMs]);
 
-  // step が n に到達したら、アニメ完了後に瞬時に 0 へ巻き戻す（無感ループ）
-  useEffect(() => {
-    if (step !== n) return;
-    const t = setTimeout(() => {
-      setAnimate(false);
-      setStep(0);
-      // 次フレームで再びアニメ有効化
-      const raf1 = requestAnimationFrame(() => {
-        const raf2 = requestAnimationFrame(() => setAnimate(true));
-        return () => cancelAnimationFrame(raf2);
-      });
-      return () => cancelAnimationFrame(raf1);
-    }, 1000);
-    return () => clearTimeout(t);
-  }, [step, n]);
-
-  // photos の末尾に先頭をもう一度（シームレスループのため）
-  const reel = [...photos, photos[0] ?? ""];
-  const reelLen = reel.length;
-  // translateX は inner track の幅に対する % なので 100/reelLen を乗ずる
-  const translatePct = step * (100 / reelLen);
-
-  // aspectClass で高さを指定（Tailwind の高さクラス）。
-  // fill=true のときは親要素の高さに合わせる。
   return (
     <div className={`relative w-full overflow-hidden bg-zinc-900 ${fill ? "h-full" : aspectClass}`}>
-      <div
-        className="flex h-full"
-        style={{
-          width: `${reelLen * 100}%`,
-          transform: `translateX(-${translatePct}%)`,
-          transition: animate ? "transform 1s ease-in-out" : "none",
-        }}
-      >
-        {reel.map((src, i) => (
-          <div
-            key={i}
-            className="relative h-full shrink-0"
-            style={{ width: `${100 / reelLen}%` }}
-          >
-            <Image
-              src={src}
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover"
-              priority={i === 0}
-            />
-          </div>
-        ))}
-      </div>
+      {photos.map((src, i) => (
+        <div
+          key={i}
+          className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+          style={{ opacity: i === current ? 1 : 0 }}
+          aria-hidden={i !== current}
+        >
+          <Image
+            src={src}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority={i === 0}
+          />
+        </div>
+      ))}
       {/* ドットインジケーター */}
       {n > 1 && (
         <div className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-10">
@@ -89,13 +57,10 @@ export default function SlideshowPhotos({
             <button
               key={i}
               type="button"
-              onClick={() => {
-                setAnimate(true);
-                setStep(i);
-              }}
+              onClick={() => setCurrent(i)}
               aria-label={`写真 ${i + 1} を表示`}
               className={`h-2 w-2 rounded-full transition-colors ${
-                step % n === i ? "bg-white" : "bg-white/50 hover:bg-white/80"
+                current === i ? "bg-white" : "bg-white/50 hover:bg-white/80"
               }`}
             />
           ))}
