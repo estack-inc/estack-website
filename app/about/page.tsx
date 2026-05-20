@@ -20,7 +20,7 @@ const CAREER_PHOTOS = [
   "/images/s-2000x1080_v-frms_webp_64381868-dcb6-47ff-81d0-517a27cbb300_regular.webp",
   "/images/s-2000x1080_v-frms_webp_48cfa3d7-9308-40c0-b591-8b468bcf645d_regular.webp",
   "/images/s-2000x1080_v-frms_webp_12af3b53-a3ff-4300-8d54-39cfd1c32bd2_regular.webp",
-  "/images/recruit-banner.png",
+  "/images/recruit-banner.webp",
 ];
 
 export const metadata = {
@@ -349,9 +349,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 採用 CTA 下のスライドショー — 旧サイトと同じ 1440x778 (aspect 2000/1080) */}
+      {/* 採用 CTA 下のスライドショー — Philosophy と同じ高さに揃える */}
       <section className="pb-8 md:pb-12">
-        <SlideshowPhotos photos={CAREER_PHOTOS} />
+        <SlideshowPhotos
+          photos={CAREER_PHOTOS}
+          aspectClass="h-[420px] md:h-[649px]"
+        />
       </section>
 
       {/* 会社概要 — 枠なし、テキストのみで簡潔に */}

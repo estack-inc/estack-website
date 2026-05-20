@@ -53,6 +53,8 @@ export default function SlideshowPhotos({
   // translateX は inner track の幅に対する % なので 100/reelLen を乗ずる
   const translatePct = step * (100 / reelLen);
 
+  // aspectClass で高さを指定（Tailwind の高さクラス）。
+  // fill=true のときは親要素の高さに合わせる。
   return (
     <div className={`relative w-full overflow-hidden bg-zinc-900 ${fill ? "h-full" : aspectClass}`}>
       <div
