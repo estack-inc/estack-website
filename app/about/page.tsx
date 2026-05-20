@@ -20,7 +20,7 @@ const CAREER_PHOTOS = [
   "/images/s-2000x1080_v-frms_webp_64381868-dcb6-47ff-81d0-517a27cbb300_regular.webp",
   "/images/s-2000x1080_v-frms_webp_48cfa3d7-9308-40c0-b591-8b468bcf645d_regular.webp",
   "/images/s-2000x1080_v-frms_webp_12af3b53-a3ff-4300-8d54-39cfd1c32bd2_regular.webp",
-  "/images/recruit-banner.png",
+  "/images/recruit-banner.webp",
 ];
 
 export const metadata = {
