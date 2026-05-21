@@ -173,14 +173,14 @@ export default function SystemIntegrationPage() {
                       </div>
                     )}
                   </div>
-                  {/* 携帯版：写真を本文の下にフル幅で表示（旧サイトと同じ） */}
+                  {/* 携帯版：写真を本文の下に横長で表示（旧サイトと同じ） */}
                   {s.photo && (
-                    <div className="md:hidden mt-4 aspect-[4/3] w-full overflow-hidden rounded-lg bg-zinc-100">
+                    <div className="md:hidden mt-4 aspect-[16/9] w-full overflow-hidden rounded-lg bg-zinc-100">
                       <Image
                         src={s.photo}
                         alt=""
                         width={400}
-                        height={300}
+                        height={225}
                         className="w-full h-full object-cover"
                       />
                     </div>
