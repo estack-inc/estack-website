@@ -96,29 +96,32 @@ export default function SystemIntegrationPage() {
               システムインテグレーション（SI）は、異なるITシステムやソフトウェアを統合し、一つの連携した効率的なシステムを構築するプロセスです。このアプローチにより、企業はデータを一元化し、業務プロセスを自動化することが可能となり、全体的な運用効率とビジネスの柔軟性を大幅に向上させることができます。
             </p>
           </div>
-          <div className="relative mx-auto md:mx-0 w-full max-w-[360px] md:max-w-[440px]">
-            {/* 装飾：オレンジのリング（イラストの背後・右上に半分隠れる） */}
-            <div
-              className="absolute -top-4 right-0 md:-top-8 md:-right-6 w-[78%] aspect-square rounded-full border border-brand/60 pointer-events-none"
+          <div className="relative aspect-square mx-auto md:mx-0 w-full max-w-[360px] md:max-w-[440px]">
+            {/* 装飾：青リング（TOP ページ SI と同じ SVG・配置） */}
+            <Image
+              src="/images/s-357x357_ac68ffd8-3b0e-470f-b8ea-0ce4eb149d2c.svg"
+              alt=""
+              width={357}
+              height={357}
               aria-hidden
+              className="absolute left-[42%] top-[16%] w-[62%] aspect-square animate-float-deco"
             />
-            {/* 装飾：ドットの四角パターン（イラストの下・左寄り） */}
-            <div
-              className="absolute -bottom-3 left-2 md:-bottom-5 md:left-4 w-[42%] aspect-square pointer-events-none opacity-50"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle, #B4B7BD 1px, transparent 1.5px)",
-                backgroundSize: "10px 10px",
-              }}
+            {/* 装飾：青ドット 10×10 格子（TOP ページ SI と同じ SVG・配置） */}
+            <Image
+              src="/images/s-165x183_73486b20-41ee-40e0-99b3-21f2a2f12cd0.svg"
+              alt=""
+              width={165}
+              height={183}
               aria-hidden
+              className="absolute left-[5%] bottom-[2%] w-[29%] z-10"
             />
             {/* イラスト（ふわふわ動く） */}
             <Image
               src="/images/s-580x580_b86f18e5-c9da-4e03-857c-5a294ba3a79c.svg"
               alt=""
-              width={440}
-              height={440}
-              className="relative w-full h-auto animate-float-main"
+              width={520}
+              height={520}
+              className="relative z-30 w-full h-full object-contain animate-float-main"
               priority
             />
           </div>
@@ -129,7 +132,7 @@ export default function SystemIntegrationPage() {
             alt=""
             width={2191}
             height={251}
-            className="w-full h-auto scale-x-[-1]"
+            className="w-full h-auto scale-y-[-1]"
             aria-hidden
             priority
           />

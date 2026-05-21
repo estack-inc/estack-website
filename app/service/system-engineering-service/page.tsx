@@ -100,29 +100,32 @@ export default function SESPage() {
               テクノロジーのスキルと問題解決能力を高めながら、様々な業界で経験を積むことが可能です。チームワークとコミュニケーション能力が求められ、多様なキャリアパスが開かれます。また、技術的成長だけでなく、個人の成長も促す魅力的なフィールドです。
             </p>
           </div>
-          <div className="relative mx-auto md:mx-0 w-full max-w-[360px] md:max-w-[440px]">
-            {/* 装飾：オレンジのリング（イラストの背後・右上に半分隠れる） */}
-            <div
-              className="absolute -top-4 right-0 md:-top-8 md:-right-6 w-[78%] aspect-square rounded-full border border-brand/60 pointer-events-none"
+          <div className="relative aspect-square mx-auto md:mx-0 w-full max-w-[360px] md:max-w-[440px]">
+            {/* 装飾：薄オレンジの円塗り（TOP ページ SES と同じ SVG・配置） */}
+            <Image
+              src="/images/s-357x357_bee8ff2e-8613-4535-8b42-44529ddb319b.svg"
+              alt=""
+              width={357}
+              height={357}
               aria-hidden
+              className="absolute left-[3%] top-[-2%] w-[62%] aspect-square animate-float-deco"
             />
-            {/* 装飾：ドットの四角パターン（イラストの下・左寄り） */}
-            <div
-              className="absolute -bottom-3 left-2 md:-bottom-5 md:left-4 w-[42%] aspect-square pointer-events-none opacity-50"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle, #B4B7BD 1px, transparent 1.5px)",
-                backgroundSize: "10px 10px",
-              }}
+            {/* 装飾：オレンジドット 10×10 格子（TOP ページ SES と同じ SVG・配置） */}
+            <Image
+              src="/images/s-165x183_01ce5f45-036a-4823-8858-6c7005f0d337.svg"
+              alt=""
+              width={165}
+              height={183}
               aria-hidden
+              className="absolute left-[71%] bottom-[-9%] w-[29%] z-10"
             />
             {/* イラスト（ふわふわ動く） */}
             <Image
               src="/images/s-584x580_4e84b74a-a2d2-4fd3-b924-30cd59a19dc1.svg"
               alt=""
-              width={440}
-              height={440}
-              className="relative w-full h-auto animate-float-main"
+              width={520}
+              height={520}
+              className="relative z-30 w-full h-full object-contain animate-float-main"
               priority
             />
           </div>
@@ -133,15 +136,15 @@ export default function SESPage() {
             alt=""
             width={2191}
             height={251}
-            className="w-full h-auto scale-x-[-1]"
+            className="w-full h-auto scale-y-[-1]"
             aria-hidden
             priority
           />
         </div>
       </section>
 
-      {/* 主な利点 — 旧サイトと同じく 3×2 グリッド（番号 + タイトルが横並び、説明が下） */}
-      <section className="py-12 md:py-20">
+      {/* 主な利点 — 3×2 グリッド、各項目を白い四角ブロックで囲む（番号 + タイトル横並び、説明下） */}
+      <section className="py-12 md:py-20 bg-zinc-50">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
           <p className="text-sm font-medium text-brand mb-2 font-display text-center">
             Merit
@@ -149,10 +152,13 @@ export default function SESPage() {
           <h2 className="text-3xl md:text-4xl font-semibold mb-10 md:mb-12 text-center">
             主な利点
           </h2>
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
             {MERITS.map((m) => (
-              <li key={m.n}>
-                <div className="flex items-center gap-2 md:gap-3 mb-2">
+              <li
+                key={m.n}
+                className="rounded-2xl bg-white p-5 md:p-6 border border-zinc-100"
+              >
+                <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
                   <span className="shrink-0 inline-flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-brand text-white text-xs md:text-sm font-semibold font-display">
                     {m.n}
                   </span>
