@@ -83,7 +83,7 @@ const WORKS = [
 export default function SESPage() {
   return (
     <>
-      {/* Hero — 旧サイトと同じく、左に文言・右にイラスト、下にオレンジリボン */}
+      {/* Hero — 旧サイト準拠：左に文言、右にイラスト（オレンジリング＋ドット装飾付き、ふわふわ動く）、下にオレンジリボン（向きは旧サイトに合わせて反転） */}
       <section className="relative pt-10 md:pt-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-[1fr_440px] gap-8 md:gap-12 items-end">
           <div>
@@ -100,13 +100,29 @@ export default function SESPage() {
               テクノロジーのスキルと問題解決能力を高めながら、様々な業界で経験を積むことが可能です。チームワークとコミュニケーション能力が求められ、多様なキャリアパスが開かれます。また、技術的成長だけでなく、個人の成長も促す魅力的なフィールドです。
             </p>
           </div>
-          <div className="mx-auto md:mx-0 w-full max-w-[360px] md:max-w-[440px]">
+          <div className="relative mx-auto md:mx-0 w-full max-w-[360px] md:max-w-[440px]">
+            {/* 装飾：オレンジのリング（イラストの背後・右上に半分隠れる） */}
+            <div
+              className="absolute -top-4 right-0 md:-top-8 md:-right-6 w-[78%] aspect-square rounded-full border border-brand/60 pointer-events-none"
+              aria-hidden
+            />
+            {/* 装飾：ドットの四角パターン（イラストの下・左寄り） */}
+            <div
+              className="absolute -bottom-3 left-2 md:-bottom-5 md:left-4 w-[42%] aspect-square pointer-events-none opacity-50"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle, #B4B7BD 1px, transparent 1.5px)",
+                backgroundSize: "10px 10px",
+              }}
+              aria-hidden
+            />
+            {/* イラスト（ふわふわ動く） */}
             <Image
               src="/images/s-584x580_4e84b74a-a2d2-4fd3-b924-30cd59a19dc1.svg"
               alt=""
               width={440}
               height={440}
-              className="w-full h-auto"
+              className="relative w-full h-auto animate-float-main"
               priority
             />
           </div>
@@ -117,7 +133,7 @@ export default function SESPage() {
             alt=""
             width={2191}
             height={251}
-            className="w-full h-auto"
+            className="w-full h-auto scale-x-[-1]"
             aria-hidden
             priority
           />

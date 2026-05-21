@@ -13,30 +13,29 @@ const SERVICES = [
     n: "1",
     title: "システム評価と戦略策定",
     body: "既存のIT環境を詳細に分析し、ビジネスのニーズに応じた改善計画を策定します。",
-    photo:
-      "/images/s-2000x1080_v-frms_webp_cc1b59af-a8e7-4d2b-ad09-86dba2360d50_regular.webp",
+    photo: "/images/service-step-1.webp",
   },
   {
     n: "2",
     title: "カスタマイズソリューションの提供",
     body: "独自のビジネス要件に合わせたITソリューションを設計し、効率的な実装を支援します。",
-    photo: "/images/recruit-banner.webp",
+    photo: "/images/service-step-2.webp",
   },
   {
     n: "3",
     title: "プロジェクト管理",
     body: "ITプロジェクトの計画から実施、監視までを一手に担い、目標達成を確実にします。",
-    photo:
-      "/images/s-2000x1080_v-frms_webp_12af3b53-a3ff-4300-8d54-39cfd1c32bd2_regular.webp",
+    photo: "/images/service-step-3.webp",
   },
   {
     n: "4",
     title: "セキュリティ強化",
     body: "最新のセキュリティ技術を用いて、企業の情報資産を保護します。",
+    photo: "/images/service-step-4.webp",
   },
 ];
 
-// 「主な利点」（旧サイトと同じ 8 項目、横並び番号+タイトル）
+// 「主な利点」（旧サイトと同じ 8 項目、白い四角ブロックで囲む）
 const MERITS = [
   {
     n: "1",
@@ -83,7 +82,7 @@ const MERITS = [
 export default function SystemIntegrationPage() {
   return (
     <>
-      {/* Hero — 旧サイトと同じく、左に文言・右にイラスト、下にオレンジリボン */}
+      {/* Hero — 旧サイト準拠：左に文言、右にイラスト（オレンジリング＋ドット装飾付き、ふわふわ動く）、下にオレンジリボン（向きは旧サイトに合わせて反転） */}
       <section className="relative pt-10 md:pt-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-[1fr_440px] gap-8 md:gap-12 items-end">
           <div>
@@ -97,13 +96,29 @@ export default function SystemIntegrationPage() {
               システムインテグレーション（SI）は、異なるITシステムやソフトウェアを統合し、一つの連携した効率的なシステムを構築するプロセスです。このアプローチにより、企業はデータを一元化し、業務プロセスを自動化することが可能となり、全体的な運用効率とビジネスの柔軟性を大幅に向上させることができます。
             </p>
           </div>
-          <div className="mx-auto md:mx-0 w-full max-w-[360px] md:max-w-[440px]">
+          <div className="relative mx-auto md:mx-0 w-full max-w-[360px] md:max-w-[440px]">
+            {/* 装飾：オレンジのリング（イラストの背後・右上に半分隠れる） */}
+            <div
+              className="absolute -top-4 right-0 md:-top-8 md:-right-6 w-[78%] aspect-square rounded-full border border-brand/60 pointer-events-none"
+              aria-hidden
+            />
+            {/* 装飾：ドットの四角パターン（イラストの下・左寄り） */}
+            <div
+              className="absolute -bottom-3 left-2 md:-bottom-5 md:left-4 w-[42%] aspect-square pointer-events-none opacity-50"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle, #B4B7BD 1px, transparent 1.5px)",
+                backgroundSize: "10px 10px",
+              }}
+              aria-hidden
+            />
+            {/* イラスト（ふわふわ動く） */}
             <Image
               src="/images/s-580x580_b86f18e5-c9da-4e03-857c-5a294ba3a79c.svg"
               alt=""
               width={440}
               height={440}
-              className="w-full h-auto"
+              className="relative w-full h-auto animate-float-main"
               priority
             />
           </div>
@@ -114,7 +129,7 @@ export default function SystemIntegrationPage() {
             alt=""
             width={2191}
             height={251}
-            className="w-full h-auto"
+            className="w-full h-auto scale-x-[-1]"
             aria-hidden
             priority
           />
@@ -146,12 +161,12 @@ export default function SystemIntegrationPage() {
                     </p>
                   </div>
                   {s.photo && (
-                    <div className="hidden md:block aspect-[5/3] w-full max-w-[180px] overflow-hidden rounded-lg bg-zinc-100">
+                    <div className="hidden md:block aspect-[5/4] w-full max-w-[180px] overflow-hidden rounded-lg bg-zinc-100">
                       <Image
                         src={s.photo}
                         alt=""
                         width={180}
-                        height={108}
+                        height={144}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -169,10 +184,7 @@ export default function SystemIntegrationPage() {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path
-                        d="M10 14L0 0H20L10 14Z"
-                        fill="currentColor"
-                      />
+                      <path d="M10 14L0 0H20L10 14Z" fill="currentColor" />
                     </svg>
                   </div>
                 )}
@@ -182,8 +194,8 @@ export default function SystemIntegrationPage() {
         </div>
       </section>
 
-      {/* 主な利点 — 旧サイトと同じく 4×2 グリッド（番号 + タイトル が横並び、説明が下） */}
-      <section className="py-12 md:py-20">
+      {/* 主な利点 — 4×2 グリッド、各項目を白い四角ブロックで囲む（番号 + タイトル横並び、説明下） */}
+      <section className="py-12 md:py-20 bg-zinc-50">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
           <p className="text-sm font-medium text-brand mb-2 font-display text-center">
             Merit
@@ -191,10 +203,13 @@ export default function SystemIntegrationPage() {
           <h2 className="text-3xl md:text-4xl font-semibold mb-10 md:mb-12 text-center">
             主な利点
           </h2>
-          <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
             {MERITS.map((m) => (
-              <li key={m.n}>
-                <div className="flex items-center gap-2 md:gap-3 mb-2">
+              <li
+                key={m.n}
+                className="rounded-2xl bg-white p-5 md:p-6 border border-zinc-100"
+              >
+                <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
                   <span className="shrink-0 inline-flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-brand text-white text-xs md:text-sm font-semibold font-display">
                     {m.n}
                   </span>
@@ -212,7 +227,7 @@ export default function SystemIntegrationPage() {
       </section>
 
       {/* その他サービス — 新サイトの設計を維持（SES への導線） */}
-      <section className="py-12 md:py-16 bg-zinc-50">
+      <section className="py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
           <p className="text-sm font-medium text-brand mb-2 font-display text-center">
             Other Service
