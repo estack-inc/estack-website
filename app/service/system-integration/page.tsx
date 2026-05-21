@@ -85,7 +85,7 @@ export default function SystemIntegrationPage() {
       {/* Hero — 旧サイト準拠：左に文言、右にイラスト（オレンジリング＋ドット装飾付き、ふわふわ動く）、下にオレンジリボン（向きは旧サイトに合わせて反転、イラストと重なる） */}
       <section className="relative pt-10 md:pt-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-[1fr_440px] gap-8 md:gap-12 items-start">
-          <div>
+          <div className="relative z-20">
             <p className="text-sm font-medium text-brand mb-2 font-display">
               System Integration
             </p>

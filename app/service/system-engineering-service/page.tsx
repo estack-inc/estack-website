@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import WorkCarousel from "@/components/WorkCarousel";
 
 export const metadata = {
   title: "システムエンジニアリングサービス",
@@ -42,39 +43,32 @@ const MERITS = [
 
 const WORKS = [
   {
-    n: "1",
     title: "デジタルツイン基盤における改修およびインフラ環境構築支援",
     tech: "C#、Python",
   },
   {
-    n: "2",
     title:
       "天候観測システムの情報を元にAIによる画像解析を行うシステムの開発支援",
     tech: "AIシステム開発経験、数学、Python",
   },
   {
-    n: "3",
     title: "福祉関係系大手求人サイトの開発・運用支援",
     tech: "PHP、Laravel、アジャイル開発",
   },
   {
-    n: "4",
     title: "通信会社大手のECサイトのインフラシステム開発支援",
     tech: "Java、SQL",
   },
   {
-    n: "5",
     title: "小売企業大手の業務管理システムのリプレイス開発支援",
     tech: "SQL（CRED）、Java、Asteria",
   },
   {
-    n: "6",
     title:
       "通信会社大手のキャッシュレスシステムアプリの店舗側システム開発支援",
     tech: "JavaScript、TypeScript、React",
   },
   {
-    n: "7",
     title: "製薬会社大手のドキュメント管理システムのエンハンス開発支援",
     tech: "Java、Spring boot、HTML/CSS/JavaScript、Azure、Box",
   },
@@ -86,7 +80,7 @@ export default function SESPage() {
       {/* Hero — 旧サイト準拠：左に文言、右にイラスト（オレンジリング＋ドット装飾付き、ふわふわ動く）、下にオレンジリボン（向きは旧サイトに合わせて反転） */}
       <section className="relative pt-10 md:pt-16 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-[1fr_440px] gap-8 md:gap-12 items-start">
-          <div>
+          <div className="relative z-20">
             <p className="text-sm font-medium text-brand mb-2 font-display">
               System Engineering Service
             </p>
@@ -176,31 +170,18 @@ export default function SESPage() {
         </div>
       </section>
 
-      {/* 技術支援実績 — 旧サイトと同じく、番号付きカードで一覧表示 */}
+      {/* 技術支援実績 — 旧サイトと同じ、ステップ式カルーセル（左→右に流れる、止まる→流れる、番号なし） */}
       <section className="py-12 md:py-20">
-        <div className="mx-auto max-w-5xl px-5 md:px-8">
+        <div className="mx-auto max-w-7xl px-0 md:px-8">
           <p className="text-sm font-medium text-brand mb-2 font-display text-center">
             Work
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold mb-10 md:mb-12 text-center">
             技術支援実績
           </h2>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-            {WORKS.map((w) => (
-              <li
-                key={w.n}
-                className="rounded-2xl bg-zinc-50 p-5 md:p-6 border border-zinc-100"
-              >
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white text-sm font-semibold font-display mb-3">
-                  {w.n}
-                </span>
-                <p className="font-semibold text-sm md:text-base mb-2 leading-snug">
-                  {w.title}
-                </p>
-                <p className="text-xs text-brand">{w.tech}</p>
-              </li>
-            ))}
-          </ul>
+          <div className="pl-5 md:pl-0">
+            <WorkCarousel works={WORKS} />
+          </div>
         </div>
       </section>
 
