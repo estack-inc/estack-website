@@ -196,23 +196,47 @@ export default function SESPage() {
           </h2>
           <Link
             href="/service/system-integration"
-            className="grid grid-cols-[100px_1fr] md:grid-cols-[140px_1fr] items-center gap-4 group rounded-lg bg-white border border-zinc-100 hover:border-brand transition-colors p-4 md:p-5 max-w-xl mx-auto"
+            className="grid grid-cols-[100px_1fr_auto] md:grid-cols-[140px_1fr_auto] items-center gap-4 md:gap-5 group rounded-lg bg-white border border-zinc-100 hover:border-brand transition-colors p-4 md:p-5 max-w-xl mx-auto"
           >
-            <Image
-              src="/images/s-580x580_b86f18e5-c9da-4e03-857c-5a294ba3a79c.svg"
-              alt=""
-              width={140}
-              height={140}
-              className="w-full h-auto"
-            />
+            {/* 円形の背景にイラストを入れる。hover でぼよ〜んと前に出る */}
+            <div className="relative aspect-square overflow-hidden rounded-full bg-zinc-50/70">
+              <Image
+                src="/images/s-580x580_b86f18e5-c9da-4e03-857c-5a294ba3a79c.svg"
+                alt=""
+                width={140}
+                height={140}
+                className="w-full h-full object-contain p-2 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110"
+              />
+            </div>
             <div>
               <p className="text-xs font-medium text-brand mb-1 font-display">
                 System Integration
               </p>
               <p className="text-base font-semibold group-hover:text-brand transition-colors">
-                システムインテグレーション →
+                システムインテグレーション
               </p>
             </div>
+            {/* 矢印ボタン */}
+            <span
+              className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-full bg-brand text-white shadow group-hover:opacity-90 transition-opacity"
+              aria-hidden
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.5 7H12.5M8 2.5L12.5 7L8 11.5"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
           </Link>
         </div>
       </section>
