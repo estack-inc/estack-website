@@ -217,7 +217,7 @@ export default function SystemIntegrationPage() {
           <h2 className="text-3xl md:text-4xl font-semibold mb-10 md:mb-12 text-center">
             主な利点
           </h2>
-          <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+          <ul className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5">
             {MERITS.map((m) => (
               <li
                 key={m.n}
