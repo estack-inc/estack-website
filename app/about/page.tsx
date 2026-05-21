@@ -349,11 +349,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 採用 CTA 下のスライドショー — Philosophy と同じ高さに揃える */}
+      {/* 採用 CTA 下のスライドショー — 携帯は写真と同じ 2000:1080 比で隙間なく、PC は Philosophy と同じ 649px */}
       <section className="pb-8 md:pb-12">
         <SlideshowPhotos
           photos={CAREER_PHOTOS}
-          aspectClass="h-[420px] md:h-[649px]"
+          aspectClass="aspect-[2000/1080] md:aspect-auto md:h-[649px]"
         />
       </section>
 
