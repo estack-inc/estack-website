@@ -173,9 +173,17 @@ export default function SystemIntegrationPage() {
                       </div>
                     )}
                   </div>
-                  {/* 携帯版：写真を本文の下に横長で表示（旧サイトと同じ） */}
+                  {/* 携帯版：写真を本文の下に横長で表示。上下を白にフェードアウトしてカードに溶け込ませる（旧サイト準拠） */}
                   {s.photo && (
-                    <div className="md:hidden mt-4 aspect-[16/9] w-full overflow-hidden rounded-lg bg-zinc-100">
+                    <div
+                      className="md:hidden mt-4 aspect-[16/9] w-full overflow-hidden"
+                      style={{
+                        WebkitMaskImage:
+                          "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+                        maskImage:
+                          "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+                      }}
+                    >
                       <Image
                         src={s.photo}
                         alt=""
