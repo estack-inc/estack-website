@@ -85,7 +85,7 @@ export default function SESPage() {
     <>
       {/* Hero — 旧サイト準拠：左に文言、右にイラスト（オレンジリング＋ドット装飾付き、ふわふわ動く）、下にオレンジリボン（向きは旧サイトに合わせて反転） */}
       <section className="relative pt-10 md:pt-16 overflow-hidden">
-        <div className="relative mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-[1fr_440px] gap-8 md:gap-12 items-end">
+        <div className="relative mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-[1fr_440px] gap-8 md:gap-12 items-start">
           <div>
             <p className="text-sm font-medium text-brand mb-2 font-display">
               System Engineering Service
@@ -119,7 +119,7 @@ export default function SESPage() {
               aria-hidden
               className="absolute left-[71%] bottom-[-9%] w-[29%] z-10"
             />
-            {/* イラスト（ふわふわ動く） */}
+            {/* イラスト（ふわふわ動く） — リボンより前面 (z-30) */}
             <Image
               src="/images/s-584x580_4e84b74a-a2d2-4fd3-b924-30cd59a19dc1.svg"
               alt=""
@@ -130,7 +130,8 @@ export default function SESPage() {
             />
           </div>
         </div>
-        <div className="mt-4 md:mt-6 w-full pointer-events-none overflow-hidden">
+        {/* 負の margin でリボンをイラストの下半分に重ねる（旧サイトと同じレイヤリング） */}
+        <div className="relative -mt-24 md:-mt-40 w-full pointer-events-none overflow-hidden z-0">
           <Image
             src="/wave-ribbon.svg"
             alt=""

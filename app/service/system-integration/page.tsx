@@ -82,9 +82,9 @@ const MERITS = [
 export default function SystemIntegrationPage() {
   return (
     <>
-      {/* Hero — 旧サイト準拠：左に文言、右にイラスト（オレンジリング＋ドット装飾付き、ふわふわ動く）、下にオレンジリボン（向きは旧サイトに合わせて反転） */}
+      {/* Hero — 旧サイト準拠：左に文言、右にイラスト（オレンジリング＋ドット装飾付き、ふわふわ動く）、下にオレンジリボン（向きは旧サイトに合わせて反転、イラストと重なる） */}
       <section className="relative pt-10 md:pt-16 overflow-hidden">
-        <div className="relative mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-[1fr_440px] gap-8 md:gap-12 items-end">
+        <div className="relative mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-[1fr_440px] gap-8 md:gap-12 items-start">
           <div>
             <p className="text-sm font-medium text-brand mb-2 font-display">
               System Integration
@@ -115,7 +115,7 @@ export default function SystemIntegrationPage() {
               aria-hidden
               className="absolute left-[5%] bottom-[2%] w-[29%] z-10"
             />
-            {/* イラスト（ふわふわ動く） */}
+            {/* イラスト（ふわふわ動く） — リボンより前面 (z-30) */}
             <Image
               src="/images/s-580x580_b86f18e5-c9da-4e03-857c-5a294ba3a79c.svg"
               alt=""
@@ -126,7 +126,8 @@ export default function SystemIntegrationPage() {
             />
           </div>
         </div>
-        <div className="mt-4 md:mt-6 w-full pointer-events-none overflow-hidden">
+        {/* 負の margin でリボンをイラストの下半分に重ねる（旧サイトと同じレイヤリング） */}
+        <div className="relative -mt-24 md:-mt-40 w-full pointer-events-none overflow-hidden z-0">
           <Image
             src="/wave-ribbon.svg"
             alt=""
