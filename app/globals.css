@@ -21,8 +21,16 @@
   --font-display: var(--font-montserrat), var(--font-noto-sans-jp), sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
+/* スムーズスクロールは page navigation 時のスライド演出を引き起こすため OFF。
+   旧サイトのように「一旦白い画面 → ぽーっとフェードイン」の演出にする。 */
+
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-page-fade-in {
+  animation: page-fade-in 0.5s ease-out;
 }
 
 @keyframes float-main {
