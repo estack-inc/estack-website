@@ -148,25 +148,39 @@ export default function SystemIntegrationPage() {
           <div className="rounded-3xl bg-zinc-50 p-5 md:p-8">
             {SERVICES.map((s, i) => (
               <div key={s.n}>
-                <div className="grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_180px] gap-4 md:gap-6 items-center bg-white rounded-2xl p-5 md:p-6">
-                  <span className="shrink-0 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-brand text-white text-base md:text-lg font-semibold font-display">
-                    {s.n}
-                  </span>
-                  <div>
-                    <h3 className="font-bold text-lg md:text-2xl mb-2 md:mb-3">
-                      {s.title}
-                    </h3>
-                    <p className="text-sm md:text-base text-zinc-600 leading-relaxed">
-                      {s.body}
-                    </p>
+                <div className="bg-white rounded-2xl p-5 md:p-6">
+                  <div className="grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_180px] gap-4 md:gap-6 items-center">
+                    <span className="shrink-0 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-brand text-white text-base md:text-lg font-semibold font-display">
+                      {s.n}
+                    </span>
+                    <div>
+                      <h3 className="font-bold text-lg md:text-2xl mb-2 md:mb-3">
+                        {s.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-zinc-600 leading-relaxed">
+                        {s.body}
+                      </p>
+                    </div>
+                    {s.photo && (
+                      <div className="hidden md:block aspect-[5/4] w-full max-w-[180px] overflow-hidden rounded-lg bg-zinc-100">
+                        <Image
+                          src={s.photo}
+                          alt=""
+                          width={180}
+                          height={144}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    )}
                   </div>
+                  {/* 携帯版：写真を本文の下にフル幅で表示（旧サイトと同じ） */}
                   {s.photo && (
-                    <div className="hidden md:block aspect-[5/4] w-full max-w-[180px] overflow-hidden rounded-lg bg-zinc-100">
+                    <div className="md:hidden mt-4 aspect-[4/3] w-full overflow-hidden rounded-lg bg-zinc-100">
                       <Image
                         src={s.photo}
                         alt=""
-                        width={180}
-                        height={144}
+                        width={400}
+                        height={300}
                         className="w-full h-full object-cover"
                       />
                     </div>
