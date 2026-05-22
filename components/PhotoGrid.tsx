@@ -72,7 +72,10 @@ export default function PhotoGrid() {
           {/* 傾き 8 度＋scale 1.4：回転で生じる四隅の三角隙間と、
               bg-brand パディングのエッジが見えないように scale を上げる */}
           <div className="absolute inset-0 origin-center rotate-[8deg] scale-[1.4] bg-brand p-[12px] md:p-[20px]">
-            <div className="grid h-full grid-cols-3 gap-[12px] md:gap-[20px]">
+            {/* scale 1.4 で回転すると中央列が視覚的に圧を持つ。
+                中央列を狭く（2fr）、両端列を広く（3fr）配分して、
+                クリッピング後の見かけ幅を均等に近づける。 */}
+            <div className="grid h-full grid-cols-[3fr_2fr_3fr] gap-[12px] md:gap-[20px]">
               <Column photos={COL_LEFT} direction="up" />
               <Column photos={COL_MID} direction="down" />
               <Column photos={COL_RIGHT} direction="up" />
