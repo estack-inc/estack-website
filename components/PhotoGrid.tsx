@@ -20,9 +20,11 @@ const TOP_PHOTOS = [
   "/images/s-2000x1080_v-frms_webp_eba8a87b-4db3-49ad-b4d8-b809f2a38f56_regular.webp",
 ];
 
-// 3 カラムに 3 枚ずつ割り振り
-const COL_LEFT = TOP_PHOTOS.slice(0, 3);
-const COL_MID = TOP_PHOTOS.slice(3, 6);
+// 3 カラムに 3 枚ずつ割り振り。
+// 左列：13622e87（手＋PC）と 1ead799f（男女ドリンク）の位置を入れ替え。
+// 中央列：22d19368（白シャツ）と 31b1f73a（2 人外）の位置を入れ替え。
+const COL_LEFT = [TOP_PHOTOS[0], TOP_PHOTOS[2], TOP_PHOTOS[1]];
+const COL_MID = [TOP_PHOTOS[4], TOP_PHOTOS[3], TOP_PHOTOS[5]];
 const COL_RIGHT = TOP_PHOTOS.slice(6, 9);
 
 function Photo({ src }: { src: string }) {
