@@ -52,6 +52,25 @@
   animation: scroll-x 60s linear infinite;
 }
 
+/* TOP ページのフォトグリッド用：上方向・下方向の縦スクロール */
+@keyframes scroll-y-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+@keyframes scroll-y-down {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+/* 旧サイト準拠：1 サイクル 160s 相当のゆっくり速度で、
+   0.375 サイクル分（= 60 秒）だけ動いて停止する一発演出。
+   fill-mode: forwards で停止位置を保持。 */
+.animate-scroll-y-up {
+  animation: scroll-y-up 160s linear 0.375 forwards;
+}
+.animate-scroll-y-down {
+  animation: scroll-y-down 160s linear 0.375 forwards;
+}
+
 .animate-float-main {
   animation: float-main 3s ease-in-out infinite;
 }
