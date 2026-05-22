@@ -53,22 +53,15 @@ const ITEMS = [
 export default function MidCareerPage() {
   return (
     <section className="relative py-10 md:py-16 overflow-hidden">
-      {/* 背景の装飾オレンジリボン（左に下向きカーブ・右に上向きカーブ、白カードの背景） */}
+      {/* 背景の装飾オレンジリボン（1 本の太い帯、ページを横切る） */}
       <Image
-        src="/wave.svg"
+        src="/wave-ribbon.svg"
         alt=""
-        width={1512}
-        height={348}
+        width={2191}
+        height={251}
         aria-hidden
-        className="absolute -left-32 top-[420px] w-[60%] pointer-events-none -z-0 hidden md:block"
-      />
-      <Image
-        src="/wave.svg"
-        alt=""
-        width={1512}
-        height={348}
-        aria-hidden
-        className="absolute -right-32 top-[1100px] w-[60%] pointer-events-none -z-0 hidden md:block scale-x-[-1]"
+        priority
+        className="absolute left-0 right-0 top-[1100px] md:top-[1300px] w-[140%] -translate-x-[20%] pointer-events-none -z-0"
       />
 
       <div className="relative z-10 mx-auto max-w-3xl px-5 md:px-8">
@@ -111,8 +104,8 @@ export default function MidCareerPage() {
             ))}
           </dl>
 
-          {/* エントリーセクション（同じカードの中、区切り線で分離） */}
-          <div className="mt-10 pt-10 border-t border-zinc-200 flex items-center justify-between gap-5">
+          {/* エントリーセクション（同じカード内に、さらにネストした白ボックス） */}
+          <div className="mt-8 rounded-xl bg-white border border-zinc-100 shadow-sm p-5 md:p-7 flex items-center justify-between gap-5">
             <div>
               <p className="text-xs font-medium text-brand mb-1 font-display">
                 Entry
@@ -149,9 +142,9 @@ export default function MidCareerPage() {
           </div>
         </div>
 
-        {/* カード下のリンク：募集中職種へ */}
+        {/* カード下のリンク：募集中職種へ（戻る方向なので矢印左） */}
         <div className="mt-10 md:mt-12 flex justify-center">
-          <PillLink href="/recruit#jobs" label="募集中職種へ" />
+          <PillLink href="/recruit#jobs" label="募集中職種へ" direction="back" />
         </div>
       </div>
     </section>
