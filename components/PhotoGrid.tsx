@@ -6,7 +6,8 @@ import Image from "next/image";
 // - 3 カラム構成：両端カラムは上方向、中央カラムは下方向にゆっくり縦スクロール
 // - 写真を 2 セット繋げてシームレスループ（CSS animation で translateY 0 → -50%）
 
-// 旧サイトから持ってきた 1200x1200 正方形写真 9 枚
+// 旧サイトから持ってきた 1200x1200 正方形写真。b9d4fd80（女性写真）を
+// バルコニー 2 人の写真（既存 eba8a87b）に差替
 const TOP_PHOTOS = [
   "/images/top-grid-4c4fecce.webp",
   "/images/top-grid-13622e87.webp",
@@ -16,7 +17,7 @@ const TOP_PHOTOS = [
   "/images/top-grid-3c7f1986.webp",
   "/images/top-grid-5a7a964f.webp",
   "/images/top-grid-8b1abc3e.webp",
-  "/images/top-grid-b9d4fd80.webp",
+  "/images/s-2000x1080_v-frms_webp_eba8a87b-4db3-49ad-b4d8-b809f2a38f56_regular.webp",
 ];
 
 // 3 カラムに 3 枚ずつ割り振り
@@ -65,11 +66,11 @@ function Column({
 export default function PhotoGrid() {
   return (
     <section className="py-16 md:py-24 overflow-hidden">
-      {/* 外側コンテナ：高さ固定。中身を傾けて拡大表示する */}
+      {/* 外側コンテナ：高さ固定。中身を傾けて拡大表示する。全体の 4 角は丸い */}
       <div className="relative mx-auto h-[420px] md:h-[600px] max-w-7xl px-5 md:px-8">
-        <div className="absolute inset-0 overflow-hidden">
-          {/* 傾き＋スケールで端まで埋める */}
-          <div className="absolute inset-0 origin-center rotate-[6deg] scale-[1.25] bg-brand p-[12px] md:p-[20px]">
+        <div className="absolute inset-x-5 md:inset-x-8 inset-y-0 overflow-hidden rounded-3xl">
+          {/* 傾き（10度）＋スケールで端まで埋める */}
+          <div className="absolute inset-0 origin-center rotate-[10deg] scale-[1.35] bg-brand p-[12px] md:p-[20px]">
             <div className="grid h-full grid-cols-3 gap-[12px] md:gap-[20px]">
               <Column photos={COL_LEFT} direction="up" />
               <Column photos={COL_MID} direction="down" />
