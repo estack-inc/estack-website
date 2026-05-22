@@ -53,7 +53,7 @@ const ITEMS = [
 export default function MidCareerPage() {
   return (
     <section className="relative py-10 md:py-16 overflow-hidden">
-      {/* 背景の装飾オレンジリボン（1 本の太い帯、ページを横切る） */}
+      {/* 背景の装飾オレンジリボン（section 下端から 100px の位置に固定、確実に見える） */}
       <Image
         src="/wave-ribbon.svg"
         alt=""
@@ -61,7 +61,8 @@ export default function MidCareerPage() {
         height={251}
         aria-hidden
         priority
-        className="absolute left-0 right-0 top-[1100px] md:top-[1300px] w-[140%] -translate-x-[20%] pointer-events-none -z-0"
+        className="absolute left-0 w-[140%] -translate-x-[20%] pointer-events-none -z-0"
+        style={{ bottom: "100px" }}
       />
 
       <div className="relative z-10 mx-auto max-w-3xl px-5 md:px-8">
@@ -104,42 +105,47 @@ export default function MidCareerPage() {
             ))}
           </dl>
 
-          {/* エントリーセクション（同じカード内に、さらにネストした白ボックス） */}
-          <div className="mt-8 rounded-xl bg-white border border-zinc-100 shadow-sm p-5 md:p-7 flex items-center justify-between gap-5">
-            <div>
-              <p className="text-xs font-medium text-brand mb-1 font-display">
-                Entry
-              </p>
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">
-                エントリー
-              </h2>
-              <p className="text-sm text-zinc-700">
-                eSTACKへのエントリーこちらから
-              </p>
-            </div>
-            <Link
-              href="/recruit/entry"
-              aria-label="エントリーする"
-              className="shrink-0 flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-brand text-white shadow-md hover:opacity-90 transition-opacity"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden
+          {/* エントリーボックス：全体がリンクで、ホバー時にオレンジ反転 */}
+          <Link
+            href="/recruit/entry"
+            className="mt-8 block group rounded-xl bg-white border border-zinc-100 shadow-sm p-5 md:p-7 hover:bg-brand transition-colors"
+          >
+            <div className="flex items-center justify-between gap-5">
+              <div>
+                <p className="text-xs font-medium text-brand mb-1 font-display group-hover:text-white transition-colors flex items-center gap-1.5">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand group-hover:bg-white transition-colors" />
+                  Entry
+                </p>
+                <h2 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-white transition-colors">
+                  エントリー
+                </h2>
+                <p className="text-sm text-zinc-700 group-hover:text-white transition-colors">
+                  eSTACKへのエントリーこちらから
+                </p>
+              </div>
+              <span
+                aria-label="エントリーする"
+                className="shrink-0 flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-brand text-white shadow-md group-hover:bg-white group-hover:text-brand transition-colors"
               >
-                <path
-                  d="M2 8H14M9 3L14 8L9 13"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
-          </div>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden
+                >
+                  <path
+                    d="M2 8H14M9 3L14 8L9 13"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </div>
+          </Link>
         </div>
 
         {/* カード下のリンク：募集中職種へ（戻る方向なので矢印左） */}
