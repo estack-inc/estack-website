@@ -8,7 +8,6 @@ export const metadata = {
   title: "採用情報",
 };
 
-// 旧サイトと同じ、ヒーロー直下の横スクロール写真用（2 つのコラージュ画像を繰り返し）
 const HERO_PHOTOS = [
   "/images/s-2400x1571_v-frms_webp_74b0d62b-a554-4459-a3dc-95674adefa7b_middle.webp",
   "/images/s-2400x1571_v-frms_webp_71df778e-335b-4f00-a9da-50991eedb423_middle.webp",
@@ -38,32 +37,31 @@ export default function RecruitPage() {
     <>
       <PageHeader title="採用情報" subtitle="Career" />
 
-      {/* ヒーロー直下：旧サイトと同じ、横にスクロールする写真ストリップ */}
+      {/* ヒーロー直下：横スクロール写真ストリップ */}
       <section className="py-6 md:py-10 overflow-hidden">
         <ScrollingPhotos photos={HERO_PHOTOS} />
       </section>
 
-      {/* メッセージ */}
-      <section id="message" className="relative py-10 md:py-16 overflow-hidden">
-        <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <h2 className="text-2xl md:text-4xl font-semibold text-center mb-6 md:mb-8 leading-tight">
-            わくわくできる人
-            <br />
-            楽しく仕事がしたい人
-          </h2>
-          <p className="text-sm md:text-base text-zinc-700 leading-relaxed text-center">
-            エンジニアという職業が好きな人、楽しくエンジニアとして活動したい人ぜひ弊社で働きませんか？
-            弊社ではスキルアップはもちろん、キャリアパスを考慮した人生設計、人脈作り、人間関係の構築なども一緒に築き上げていきます。
-          </p>
+      {/* メッセージ — 旧サイトと同じく、写真の下半分にオーバーラップする白ボックス */}
+      <section id="message" className="relative -mt-16 md:-mt-32 mb-10 md:mb-16">
+        <div className="mx-auto max-w-3xl px-5 md:px-8 relative z-10">
+          <div className="bg-white rounded-lg shadow-xl px-6 py-8 md:px-12 md:py-12">
+            <h2 className="text-2xl md:text-4xl font-semibold text-center mb-5 md:mb-6 leading-tight">
+              わくわくできる人
+              <br />
+              楽しく仕事がしたい人
+            </h2>
+            <p className="text-sm md:text-base text-zinc-700 leading-relaxed text-center">
+              エンジニアという職業が好きな人、楽しくエンジニアとして活動したい人ぜひ弊社で働きませんか？
+              弊社ではスキルアップはもちろん、キャリアパスを考慮した人生設計、人脈作り、人間関係の構築なども一緒に築き上げていきます。
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* 社内ブログ */}
+      {/* 社内ブログ — Blog の eyebrow は撤廃 */}
       <section className="py-10 md:py-14">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-sm font-medium text-brand mb-2 font-display text-center">
-            Blog
-          </p>
           <h2 className="text-2xl md:text-3xl font-semibold mb-6 md:mb-8 text-center">
             社内ブログ
           </h2>
@@ -76,25 +74,22 @@ export default function RecruitPage() {
         </div>
       </section>
 
-      {/* セクション間の装飾オレンジリボン（旧サイトと同じ） */}
+      {/* セクション間の装飾オレンジリボン（旧サイトと同じ wave.svg：細いストローク版） */}
       <div className="w-full pointer-events-none overflow-hidden">
         <Image
-          src="/wave-ribbon.svg"
+          src="/wave.svg"
           alt=""
-          width={2191}
-          height={251}
+          width={1512}
+          height={348}
           className="w-full h-auto"
           aria-hidden
         />
       </div>
 
-      {/* 募集中職種 — 旧サイトと同じく写真付きカード 2 枚 */}
+      {/* 募集中職種 — タイトル左寄せ、Jobs の eyebrow は撤廃 */}
       <section id="jobs" className="py-10 md:py-16">
-        <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <p className="text-sm font-medium text-brand mb-2 font-display text-center">
-            Jobs
-          </p>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 md:mb-10 text-center">
+        <div className="mx-auto max-w-5xl px-5 md:px-8">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 md:mb-10">
             募集中職種
           </h2>
           <ul className="grid md:grid-cols-2 gap-5 md:gap-8">
