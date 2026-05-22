@@ -74,18 +74,6 @@ export default function RecruitPage() {
         </div>
       </section>
 
-      {/* 装飾リボンを 社内ブログ と 募集中職種 の間に配置（旧サイト準拠） */}
-      <div className="w-full pointer-events-none overflow-hidden">
-        <Image
-          src="/wave.svg"
-          alt=""
-          width={1512}
-          height={348}
-          className="w-full h-auto"
-          aria-hidden
-        />
-      </div>
-
       {/* 募集中職種 — カード 4 角をより丸く（rounded-3xl）、写真は小さめ（aspect-[2/1]） */}
       <section id="jobs" className="py-10 md:py-16">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
@@ -152,6 +140,18 @@ export default function RecruitPage() {
           </ul>
         </div>
       </section>
+
+      {/* 装飾リボンは募集中職種カードの下に配置 */}
+      <div className="w-full pointer-events-none overflow-hidden">
+        <Image
+          src="/wave.svg"
+          alt=""
+          width={1512}
+          height={348}
+          className="w-full h-auto"
+          aria-hidden
+        />
+      </div>
     </>
   );
 }
