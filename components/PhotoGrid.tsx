@@ -69,9 +69,9 @@ export default function PhotoGrid() {
       {/* 外側コンテナ：高さ固定・画面いっぱいに広がる。全体の 4 角は丸い */}
       <div className="relative h-[500px] md:h-[750px] w-full">
         <div className="absolute inset-0 overflow-hidden rounded-[40px] md:rounded-[80px]">
-          {/* 傾き（10度）＋スケール最小化で 3 列を均等に表示。スケールが小さい分、
-              回転で生じる三角形の隙間は rounded-3xl のマスクで隠れる。 */}
-          <div className="absolute inset-0 origin-center rotate-[10deg] scale-[1.15] bg-brand p-[12px] md:p-[20px]">
+          {/* 傾き 8 度＋scale 1.3：回転で生じる四隅の三角隙間を完全に覆いつつ、
+              3 列がほぼ均等に視認できる落とし所 */}
+          <div className="absolute inset-0 origin-center rotate-[8deg] scale-[1.3] bg-brand p-[12px] md:p-[20px]">
             <div className="grid h-full grid-cols-3 gap-[12px] md:gap-[20px]">
               <Column photos={COL_LEFT} direction="up" />
               <Column photos={COL_MID} direction="down" />
