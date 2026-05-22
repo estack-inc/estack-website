@@ -53,7 +53,8 @@ const ITEMS = [
 export default function MidCareerPage() {
   return (
     <section className="relative py-10 md:py-16 overflow-hidden">
-      {/* 背景の装飾オレンジリボン（section 下端から 100px の位置に固定、確実に見える） */}
+      {/* 背景の装飾オレンジリボン（白カードの中央背面を横切る。
+          カードがリボンを隠すので、左右にだけ波が見える） */}
       <Image
         src="/wave-ribbon.svg"
         alt=""
@@ -61,8 +62,7 @@ export default function MidCareerPage() {
         height={251}
         aria-hidden
         priority
-        className="absolute left-0 w-[140%] -translate-x-[20%] pointer-events-none -z-0"
-        style={{ bottom: "100px" }}
+        className="absolute left-0 top-[42%] w-[140%] -translate-x-[20%] pointer-events-none -z-0"
       />
 
       <div className="relative z-10 mx-auto max-w-3xl px-5 md:px-8">
