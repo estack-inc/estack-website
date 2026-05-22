@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PillLink from "@/components/PillLink";
 import CareerPhotoStack from "@/components/CareerPhotoStack";
+import PhotoGrid from "@/components/PhotoGrid";
 
 // 大見出しの英語表記用：オレンジの●＋黒文字
 function SectionEyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
@@ -145,34 +146,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Work — 旧サイト風：オレンジフレームのポラロイド写真を斜め＋オーバーラップで配置 */}
-      <section className="py-16 md:py-24 overflow-hidden">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-2 gap-y-4 md:gap-x-4 md:gap-y-8">
-            {[
-              { src: "/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp", style: "-rotate-6 -translate-y-2 z-20" },
-              { src: "/images/s-2400x1571_v-frms_webp_71df778e-335b-4f00-a9da-50991eedb423_middle.webp", style: "rotate-3 translate-y-4 z-10" },
-              { src: "/images/s-2000x1080_v-frms_webp_eba8a87b-4db3-49ad-b4d8-b809f2a38f56_regular.webp", style: "-rotate-3 z-30" },
-              { src: "/images/s-2400x1571_v-frms_webp_74b0d62b-a554-4459-a3dc-95674adefa7b_middle.webp", style: "rotate-6 -translate-x-2 z-20" },
-              { src: "/images/s-2000x1080_v-frms_webp_fff9b2ef-9134-4ad2-86a0-1f7a5c0de2b2_regular.webp", style: "-rotate-5 translate-y-3 translate-x-2 z-30" },
-              { src: "/images/s-2400x1250_v-frms_webp_c2ff8c63-996c-43fd-9d7b-b3105683b65b_small.webp", style: "rotate-4 -translate-y-1 z-10" },
-            ].map((item) => (
-              <div
-                key={item.src}
-                className={`relative aspect-[4/3] rounded-sm border-[8px] md:border-[12px] border-brand bg-white shadow-lg transform ${item.style} hover:rotate-0 hover:translate-x-0 hover:translate-y-0 hover:scale-105 hover:z-40 transition-all duration-500 ease-out`}
-              >
-                <Image
-                  src={item.src}
-                  alt=""
-                  width={600}
-                  height={450}
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Work — 旧サイト象徴のレイアウト：オレンジ格子の中に 6 枚の写真。
+          グリッド全体が右斜に傾き、両端カラムは上方向・中央カラムは下方向にゆっくりスクロール */}
+      <PhotoGrid />
+
 
       {/* News */}
       <section className="py-16 md:py-24">
