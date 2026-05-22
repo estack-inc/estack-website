@@ -61,11 +61,14 @@
   0% { transform: translateY(-50%); }
   100% { transform: translateY(0); }
 }
+/* 旧サイト準拠：1 サイクル 160s（私の旧版 80s の 2 倍ゆっくり）の速度で、
+   0.25 サイクル分（= 40 秒）だけ動いて停止する一発演出。
+   fill-mode: forwards で停止位置を保持。 */
 .animate-scroll-y-up {
-  animation: scroll-y-up 80s linear infinite;
+  animation: scroll-y-up 160s linear 0.25 forwards;
 }
 .animate-scroll-y-down {
-  animation: scroll-y-down 80s linear infinite;
+  animation: scroll-y-down 160s linear 0.25 forwards;
 }
 
 .animate-float-main {
