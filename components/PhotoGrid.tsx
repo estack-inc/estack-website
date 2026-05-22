@@ -1,33 +1,37 @@
 import Image from "next/image";
 
 // 旧サイトの象徴的なフォトグリッド：
-// - 6 枚の写真がオレンジ格子の中に並ぶ（写真同士の境界線がオレンジ）
+// - オレンジ格子の中に複数枚の写真が並ぶ
 // - グリッド全体が右斜に傾いている
 // - 3 カラム構成：両端カラムは上方向、中央カラムは下方向にゆっくり縦スクロール
 // - 写真を 2 セット繋げてシームレスループ（CSS animation で translateY 0 → -50%）
 
-const PHOTOS = [
-  "/images/s-2000x1080_v-frms_webp_8b9af719-692f-4469-aa68-01dc36603302_regular.webp",
-  "/images/s-2400x1571_v-frms_webp_71df778e-335b-4f00-a9da-50991eedb423_middle.webp",
-  "/images/s-2000x1080_v-frms_webp_eba8a87b-4db3-49ad-b4d8-b809f2a38f56_regular.webp",
-  "/images/s-2400x1571_v-frms_webp_74b0d62b-a554-4459-a3dc-95674adefa7b_middle.webp",
-  "/images/s-2000x1080_v-frms_webp_fff9b2ef-9134-4ad2-86a0-1f7a5c0de2b2_regular.webp",
-  "/images/s-2400x1250_v-frms_webp_c2ff8c63-996c-43fd-9d7b-b3105683b65b_small.webp",
+// 旧サイトから持ってきた 1200x1200 正方形写真 9 枚
+const TOP_PHOTOS = [
+  "/images/top-grid-4c4fecce.webp",
+  "/images/top-grid-13622e87.webp",
+  "/images/top-grid-1ead799f.webp",
+  "/images/top-grid-22d19368.webp",
+  "/images/top-grid-31b1f73a.webp",
+  "/images/top-grid-3c7f1986.webp",
+  "/images/top-grid-5a7a964f.webp",
+  "/images/top-grid-8b1abc3e.webp",
+  "/images/top-grid-b9d4fd80.webp",
 ];
 
-// カラムに割り振る写真（2 枚ずつ）
-const COL_LEFT = [PHOTOS[0], PHOTOS[1]];
-const COL_MID = [PHOTOS[2], PHOTOS[3]];
-const COL_RIGHT = [PHOTOS[4], PHOTOS[5]];
+// 3 カラムに 3 枚ずつ割り振り
+const COL_LEFT = TOP_PHOTOS.slice(0, 3);
+const COL_MID = TOP_PHOTOS.slice(3, 6);
+const COL_RIGHT = TOP_PHOTOS.slice(6, 9);
 
 function Photo({ src }: { src: string }) {
   return (
-    <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-200">
+    <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-zinc-200">
       <Image
         src={src}
         alt=""
         width={600}
-        height={450}
+        height={600}
         className="absolute inset-0 h-full w-full object-cover"
       />
     </div>
@@ -46,7 +50,7 @@ function Column({
   return (
     <div className="overflow-hidden h-full">
       <div
-        className={`flex flex-col gap-[6px] md:gap-[10px] ${
+        className={`flex flex-col gap-[12px] md:gap-[20px] ${
           direction === "up" ? "animate-scroll-y-up" : "animate-scroll-y-down"
         }`}
       >
@@ -65,8 +69,8 @@ export default function PhotoGrid() {
       <div className="relative mx-auto h-[420px] md:h-[600px] max-w-7xl px-5 md:px-8">
         <div className="absolute inset-0 overflow-hidden">
           {/* 傾き＋スケールで端まで埋める */}
-          <div className="absolute inset-0 origin-center rotate-[6deg] scale-[1.25] bg-brand p-[6px] md:p-[10px]">
-            <div className="grid h-full grid-cols-3 gap-[6px] md:gap-[10px]">
+          <div className="absolute inset-0 origin-center rotate-[6deg] scale-[1.25] bg-brand p-[12px] md:p-[20px]">
+            <div className="grid h-full grid-cols-3 gap-[12px] md:gap-[20px]">
               <Column photos={COL_LEFT} direction="up" />
               <Column photos={COL_MID} direction="down" />
               <Column photos={COL_RIGHT} direction="up" />

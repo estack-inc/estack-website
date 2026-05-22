@@ -62,10 +62,10 @@
   100% { transform: translateY(0); }
 }
 .animate-scroll-y-up {
-  animation: scroll-y-up 40s linear infinite;
+  animation: scroll-y-up 80s linear infinite;
 }
 .animate-scroll-y-down {
-  animation: scroll-y-down 40s linear infinite;
+  animation: scroll-y-down 80s linear infinite;
 }
 
 .animate-float-main {
