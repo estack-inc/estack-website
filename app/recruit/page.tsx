@@ -74,7 +74,19 @@ export default function RecruitPage() {
         </div>
       </section>
 
-      {/* 募集中職種 — 旧サイト準拠：大きめのカード、写真は余白付き、未経験はグレー背景 */}
+      {/* 装飾リボンを 社内ブログ と 募集中職種 の間に配置（旧サイト準拠） */}
+      <div className="w-full pointer-events-none overflow-hidden">
+        <Image
+          src="/wave.svg"
+          alt=""
+          width={1512}
+          height={348}
+          className="w-full h-auto"
+          aria-hidden
+        />
+      </div>
+
+      {/* 募集中職種 — カード 4 角をより丸く（rounded-3xl）、写真は小さめ（aspect-[2/1]） */}
       <section id="jobs" className="py-10 md:py-16">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
           <h2 className="text-3xl md:text-4xl font-semibold mb-8 md:mb-10">
@@ -84,14 +96,14 @@ export default function RecruitPage() {
             {JOBS.map((j) => {
               const CardInner = (
                 <>
-                  {/* 写真は白ボックスの中に余白を持たせて配置 */}
-                  <div className="p-4 md:p-5">
-                    <div className="relative aspect-[3/2] w-full overflow-hidden rounded bg-zinc-100">
+                  {/* 写真は白ボックスの中に余白を持たせて配置（やや小さめ） */}
+                  <div className="p-5 md:p-6 pb-3 md:pb-4">
+                    <div className="relative aspect-[2/1] w-full overflow-hidden rounded-lg bg-zinc-100">
                       <Image
                         src={j.photo}
                         alt=""
                         width={600}
-                        height={400}
+                        height={300}
                         className="absolute inset-0 h-full w-full object-cover"
                       />
                     </div>
@@ -124,13 +136,13 @@ export default function RecruitPage() {
                   {j.available ? (
                     <Link
                       href={j.href}
-                      className="block group rounded-2xl bg-white border border-zinc-200 hover:border-brand transition-colors overflow-hidden h-full shadow-sm"
+                      className="block group rounded-3xl bg-white border border-zinc-200 hover:border-brand transition-colors overflow-hidden h-full shadow-sm"
                     >
                       {CardInner}
                     </Link>
                   ) : (
                     /* 未経験採用は募集無しなのでグレー背景で目立たせない */
-                    <div className="rounded-2xl bg-zinc-100 border border-zinc-200 overflow-hidden h-full">
+                    <div className="rounded-3xl bg-zinc-100 border border-zinc-200 overflow-hidden h-full">
                       {CardInner}
                     </div>
                   )}
@@ -140,18 +152,6 @@ export default function RecruitPage() {
           </ul>
         </div>
       </section>
-
-      {/* 装飾リボンを募集中職種の下に配置（旧サイトと同じ位置） */}
-      <div className="w-full pointer-events-none overflow-hidden">
-        <Image
-          src="/wave.svg"
-          alt=""
-          width={1512}
-          height={348}
-          className="w-full h-auto"
-          aria-hidden
-        />
-      </div>
     </>
   );
 }
