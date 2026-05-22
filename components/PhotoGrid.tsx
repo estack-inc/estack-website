@@ -66,9 +66,9 @@ function Column({
 export default function PhotoGrid() {
   return (
     <section className="py-16 md:py-24 overflow-hidden">
-      {/* 外側コンテナ：高さ固定。中身を傾けて拡大表示する。全体の 4 角は丸い */}
-      <div className="relative mx-auto h-[420px] md:h-[600px] max-w-7xl px-5 md:px-8">
-        <div className="absolute inset-x-5 md:inset-x-8 inset-y-0 overflow-hidden rounded-3xl">
+      {/* 外側コンテナ：高さ固定・画面いっぱいに広がる。全体の 4 角は丸い */}
+      <div className="relative h-[420px] md:h-[600px] w-full">
+        <div className="absolute inset-0 overflow-hidden rounded-3xl">
           {/* 傾き（10度）＋スケールで端まで埋める */}
           <div className="absolute inset-0 origin-center rotate-[10deg] scale-[1.35] bg-brand p-[12px] md:p-[20px]">
             <div className="grid h-full grid-cols-3 gap-[12px] md:gap-[20px]">
