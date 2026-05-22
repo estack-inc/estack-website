@@ -68,7 +68,7 @@ export default function PhotoGrid() {
     <section className="py-16 md:py-24 overflow-hidden">
       {/* 外側コンテナ：高さ固定・画面いっぱいに広がる。全体の 4 角は丸い */}
       <div className="relative h-[500px] md:h-[750px] w-full">
-        <div className="absolute inset-0 overflow-hidden rounded-3xl">
+        <div className="absolute inset-0 overflow-hidden rounded-[40px] md:rounded-[80px]">
           {/* 傾き（10度）＋スケール最小化で 3 列を均等に表示。スケールが小さい分、
               回転で生じる三角形の隙間は rounded-3xl のマスクで隠れる。 */}
           <div className="absolute inset-0 origin-center rotate-[10deg] scale-[1.15] bg-brand p-[12px] md:p-[20px]">
