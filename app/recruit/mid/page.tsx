@@ -54,15 +54,16 @@ export default function MidCareerPage() {
   return (
     <section className="relative py-10 md:py-16 overflow-hidden">
       {/* 背景の装飾オレンジリボン（白カードの中央背面を横切る。
-          カードがリボンを隠すので、左右にだけ波が見える） */}
+          旧サイトと同じ 1512x348 stroke ribbon（wave.svg）を使用。
+          width=1556 で表示すると高さ 358px の太めの帯になる） */}
       <Image
-        src="/wave-ribbon.svg"
+        src="/wave.svg"
         alt=""
-        width={2191}
-        height={251}
+        width={1512}
+        height={348}
         aria-hidden
         priority
-        className="absolute left-0 top-[42%] w-[140%] -translate-x-[20%] pointer-events-none -z-0"
+        className="absolute left-0 top-[35%] w-full pointer-events-none -z-0"
       />
 
       <div className="relative z-10 mx-auto max-w-3xl px-5 md:px-8">
