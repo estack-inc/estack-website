@@ -8,7 +8,7 @@ export const metadata = {
 export default function EntryPage() {
   return (
     <>
-      <PageHeader title="エントリー" subtitle="Entry" />
+      <PageHeader title="エントリー" showWave={false} />
 
       <section className="py-12 md:py-20">
         <div className="mx-auto max-w-2xl px-5 md:px-8">
@@ -112,7 +112,7 @@ export default function EntryPage() {
             <div className="text-center pt-4">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-12 py-3 text-sm font-semibold text-white hover:bg-brand transition-colors"
+                className="inline-flex items-center justify-center rounded-full bg-white border-2 border-zinc-300 px-12 py-3 text-sm font-semibold text-zinc-900 hover:bg-brand hover:text-white hover:border-brand transition-colors"
               >
                 送信する
               </button>

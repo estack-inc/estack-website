@@ -85,7 +85,7 @@ export default function ContactPage() {
             <div className="text-center pt-4">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-12 py-3 text-sm font-semibold text-white hover:bg-brand transition-colors"
+                className="inline-flex items-center justify-center rounded-full bg-white border-2 border-zinc-300 px-12 py-3 text-sm font-semibold text-zinc-900 hover:bg-brand hover:text-white hover:border-brand transition-colors"
               >
                 送信する
               </button>
