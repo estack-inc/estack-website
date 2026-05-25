@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import PageHeader from "@/components/PageHeader";
+import PillLink from "@/components/PillLink";
 
 export const metadata = {
   title: "ITエンジニア中途採用",
@@ -51,11 +52,29 @@ const ITEMS = [
 
 export default function MidCareerPage() {
   return (
-    <>
-      <PageHeader title="ITエンジニア中途採用" subtitle="Mid Career" />
+    <section className="relative py-10 md:py-16 overflow-hidden">
+      {/* 背景の装飾オレンジリボン（白カードの中央背面を横切る。
+          旧サイトと同じ 1512x348 stroke ribbon（wave.svg）を使用。
+          width=1556 で表示すると高さ 358px の太めの帯になる） */}
+      <Image
+        src="/wave.svg"
+        alt=""
+        width={1512}
+        height={348}
+        aria-hidden
+        priority
+        className="absolute left-0 top-[35%] w-full pointer-events-none -z-0"
+      />
 
-      <section className="pb-2">
-        <div className="mx-auto max-w-4xl px-5 md:px-8">
+      <div className="relative z-10 mx-auto max-w-3xl px-5 md:px-8">
+        {/* タイトル＋パンくず */}
+        <div className="mb-8 md:mb-10">
+          <span className="inline-flex rounded-full bg-brand text-white text-xs font-medium px-3 py-0.5 mb-3">
+            中途
+          </span>
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5">
+            ITエンジニア中途採用
+          </h1>
           <nav className="flex items-center gap-2 text-xs text-zinc-500">
             <Link href="/" className="hover:text-brand">
               ホーム
@@ -68,15 +87,14 @@ export default function MidCareerPage() {
             <span>ITエンジニア中途採用</span>
           </nav>
         </div>
-      </section>
 
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <dl className="divide-y divide-zinc-200 bg-zinc-50 rounded-lg overflow-hidden">
+        {/* 白いカード：募集要項＋エントリーを内包（旧サイトと同じレイアウト） */}
+        <div className="bg-white rounded-2xl shadow-lg border border-zinc-100 p-6 md:p-10">
+          <dl className="divide-y divide-zinc-200">
             {ITEMS.map((row) => (
               <div
                 key={row.label}
-                className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-6 px-5 md:px-8 py-5"
+                className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-6 py-5"
               >
                 <dt className="text-sm font-semibold text-zinc-700">
                   {row.label}
@@ -87,35 +105,55 @@ export default function MidCareerPage() {
               </div>
             ))}
           </dl>
-        </div>
-      </section>
 
-      <section className="py-16 md:py-24 bg-brand text-white text-center">
-        <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <p className="text-sm font-semibold mb-3 font-display">
-            Entry
-          </p>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6">エントリー</h2>
-          <p className="text-sm md:text-base mb-8">
-            eSTACKへのエントリーこちらから
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/recruit/entry"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-semibold text-brand hover:bg-zinc-100 transition-colors"
-            >
-              エントリーする
-              <span aria-hidden>→</span>
-            </Link>
-            <Link
-              href="/recruit#jobs"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white px-8 py-3 text-sm font-semibold text-white hover:bg-white hover:text-brand transition-colors"
-            >
-              募集中職種へ
-            </Link>
-          </div>
+          {/* エントリーボックス：全体がリンクで、ホバー時にオレンジ反転 */}
+          <Link
+            href="/recruit/entry"
+            className="mt-8 block group rounded-xl bg-white border border-zinc-100 shadow-sm p-5 md:p-7 hover:bg-brand transition-colors"
+          >
+            <div className="flex items-center justify-between gap-5">
+              <div>
+                <p className="text-xs font-medium text-brand mb-1 font-display group-hover:text-white transition-colors flex items-center gap-1.5">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand group-hover:bg-white transition-colors" />
+                  Entry
+                </p>
+                <h2 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-white transition-colors">
+                  エントリー
+                </h2>
+                <p className="text-sm text-zinc-700 group-hover:text-white transition-colors">
+                  eSTACKへのエントリーこちらから
+                </p>
+              </div>
+              <span
+                aria-label="エントリーする"
+                className="shrink-0 flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-brand text-white shadow-md group-hover:bg-white group-hover:text-brand transition-colors"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden
+                >
+                  <path
+                    d="M2 8H14M9 3L14 8L9 13"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </div>
+          </Link>
         </div>
-      </section>
-    </>
+
+        {/* カード下のリンク：募集中職種へ（戻る方向なので矢印左） */}
+        <div className="mt-10 md:mt-12 flex justify-center">
+          <PillLink href="/recruit#jobs" label="募集中職種へ" direction="back" />
+        </div>
+      </div>
+    </section>
   );
 }
