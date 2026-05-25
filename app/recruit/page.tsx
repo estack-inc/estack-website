@@ -83,7 +83,7 @@ export default function RecruitPage() {
           width={1512}
           height={348}
           aria-hidden
-          className="absolute left-0 top-[-45%] w-full pointer-events-none -z-0"
+          className="absolute left-0 top-[-35%] w-full pointer-events-none -z-0"
         />
         <div className="relative z-10 mx-auto max-w-5xl px-5 md:px-8">
           <h2 className="text-3xl md:text-4xl font-semibold mb-8 md:mb-10">
