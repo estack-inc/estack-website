@@ -53,17 +53,31 @@ export default function Header() {
             aria-label={open ? "メニューを閉じる" : "メニューを開く"}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className="relative z-50 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white hover:opacity-90 transition-opacity"
+            className="group relative z-50 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white hover:opacity-90 transition-opacity"
           >
             <span className="sr-only">メニュー</span>
             {open ? (
-              <span className="text-2xl leading-none">×</span>
+              <>
+                {/* 開いてる時：通常「ー」、hover で「×」 */}
+                <span className="text-3xl leading-none font-light group-hover:hidden">
+                  −
+                </span>
+                <span className="hidden group-hover:inline text-2xl leading-none">
+                  ×
+                </span>
+              </>
             ) : (
-              <span className="flex items-center gap-[4px]">
-                <span className="h-[5px] w-[5px] rounded-full bg-white" />
-                <span className="h-[5px] w-[5px] rounded-full bg-white" />
-                <span className="h-[5px] w-[5px] rounded-full bg-white" />
-              </span>
+              <>
+                {/* 閉じてる時：通常「・・・」、hover で「＋」 */}
+                <span className="flex items-center gap-[4px] group-hover:hidden">
+                  <span className="h-[5px] w-[5px] rounded-full bg-white" />
+                  <span className="h-[5px] w-[5px] rounded-full bg-white" />
+                  <span className="h-[5px] w-[5px] rounded-full bg-white" />
+                </span>
+                <span className="hidden group-hover:inline text-2xl leading-none font-light">
+                  ＋
+                </span>
+              </>
             )}
           </button>
         </div>
