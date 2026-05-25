@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import MegaMenu from "@/components/MegaMenu";
 
 const NAV_ITEMS = [
   { href: "/", label: "ホーム" },
@@ -49,10 +50,10 @@ export default function Header() {
           </Link>
           <button
             type="button"
-            aria-label="メニューを開く"
+            aria-label={open ? "メニューを閉じる" : "メニューを開く"}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white hover:opacity-90 transition-opacity"
+            className="relative z-50 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white hover:opacity-90 transition-opacity"
           >
             <span className="sr-only">メニュー</span>
             {open ? (
@@ -68,29 +69,7 @@ export default function Header() {
         </div>
       </div>
 
-      {open && (
-        <div className="lg:hidden border-t border-zinc-100 bg-white">
-          <nav className="flex flex-col px-5 py-4">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="py-3 text-base font-medium text-zinc-700"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-3 inline-flex items-center justify-center rounded-full border border-zinc-900 px-6 py-3 text-sm font-semibold text-zinc-900"
-            >
-              お問い合わせ
-            </Link>
-          </nav>
-        </div>
-      )}
+      <MegaMenu open={open} onClose={() => setOpen(false)} />
     </header>
   );
 }
