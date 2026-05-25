@@ -80,7 +80,9 @@ export default function Home() {
               <br className="hidden md:inline" />
               及びシステム・サービス開発を提供します。
             </p>
-            <PillLink href="/about" label="eSTACKについて" />
+            <div className="mt-12 md:mt-16">
+              <PillLink href="/about" label="eSTACKについて" />
+            </div>
           </div>
         </div>
       </section>
