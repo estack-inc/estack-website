@@ -36,8 +36,13 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-zinc-700 hover:text-brand transition-colors"
+                className="relative inline-flex flex-col items-center text-sm font-medium text-zinc-700 hover:text-brand transition-colors group"
               >
+                {/* hover で文字の上に小さなオレンジドットが出現 */}
+                <span
+                  aria-hidden
+                  className="absolute -top-2 h-1.5 w-1.5 rounded-full bg-brand opacity-0 group-hover:opacity-100 transition-opacity"
+                />
                 {item.label}
               </Link>
             ))}
