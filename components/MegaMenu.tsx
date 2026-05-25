@@ -33,7 +33,7 @@ export default function MegaMenu({ open, onClose }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-40 grid grid-cols-1 md:grid-cols-2 bg-[#faf8f1] overflow-y-auto"
+      className="fixed inset-0 z-40 grid grid-cols-1 md:grid-cols-2 bg-[#f9f6f3] overflow-y-auto"
       role="dialog"
       aria-modal="true"
       aria-label="メインメニュー"
@@ -118,8 +118,8 @@ export default function MegaMenu({ open, onClose }: Props) {
         </div>
       </div>
 
-      {/* 右半分：News（背景色を少し濃く） */}
-      <div className="bg-[#efece4] px-5 md:px-12 pt-10 md:pt-32 pb-10 md:pb-16 flex flex-col">
+      {/* 右半分：News（旧サイト準拠：左より少し白い・ニュートラル寄り） */}
+      <div className="bg-[#f9f9f9] px-5 md:px-12 pt-10 md:pt-32 pb-10 md:pb-16 flex flex-col">
         <div className="w-full max-w-md md:mr-auto md:ml-4">
           <p className="text-brand text-xl md:text-2xl font-bold mb-6 md:mb-8 font-display">
             News
