@@ -74,9 +74,18 @@ export default function RecruitPage() {
         </div>
       </section>
 
-      {/* 募集中職種 — カード 4 角をより丸く（rounded-3xl）、写真は小さめ（aspect-[2/1]） */}
-      <section id="jobs" className="py-10 md:py-16">
-        <div className="mx-auto max-w-5xl px-5 md:px-8">
+      {/* 募集中職種 — 旧サイト準拠：wave.svg をカード背面に配置し、カードに隠れて左右の波だけ見える */}
+      <section id="jobs" className="relative py-10 md:py-16 overflow-hidden">
+        {/* 背面リボン：カード中央を横切り、カードに隠されて左右の山だけ可視 */}
+        <Image
+          src="/wave.svg"
+          alt=""
+          width={1512}
+          height={348}
+          aria-hidden
+          className="absolute left-0 top-[55%] w-full pointer-events-none -z-0"
+        />
+        <div className="relative z-10 mx-auto max-w-5xl px-5 md:px-8">
           <h2 className="text-3xl md:text-4xl font-semibold mb-8 md:mb-10">
             募集中職種
           </h2>
@@ -140,18 +149,6 @@ export default function RecruitPage() {
           </ul>
         </div>
       </section>
-
-      {/* 装飾リボンは募集中職種カードの下に配置 */}
-      <div className="w-full pointer-events-none overflow-hidden">
-        <Image
-          src="/wave.svg"
-          alt=""
-          width={1512}
-          height={348}
-          className="w-full h-auto"
-          aria-hidden
-        />
-      </div>
     </>
   );
 }
