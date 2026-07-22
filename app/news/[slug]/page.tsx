@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/PageHeader";
@@ -82,66 +81,6 @@ const NEWS_DETAIL: Record<string, Article> = {
     title: "「労働者派遣業務」の許可を取得しました！",
     body: "弊社は、「労働者派遣業務」の許可を取得いたしました。",
   },
-  "20230614": {
-    date: "2023.06.14",
-    category: "お知らせ",
-    title: "ISMS認証(ISO27001)を取得しました。",
-    renderBody: () => (
-      <div className="space-y-6 text-base md:text-lg text-zinc-700 leading-relaxed">
-        <p>
-          弊社は、情報セキュリティマネジメントシステム（ISMS）の国際規格である「ISO/IEC 27001:2022」の認証を以下の通り取得しました。
-        </p>
-        {/* ISMS マーク（旧サイトと同じ画像） */}
-        <div className="my-8 flex justify-center">
-          <Image
-            src="/images/isms-mark.png"
-            alt="ISMS認証 ISO/IEC 27001:2022"
-            width={420}
-            height={240}
-            className="w-full max-w-md h-auto"
-          />
-        </div>
-        {/* 取得情報を表で */}
-        <dl className="border-t border-zinc-200">
-          {[
-            { label: "適用規格", value: "ISO/IEC 27001:2022" },
-            { label: "登録番号", value: "JP23/00000196" },
-            {
-              label: "認証登録範囲",
-              value: (
-                <>
-                  ソフトウェア受託開発
-                  <br />
-                  システムエンジニアサービスの管理
-                </>
-              ),
-            },
-            { label: "認証機関", value: "SGSジャパン株式会社" },
-            { label: "認証登録日", value: "2023年6月14日" },
-          ].map((row) => (
-            <div
-              key={row.label}
-              className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-6 py-4 border-b border-zinc-200"
-            >
-              <dt className="text-sm font-semibold text-zinc-700">
-                {row.label}
-              </dt>
-              <dd className="text-sm md:text-base text-zinc-700 leading-relaxed">
-                {row.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-        <p className="pt-2">
-          「
-          <Link href="/security" className="text-brand underline hover:no-underline">
-            情報セキュリティ方針
-          </Link>
-          」を全社員が認識し、情報セキュリティマネジメントシステムの継続的な運用・改善に努めてまいります。今後とも、情報資産をあらゆる脅威から守り、お取引先をはじめとする利害関係者の信頼に応えるよう尽力いたします。
-        </p>
-      </div>
-    ),
-  },
 };
 
 const ORDERED_SLUGS = [
@@ -150,7 +89,6 @@ const ORDERED_SLUGS = [
   "20241007",
   "20240530-renewal",
   "20240530-haken",
-  "20230614",
 ];
 
 export async function generateStaticParams() {

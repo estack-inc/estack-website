@@ -175,7 +175,6 @@ const COMPANY = [
     label: "保有資格",
     value: (
       <ul className="space-y-1">
-        <li>ISO/IEC27001:2022</li>
         <li>労働者派遣事業許可番号　派 13-317114</li>
       </ul>
     ),
