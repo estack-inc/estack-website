@@ -38,12 +38,6 @@ export const NEWS_ITEMS: NewsItem[] = [
     title: "「労働者派遣業務」の許可を取得しました！",
     slug: "20240530-haken",
   },
-  {
-    date: "2023.06.14",
-    category: "お知らせ",
-    title: "ISMS認証(ISO27001)を取得しました。",
-    slug: "20230614",
-  },
 ];
 
 export function newsHref(item: NewsItem) {
