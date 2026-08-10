@@ -156,10 +156,45 @@ jobs:
           GH_DIFF_RC=$?
           set -e
           if [ "$GH_DIFF_RC" -ne 0 ]; then
-            # diff 取得失敗は infra 障害。oversize 判定を諦め webhook 経路に委譲する
-            # (bridge step が正規に処理し、失敗時は F-CODEX-REVIEW-INFRA に倒れる)。
-            echo "oversize=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::gh pr diff failed in oversize gate (rc=$GH_DIFF_RC) — delegating to webhook path"
+            # サイズを確認できていない。ここで webhook へ委譲すると、gate が防ごうと
+            # している事象がそのまま起きうる: 本 step の gh は Actions の
+            # REPO_ACCESS_TOKEN、webhook 側は別ホストの別トークンで独立に diff を
+            # 取得するため、こちらだけ失敗して webhook が成功する状況が起こる
+            # (レート制限・トークン失効など)。その diff が上限超過なら clipContext が
+            # 切り詰め、未確認部分を含んだまま approved が付きうる。
+            #
+            # canonical は verdict の正しさに関わる取得失敗を fail-closed で扱う
+            # (recheck の PR 情報 / trusted cjs / base fetch はいずれも exit 1)。
+            # gate も同じ原則に揃え、bridge を抑止して人間レビューへ倒す。
+            #
+            # 「上限超過」とは報告しない。原因が違えば対処も違う (PR を分割すべきか、
+            # インフラ側を直すべきか) ため、サイズ不明として区別する。
+            {
+              echo "$CODEX_REVIEW_COMMENT_MARKER"
+              echo
+              echo "### 変更の概要"
+              echo "diff を取得できずレビュー対象のサイズを確認できなかったため、機械レビューを行わず人間レビューへエスカレーションします。"
+              echo
+              echo "### レビュー結果"
+              echo "- 判定: ❌ Changes Requested"
+              echo "- 対象 SHA: \`$PR_HEAD_SHA\`"
+              echo
+              echo "### 指摘事項"
+              echo
+              echo "#### F-DIFF-SIZE-UNKNOWN 🟡 要修正 diff を取得できずサイズを確認できなかった"
+              echo
+              echo "**根本原因**"
+              echo "\`gh pr diff\` が rc=${GH_DIFF_RC} で失敗し、diff のサイズを計測できませんでした。サイズ不明のまま webhook へ渡すと、上限 ${MAX_DIFF_CHARS} 文字を超える diff が切り詰められ、未確認部分を含んだままレビューが成立する可能性があります。"
+              echo
+              echo "**必要な修正**"
+              echo "GitHub API の一時障害・レート制限・トークン失効が考えられます。再実行してください。継続する場合は REPO_ACCESS_TOKEN の有効性を確認してください。"
+              echo
+              echo "**確認済みの範囲**"
+              echo "- diff の取得を試行し、失敗を検出しました (サイズは未計測)。"
+            } > /tmp/review-comment.md
+            echo "oversize=true" >> "$GITHUB_OUTPUT"
+            echo "verdict=changes_requested" >> "$GITHUB_OUTPUT"
+            echo "::error::gh pr diff failed in oversize gate (rc=$GH_DIFF_RC) — サイズ不明のため fail-closed"
             exit 0
           fi
           DIFF_CHARS=$(node -e 'console.log(require("fs").readFileSync("/tmp/oversize-diff.patch","utf8").length)')
