@@ -14,6 +14,10 @@ type Props = {
 // 写真リストの末尾に先頭写真をもう一度追加し、最後の遷移が終わったタイミングで
 // アニメ無しで先頭へ戻すことで無感ループを実現する。
 // fill=true で親要素の高さいっぱいに広げる（Philosophy 背景用途）。
+//
+// 各スライドを absolute 配置にして、写真ごとの自然サイズに関わらず必ず
+// 同じ位置・同じ大きさで描画する（flex h-full チェーンを使うと写真の自然
+// 寸法の違いで y 座標がずれる事象があったため）。
 export default function SlideshowPhotos({
   photos,
   intervalMs = 4500,
@@ -37,7 +41,6 @@ export default function SlideshowPhotos({
     const t = setTimeout(() => {
       setAnimate(false);
       setStep(0);
-      // 次フレームで再びアニメ有効化
       const raf1 = requestAnimationFrame(() => {
         const raf2 = requestAnimationFrame(() => setAnimate(true));
         return () => cancelAnimationFrame(raf2);
@@ -49,39 +52,28 @@ export default function SlideshowPhotos({
 
   // photos の末尾に先頭をもう一度（シームレスループのため）
   const reel = [...photos, photos[0] ?? ""];
-  const reelLen = reel.length;
-  // translateX は inner track の幅に対する % なので 100/reelLen を乗ずる
-  const translatePct = step * (100 / reelLen);
 
-  // aspectClass で高さを指定（Tailwind の高さクラス）。
-  // fill=true のときは親要素の高さに合わせる。
   return (
     <div className={`relative w-full overflow-hidden bg-zinc-900 ${fill ? "h-full" : aspectClass}`}>
-      <div
-        className="flex h-full"
-        style={{
-          width: `${reelLen * 100}%`,
-          transform: `translateX(-${translatePct}%)`,
-          transition: animate ? "transform 1s ease-in-out" : "none",
-        }}
-      >
-        {reel.map((src, i) => (
-          <div
-            key={i}
-            className="relative h-full shrink-0"
-            style={{ width: `${100 / reelLen}%` }}
-          >
-            <Image
-              src={src}
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover"
-              priority={i === 0}
-            />
-          </div>
-        ))}
-      </div>
+      {reel.map((src, i) => (
+        <div
+          key={i}
+          className="absolute inset-y-0 w-full"
+          style={{
+            left: `${(i - step) * 100}%`,
+            transition: animate ? "left 1s ease-in-out" : "none",
+          }}
+        >
+          <Image
+            src={src}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority={i === 0}
+          />
+        </div>
+      ))}
       {/* ドットインジケーター */}
       {n > 1 && (
         <div className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-10">
